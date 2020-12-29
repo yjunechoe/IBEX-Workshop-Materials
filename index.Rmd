@@ -1,0 +1,213 @@
+---
+title: "Experimental Linguistics with IBEX"
+subtitle: "A Walkthrough"  
+author: 
+  - ""
+date: '`r Sys.Date()`'
+output:
+  xaringan::moon_reader:
+    lib_dir: libs
+    css: xaringan-themer.css
+    nature:
+      highlightStyle: github
+      highlightLines: true
+      countIncrementalSlides: false
+---
+
+```{r setup, include=FALSE}
+options(htmltools.dir.version = FALSE)
+library(icon)
+```
+
+```{r xaringan-themer, include=FALSE, warning=FALSE}
+library(xaringanthemer)
+style_duo_accent(
+  primary_color = "#011F5b",
+  secondary_color = "#990000",
+  inverse_header_color = "#FFFFFF"
+)
+```
+
+
+```{css, echo = FALSE}
+/*-- 3 column layout --*/
+.left-col {
+  width: 29%;
+  text-align: left;
+  padding-left: 20px;
+  padding-right: 20px;
+  float: left;
+}
+
+.center-col {
+  width: 29%;
+  text-align: left;
+  padding-left: 20px;
+  padding-right: 20px;
+  float: left;
+}
+
+.right-col {
+  width: 29%;
+  text-align: left;
+  padding-left: 20px;
+  padding-right: 20px;
+  float: left;
+}
+
+/* five-column layout */
+
+/*.flex {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
+.column {
+  float: left;
+  width: 25%;
+  text-align: center;
+}*/
+
+/*.columns { display: flex; }*/
+
+.pull-left {
+  padding-top: 0px;
+}
+
+.pull-left-narrow {
+  float: left;
+  width: 20%;
+}
+
+.pull-right-wide {
+  float: right;
+  width: 75%;
+}
+
+/* Clear floats after the columns */
+.pull-right-wide + * { clear: both; }
+
+/*-- CUSTOM CLASSES FOR EDUCATIONAL PURPOSES ---------------------------------*/
+
+/* Pull */
+.pull-left-color {
+  float: left;
+  width: 47%;
+  background-color: var(--my-pink);
+}
+
+.pull-right-color {
+  float: right: 47%;
+}
+
+/* Two-column layout */
+.left-column-color {
+  background-color: var(--my-coral);
+  width: 20%;
+  height: 92%;
+  float: left;
+}
+.left-column-color h2:last-of-type, .left-column h3:last-child {
+  color: #000;
+}
+.right-column-color {
+  background-color: var(--my-pink);
+  width: 75%;
+  float: right;
+  padding-top: 1em;
+}
+```
+
+# Presentation Outline
+
+.pull-left-narrow[.center[
+  <img src="https://upload.wikimedia.org/wikipedia/commons/3/3c/Capra_ibex_ibex_%E2%80%93_04.jpg" width="150px"/>
+]]
+
+.pull-right-wide[.middle[]
+  Introduction to [IBEX](https://spellout.net/ibexfarm)
+  - Where it fits in the online experimental workflow
+  - Navigating the platform
+]
+
+--
+
+.pull-left-narrow[.center[
+  &nbsp;
+  `r icon_style(fontawesome("code", style = "solid"), scale = 4, fill = "#006747")`
+]]
+
+.pull-right-wide[
+  Scripting experiments
+  - Overview of critical components
+  - Code walkthrough
+]
+
+--
+
+.pull-left-narrow[.center[
+  &nbsp;
+  `r icon_style(fontawesome("file", style = "solid"), scale = 4, fill = "#768692")`
+]]
+
+.pull-right-wide[
+  Data Analysis
+  - Understanding the output format
+  - Importing into R
+]
+
+---
+
+class: middle, center
+
+# Introduction to IBEX
+
+---
+
+# What is IBEX?
+
+- <p>Stands for (**I**)nternet-(**B**)ased (**EX**)periments</p>
+
+--
+
+- <strong style="color:#006747;">DOES</strong>:
+
+--
+
+    - Host experiments online and provides links
+--
+
+    - Capture how the user interacts with the experiment
+--
+
+    - Stores data on a secure server, available for download 
+
+--
+
+- **DOES NOT**:
+
+--
+
+    - Recruit participants (_see_ Amazon Mechanical Turk)
+--
+
+    - Provide an analysis of the results (_see_ R, Python) 
+
+
+---
+
+# Where does IBEX fit?
+
+```{r, echo = FALSE, fig.align='center', out.width="450px"}
+knitr::include_graphics("img/workflow_abstract.jpg")
+```
+
+---
+
+# Where does IBEX fit?
+
+```{r, echo = FALSE, fig.align='center', out.width="450px"}
+knitr::include_graphics("img/workflow_tools.png")
+```
+
+

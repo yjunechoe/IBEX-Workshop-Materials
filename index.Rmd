@@ -297,7 +297,7 @@ knitr::include_graphics("img/file_structure.png")
 <strong style='color:#bebebe'>js_includes</strong>
 - .deemph[Modules ("controllers") go here]
 
-<strong style='color:#bebebe'>results</strong> & <strong style='color:#bebebe'>server_state</strong>
+<strong style='color:#bebebe'>results</strong> .deemph[&] <strong style='color:#bebebe'>server_state</strong>
 - .deemph[Automatically generated/updated]
 
 ]

@@ -214,4 +214,97 @@ knitr::include_graphics("img/workflow_abstract.jpg")
 knitr::include_graphics("img/workflow_tools.png")
 ```
 
+---
 
+# Navigating IBEX
+
+- <p>Go to <a href='https://spellout.net/ibexfarm'>https://spellout.net/ibexfarm</a> </p>
+
+- Click <strong style='color:#006295'>create an account</strong> (or <strong style='color:#006295'>log in</strong>)
+
+- Click <strong style='color:#006295'>manage my experiments</strong>
+
+- Click <strong style='color:#006295'>Create a new experiment</strong>
+
+- Give it a unique name like "_workshop_example_"
+
+- Done!
+
+```{r, echo = FALSE, fig.align='center', out.width="500px", out.extra='style="border:2px solid black; margin:auto; display:block;margin-top:30px"'}
+knitr::include_graphics("img/create_exp.png")
+```
+
+---
+
+# Navigating IBEX
+
+<video controls width="800" height="500">
+<source src="vid/ibex_login.mp4" type="video/mp4">
+</video>
+
+---
+
+<h1 style='margin-bottom:0px'>Experiment file structure</h1>
+
+.pull-left[
+
+**chunk_includes**
+- Stand-alone files go here
+
+**css_includes**
+- Style specifications go here
+
+**data_includes**
+- Experiment scripts go here
+
+**js_includes**
+- Modules ("controllers") go here
+
+**results** & **server_state**
+- Automatically generated/updated
+
+]
+
+
+.pull-right[
+```{r, echo = FALSE, out.width = "280px"}
+knitr::include_graphics("img/file_structure.png")
+```
+]
+
+---
+
+```{css, echo = FALSE}
+.deemph {
+  color: #bebebe;
+}
+```
+
+
+<h1 style='margin-bottom:0px'>Experiment file structure</h1>
+
+.pull-left[
+
+<strong style='color:#bebebe'>chunk_includes</strong>
+- .deemph[Stand-alone files go here]
+
+<strong style='color:#bebebe'>css_includes</strong>
+- .deemph[Style specifications go here]
+
+**data_includes**
+- Experiment scripts go here
+
+<strong style='color:#bebebe'>js_includes</strong>
+- .deemph[Modules ("controllers") go here]
+
+<strong style='color:#bebebe'>results</strong> & <strong style='color:#bebebe'>server_state</strong>
+- .deemph[Automatically generated/updated]
+
+]
+
+
+.pull-right[
+```{r, echo = FALSE, out.width = "280px"}
+knitr::include_graphics("img/file_structure.png")
+```
+]

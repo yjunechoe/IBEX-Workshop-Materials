@@ -142,7 +142,7 @@ style_duo_accent(
 ]]
 
 .pull-right-wide[
-  Scripting experiments
+  Scripting an experiment
   - Overview of critical components
   - Code walkthrough
 ]
@@ -314,7 +314,7 @@ knitr::include_graphics("img/file_structure.png")
 
 class: middle, center
 
-# Scripting
+# Scripting an experiment
 
 
 ---

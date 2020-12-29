@@ -308,3 +308,19 @@ knitr::include_graphics("img/file_structure.png")
 knitr::include_graphics("img/file_structure.png")
 ```
 ]
+
+
+---
+
+class: middle, center
+
+# Scripting
+
+
+---
+
+# The script
+
+Only need to modify **one file**: _example_data.js_
+
+

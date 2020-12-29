@@ -15,6 +15,10 @@ output:
 ---
 
 ```{r setup, include=FALSE}
+### Ibex - https://spellout.net/ibexexps/skku_ibex/workshop_example/experiment.html
+# ID: skku_ibex
+# PW: 2021workshop
+
 options(htmltools.dir.version = FALSE)
 library(icon)
 ```

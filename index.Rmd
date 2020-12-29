@@ -166,7 +166,7 @@ class: middle, center
 
 # What is IBEX?
 
-- <p>Stands for (**I**)nternet-(**B**)ased (**EX**)periments</p>
+- <p>Stands for (I)nternet-(B)ased (EX)periments</p>
 
 --
 
@@ -174,13 +174,13 @@ class: middle, center
 
 --
 
-    - Host experiments online and provides links
+    - Host experiments with webpage links
 --
 
-    - Capture how the user interacts with the experiment
+    - Log user interactions
 --
 
-    - Stores data on a secure server, available for download 
+    - Store data on a secure server
 
 --
 

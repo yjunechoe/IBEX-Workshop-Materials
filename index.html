@@ -6,7 +6,7 @@
     <meta name="date" content="2020-12-31" />
     <script src="libs/header-attrs/header-attrs.js"></script>
     <link href="libs/tachyons/tachyons.min.css" rel="stylesheet" />
-    <script type="application/json" id="xaringanExtra-editable-docid">{"id":"x70eb892ca534eae84f9734825bda39e","expires":14}</script>
+    <script type="application/json" id="xaringanExtra-editable-docid">{"id":"e44a6c228c86404aabc2469e82121178","expires":14}</script>
     <script src="libs/himalaya/himalaya.js"></script>
     <script src="libs/js-cookie/js.cookie.js"></script>
     <link href="libs/editable/editable.css" rel="stylesheet" />
@@ -42,6 +42,12 @@ a {
   margin-left: .6em;
 }
 
+.showme:hover + .hide {
+  display: block;
+}
+.hide {
+  display: none;
+}
 .hide:hover {
   display: block;
 }
@@ -1190,7 +1196,7 @@ By wrapping both the critical trials (_gp..._) and the filler trials (_filler...
 
 # Sequence: counterbalancing
 
-The .bl[set number] in our critical trials automatically does this:
+The .bl[set number] in our critical trials automatically handles **counterbalancing**:
 
 .center[[["gp.trans", .bl[1]], ...], [["gp.intrans", .bl[1]], ...], [["gp.trans", .bl[2]], ...], [["gp.intrans", .bl[2]], ...]]
 

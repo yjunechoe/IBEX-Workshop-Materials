@@ -46,6 +46,12 @@ a {
   margin-left: .6em;
 }
 
+.showme:hover + .hide {
+  display: block;
+}
+.hide {
+  display: none;
+}
 .hide:hover {
   display: block;
 }
@@ -1198,7 +1204,7 @@ By wrapping both the critical trials (_gp..._) and the filler trials (_filler...
 
 # Sequence: counterbalancing
 
-The .bl[set number] in our critical trials automatically does this:
+The .bl[set number] in our critical trials automatically handles **counterbalancing**:
 
 .center[[["gp.trans", .bl[1]], ...], [["gp.intrans", .bl[1]], ...], [["gp.trans", .bl[2]], ...], [["gp.intrans", .bl[2]], ...]]
 

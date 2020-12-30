@@ -30,6 +30,9 @@ style_duo_accent(
   secondary_color = "#990000",
   inverse_header_color = "#FFFFFF"
 )
+xaringanExtra::use_tachyons()
+xaringanExtra::use_editable()
+xaringanExtra::use_tachyons()
 ```
 
 
@@ -38,6 +41,61 @@ a {
   color: black;
   text-decoration: underline;
 }
+
+.showme:hover + .hide {
+  display: block;
+}
+
+.hide {
+  display: none;
+}
+
+.hide:hover {
+  display: block;
+}
+
+.hljs-github .hljs-string {
+  color: black;
+}
+
+.hljs-github .hljs-number {
+  color: black;
+}
+
+.blue{
+  font-weight: bold;
+  color: #003087;
+}
+
+.green{
+  font-weight: bold;
+  color: #006747;
+}
+
+.orange{
+  font-weight: bold;
+  color: #FB5315;
+}
+
+.purple{
+  font-weight: bold;
+  color: #9312A0;
+}
+
+.bl {
+  font-weight: bold;
+  color: black;
+}
+
+.super{
+  vertical-align: super;
+  font-size: .5em;
+}
+
+.sub{
+  vertical-align: sub;
+  font-size: .5em;
+ }
 
 /*-- 3 column layout --*/
 .left-col {
@@ -328,8 +386,404 @@ class: middle, center
 
 Only need to modify **one file**: _example_data.js_ (can also be renamed later)
 
-At creation, the file looks like this:
+At creation, the default file looks like this:
 
 <embed style='border: 1px solid black' type="text/html" src="ibex_files/example_data.js"  width="800" height="300">
 
-The above default script creates [this experiment](https://spellout.net/ibexexps/example/example/experiment.html).
+The above script creates [this self-paced reading experiment](https://spellout.net/ibexexps/example/example/experiment.html).
+
+
+---
+
+# Writing your own script
+
+The _example_data.js_ script works, but is not very friendly.
+
+We'll use **our own file** - <em><a href="ibex_files/template.js" download>template.js</a></em> - to demonstrate how the script works.
+
+<embed style='border: 1px solid black' type="text/html" src="ibex_files/template.js"  width="800" height="300">
+
+The above script creates [this acceptability rating experiment](https://spellout.net/ibexexps/skku_ibex/workshop_example/experiment.html).
+
+---
+
+# A simple layout
+
+.pull-left[
+
+```{r, echo = FALSE, out.width = "400px"}
+knitr::include_graphics("img/template_layout_1.png")
+```
+
+]
+
+
+.pull-right[
+
+**Editing the script**
+
+When you open the `.js` file in the `data_includes` section of your experiment on Ibex, it will open up a text editor.
+
+]
+
+---
+
+# A simple layout
+
+.pull-left[
+
+```{r, echo = FALSE, out.width = "400px"}
+knitr::include_graphics("img/template_layout_1.png")
+```
+
+]
+
+
+.pull-right[
+
+**Editing the script**
+
+When you open the `.js` file in the `data_includes` section of your experiment on Ibex, it will open up a text editor.
+
+Options for editing the file:
+
+- Make changes directly on IBEX
+
+- Download the file and open with an .bl[editor] that supports **JavaScript** syntax checking (e.g., [Atom](https://atom.io/))
+
+]
+
+---
+
+# A simple layout
+
+.pull-left[
+
+```{r, echo = FALSE, out.width = "400px"}
+knitr::include_graphics("img/template_layout_2.png")
+```
+
+]
+
+
+.pull-right[
+
+**Parts of the Script**
+
+.bl[Settings]:
+- Sets various options for the experiment
+
+.bl[Sequence] (`shuffleSequence`):
+
+- Specifies the ordering of the different parts of the experiment
+
+.bl[Body] (`items`):
+
+- Includes the actual material that will be shown to the participants
+
+
+]
+
+---
+
+# A simple layout
+
+.pull-left[
+
+```{r, echo = FALSE, out.width = "400px"}
+knitr::include_graphics("img/template_layout_3.png")
+```
+
+]
+
+
+.pull-right[
+
+**Body**
+
+.bl[Forms]
+
+- Introduction page, consent form, directions, language background, demographic information, etc.
+
+.bl[Trials]
+
+- All stimuli for the experiment
+
+- _Practice_, _Critical_, _Filler_
+
+- Can be accompanied by messages, questions, etc.
+
+]
+
+---
+
+<h1 style='margin-bottom:0px'>Walkthrough of the components</h1>
+
+```{r, echo = FALSE, fig.align='center', out.width = "500px"}
+knitr::include_graphics("img/template_outline.png")
+```
+
+---
+
+# But first, the experiment design
+
+--
+
+**Study**: We are interested in how people recover from .bl[garden-path sentences].
+
+--
+
+.center["While Anna dressed the kitten paid attention."]
+
+--
+
+.center[... *[.sub[VP] dressed the kitten], ...]
+
+--
+
+.center[... <span style='vertical-align:super; font-size:.7em'>✓</span>[.sub[VP] dressed], the kitten ...]
+
+--
+
+**Hypothesis**: Verbs that are frequently .blue[transitive] make recovery more difficult, compared to verbs that are frequently .green[intransitive].
+
+--
+
+.center[(transitive) - "While Anna .blue[_trained_] the kitten paid attention."]
+
+--
+
+.center[(intransitive) - "While Anna .green[_dressed_] the kitten paid attention."]
+
+--
+
+**Prediction**: Lower .bl[acceptability ratings] in the transitive condition (.blue[_gp.trans_]) than in the intransitive condition (.green[_gp.intrans_]).
+
+--
+
+.center[.bl[Note: this is a _within-participant_ design!]]
+
+---
+
+# Translating the design to code
+
+For the gp.trans condition, the first stimuli in our acceptability judgement experiment is the sentence "While Anna trained the kitten paid attention".
+
+--
+
+\[
+<br>
+$\quad$
+\[ "gp.trans", 1 \],
+<br>
+$\quad$
+"AcceptabilityJudgment",
+<br>
+$\quad$
+{s: "While Anna trained the kitten paid attention."}
+<br>
+\]
+
+---
+
+# Translating the design to code
+
+For the .blue[gp.trans condition], the first stimuli in our acceptability judgement experiment is the sentence "While Anna trained the kitten paid attention".
+
+\[
+<br>
+$\quad$
+\[ ".blue[gp.trans]", 1 \],
+<br>
+$\quad$
+"AcceptabilityJudgment",
+<br>
+$\quad$
+{s: "While Anna trained the kitten paid attention."}
+<br>
+\]
+
+---
+
+# Translating the design to code
+
+For the .blue[gp.trans condition], the **first stimuli** in our acceptability judgement experiment is the sentence "While Anna trained the kitten paid attention".
+
+\[
+<br>
+$\quad$
+\[ ".blue[gp.trans]", **1** \],
+<br>
+$\quad$
+"AcceptabilityJudgment",
+<br>
+$\quad$
+{s: "While Anna trained the kitten paid attention."}
+<br>
+\]
+
+
+---
+
+# Translating the design to code
+
+For the .blue[gp.trans condition], the **first stimuli** in our .bl[acceptability judgement experiment] is the sentence "While Anna trained the kitten paid attention".
+
+\[
+<br>
+$\quad$
+\[ ".blue[gp.trans]", **1** \],
+<br>
+$\quad$
+".bl[AcceptabilityJudgment]",
+<br>
+$\quad$
+{s: "While Anna trained the kitten paid attention."}
+<br>
+\]
+
+---
+
+# Translating the design to code
+
+For the .blue[gp.trans condition], the **first stimuli** in our .bl[acceptability judgement experiment] is the .purple[sentence] "While Anna trained the kitten paid attention". 
+
+\[
+<br>
+$\quad$
+\[ ".blue[gp.trans]", **1** \],
+<br>
+$\quad$
+".bl[AcceptabilityJudgment]",
+<br>
+$\quad$
+{.purple[s]: "While Anna trained the kitten paid attention."}
+<br>
+\]
+
+
+---
+
+# Translating the design to code
+
+For the .blue[gp.trans condition], the **first stimuli** in our .bl[acceptability judgement experiment] is the .purple[sentence] .orange["While Anna trained the kitten paid attention"]. 
+
+\[
+<br>
+$\quad$
+\[ ".blue[gp.trans]", **1** \],
+<br>
+$\quad$
+".bl[AcceptabilityJudgment]",
+<br>
+$\quad$
+{.purple[s]: .orange["While Anna trained the kitten paid attention."]}
+<br>
+\]
+
+--
+
+This can be put into a single line:
+
+```{r, eval=FALSE}
+[["gp.trans",1], "AcceptabilityJudgment", {s: "While Anna trained the kitten paid attention."}]
+```
+
+---
+
+# Translating the design to code
+
+For the .green[gp.intrans condition], the **first stimuli** in our .bl[acceptability judgement experiment] is the .purple[sentence] .orange["While Anna dressed the kitten paid attention"]. 
+
+\[
+<br>
+$\quad$
+\[ ".green[gp.trans]", **1** \],
+<br>
+$\quad$
+".bl[AcceptabilityJudgment]",
+<br>
+$\quad$
+{.purple[s]: .orange["While Anna dressed the kitten paid attention."]}
+<br>
+\]
+
+--
+
+This can be put into a single line:
+
+```{r, eval=FALSE}
+[["gp.intrans",1], "AcceptabilityJudgment", {s: "While Anna dressed the kitten paid attention."}]
+```
+
+---
+
+# Practice
+
+Item set #2:
+
+.center[(transitive) - "Since Dave improved the department was satisfied."]
+
+.center[(intransitive) - "Since Dave worried the counselor devised a plan."]
+
+.can-edit[
+```{r, eval=FALSE}
+<text here>
+```
+]
+
+<div class="showme">Hover for answer</div>
+
+.hide[
+```{r, eval = FALSE}
+[["gp.trans",2],
+  "AcceptabilityJudgment",
+  {s: "Since Dave improved the department was satisfied."}],
+[["gp.intrans",2],
+  "AcceptabilityJudgment",
+  {s: "Since Dave worried the counselor devised a plan."}]
+```
+]
+
+---
+
+# Practice
+
+Item set #2:
+
+.center[(transitive) - "Since Dave improved the department was satisfied."]
+
+.center[(intransitive) - "Since Dave worried the counselor devised a plan."]
+
+.can-edit[
+```{r, eval=FALSE}
+[["gp.trans",2],
+  "AcceptabilityJudgment",
+  {s: "Since Dave improved the department was satisfied."}],
+[["gp.intrans",2],
+  "AcceptabilityJudgment",
+  {s: "Since Dave worried the counselor devised a plan."}]
+```
+]
+
+```{r, eval = FALSE}
+[["gp.trans",2],
+  "AcceptabilityJudgment",
+  {s: "Since Dave improved the department was satisfied."}],
+[["gp.intrans",2],
+  "AcceptabilityJudgment",
+  {s: "Since Dave worried the counselor devised a plan."}]
+```
+
+
+---
+
+# Putting it together
+
+Need to separate them out by commas:
+
+```{r}
+
+```
+
+

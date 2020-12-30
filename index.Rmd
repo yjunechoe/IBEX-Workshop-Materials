@@ -42,12 +42,8 @@ a {
   text-decoration: underline;
 }
 
-.showme:hover + .hide {
-  display: block;
-}
-
-.hide {
-  display: none;
+.remark-code-line-highlighted {
+  margin-left: .6em;
 }
 
 .hide:hover {
@@ -841,7 +837,7 @@ Item set #2:
 
 # Putting together the stimuli
 
-Wrap in `var item = []` and separate by a .bl[comma]:
+Wrap in `var items = []` and separate by a .bl[comma]:
 
 <embed style='border: 1px solid black' type="text/html" src="snippets/critical_trials.js"  width="800" height="200">
 
@@ -940,4 +936,302 @@ Catch Filler #1: "Please select 4 for this sentence."
 
 ---
 
-# Sequencing
+# Defining a Sequence
+
+.pull-left[
+
+<embed style='border: 1px solid black' type="text/html" src="snippets/all_trials.js"  width="350" height="450">
+
+]
+
+.pull-right[
+
+.bl[List the _names_ of each trial in order:]
+
+```{eval=FALSE}
+ "practice-1",
+ "gp.trans",
+ "gp.intrans",
+ "gp.trans",
+ "gp.intrans",
+ "filler-good-01",
+ "filler-bad-01",
+ "filler-catch-01"
+```
+
+]
+
+---
+
+# Defining a Sequence
+
+.pull-left[
+
+<embed style='border: 1px solid black' type="text/html" src="snippets/all_trials.js"  width="350" height="450">
+
+]
+
+.pull-right[
+
+.bl[Wrap them in `seq()`:]
+
+```{eval=FALSE}
+seq(
+ "practice-1",
+ "gp.trans",
+ "gp.intrans",
+ "gp.trans",
+ "gp.intrans",
+ "filler-good-01",
+ "filler-bad-01",
+ "filler-catch-01"
+)
+```
+
+]
+
+---
+
+# Defining a Sequence
+
+.pull-left[
+
+<embed style='border: 1px solid black' type="text/html" src="snippets/all_trials.js"  width="350" height="450">
+
+]
+
+.pull-right[
+
+.bl[Assign to `shuffleSequence`:]
+
+```{r eval=FALSE}
+var shuffleSequence = seq(
+ "practice-1",
+ "gp.trans",
+ "gp.intrans",
+ "gp.trans",
+ "gp.intrans",
+ "filler-good-01",
+ "filler-bad-01",
+ "filler-catch-01"
+)
+```
+
+]
+
+---
+
+# Defining a Sequence
+
+.pull-left[
+
+<embed style='border: 1px solid black' type="text/html" src="snippets/all_trials.js"  width="350" height="450">
+
+]
+
+.pull-right[
+
+**Problems**
+
+```{r eval=FALSE}
+var shuffleSequence = seq(
+ "practice-1", #<<
+ "gp.trans", 
+ "gp.intrans",
+ "gp.trans", 
+ "gp.intrans",
+ "filler-good-01", #<<
+ "filler-bad-01", #<<
+ "filler-catch-01" #<<
+)
+```
+
+1. Lots of repetition ("-02", "-03", ...)
+
+]
+
+---
+
+# Defining a Sequence
+
+.pull-left[
+
+<embed style='border: 1px solid black' type="text/html" src="snippets/all_trials.js"  width="350" height="450">
+
+]
+
+.pull-right[
+
+**Problems**
+
+```{r eval=FALSE}
+var shuffleSequence = seq(
+ "practice-1",
+ "gp.trans", #<<
+ "gp.intrans", #<<
+ "gp.trans", #<<
+ "gp.intrans", #<<
+ "filler-good-01", #<<
+ "filler-bad-01", #<<
+ "filler-catch-01" #<<
+)
+```
+
+1. Lots of repetition ("-02", "-03", ...)
+
+2. Presentation of some trials should be random
+
+]
+
+
+---
+
+# Defining a Sequence
+
+.pull-left[
+
+<embed style='border: 1px solid black' type="text/html" src="snippets/all_trials.js"  width="350" height="450">
+
+]
+
+.pull-right[
+
+**Problems**
+
+```{r eval=FALSE}
+var shuffleSequence = seq(
+ "practice-1",
+ "gp.trans", #<<
+ "gp.intrans", #<<
+ "gp.trans", #<<
+ "gp.intrans", #<<
+ "filler-good-01",
+ "filler-bad-01",
+ "filler-catch-01"
+)
+```
+
+1. Lots of repetition ("-02", "-03", ...)
+
+2. Presentation of some trials should be random
+
+3. How can we implement counterbalancing?
+
+
+]
+
+---
+
+# Sequence: multiple selection
+
+<p style='margin-block-end:0;'>To save us from writing repetitive code, we use <code>startsWith()</code></p>
+
+.pull-left[
+```{r eval=FALSE}
+var shuffleSequence = seq(
+ "practice-1", #<<
+ "gp.trans", 
+ "gp.intrans",
+ "gp.trans", 
+ "gp.intrans", 
+ "filler-good-01", #<<
+ "filler-bad-01", #<<
+ "filler-catch-01" #<<
+)
+```
+]
+
+.pull-right[
+
+```{r eval=FALSE}
+var shuffleSequence = seq(
+ startsWith("practice"), #<<
+ startsWith("gp") #<<
+ startsWith("filler") #<<
+)
+```
+]
+
+--
+
+The function `startsWith()` matches all names that starts with the given string.
+
+--
+
+**Important** - Matching is sensitive to the ordering of components _as it is written_ inside `var items = []`
+
+---
+
+# Sequence: randomization
+
+<p style='margin-block-end:0;'>To present trials in random order, we use <code>rshuffle()</code></p>
+
+.pull-left[
+```{r eval=FALSE}
+var shuffleSequence = seq(
+ startsWith("practice"),
+ startsWith("gp") #<<
+ startsWith("filler") #<<
+)
+```
+]
+
+.pull-right[
+
+```{r eval=FALSE}
+var shuffleSequence = seq(
+ startsWith("practice"),
+ rshuffle(startsWith("gp"), startsWith("filler")) #<<
+)
+```
+]
+
+--
+
+By wrapping both the critical trials (_gp..._) and the filler trials (_filler..._) in `rshuffle()`, they are mixed together and presented in random order.
+
+--
+
+**Important**: We want practice trials to always be presented first, so it's not placed inside `rshuffle()`
+
+---
+
+# Sequence: counterbalancing
+
+The .bl[set number] in our critical trials automatically does this:
+
+.center[[["gp.trans", .bl[1]], ...], [["gp.intrans", .bl[1]], ...], [["gp.trans", .bl[2]], ...], [["gp.intrans", .bl[2]], ...]]
+
+--
+
+```{r, echo = FALSE, fig.align='center', out.width="700px"}
+knitr::include_graphics("img/counterbalancing.png")
+```
+
+--
+
+We just need to provide a .bl[counter] inside `var items` that keeps track of this:
+
+```{eval=F}
+["setcounter", "__SetCounter__", { }]
+```
+
+--
+
+**Important**: The "setcounter" component should be included _before the trials_.
+
+---
+
+# What we have so far
+
+<embed style='border: 1px solid black' type="text/html" src="snippets/body_sequence.js"  width="800" height="450">
+
+
+---
+
+# Settings
+
+A very basic set of settings:
+
+<embed style='border: 1px solid black' type="text/html" src="snippets/settings.js"  width="800" height="330">
+

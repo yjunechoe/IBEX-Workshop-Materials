@@ -1,4 +1,13 @@
-var item = [
+var shuffleSequence = seq(
+  "setcounter",
+  startsWith("practice"),
+  rshuffle(startsWith("gp"), startsWith("filler"))
+)
+
+var items = [
+
+  //// Counter
+  ["setcounter", "__SetCounter__", { }],
 
   //// Practice
   ["practice-1", "AcceptabilityJudgment", {s: "The car drove like a dream."}],

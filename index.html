@@ -6,7 +6,7 @@
     <meta name="date" content="2020-12-31" />
     <script src="libs/header-attrs/header-attrs.js"></script>
     <link href="libs/tachyons/tachyons.min.css" rel="stylesheet" />
-    <script type="application/json" id="xaringanExtra-editable-docid">{"id":"e2963932bc184e578f6c8f7b9d4a13ad","expires":14}</script>
+    <script type="application/json" id="xaringanExtra-editable-docid">{"id":"x70eb892ca534eae84f9734825bda39e","expires":14}</script>
     <script src="libs/himalaya/himalaya.js"></script>
     <script src="libs/js-cookie/js.cookie.js"></script>
     <link href="libs/editable/editable.css" rel="stylesheet" />
@@ -38,12 +38,8 @@ a {
   text-decoration: underline;
 }
 
-.showme:hover + .hide {
-  display: block;
-}
-
-.hide {
-  display: none;
+.remark-code-line-highlighted {
+  margin-left: .6em;
 }
 
 .hide:hover {
@@ -821,7 +817,7 @@ Item set #2:
 
 # Putting together the stimuli
 
-Wrap in `var item = []` and separate by a .bl[comma]:
+Wrap in `var items = []` and separate by a .bl[comma]:
 
 &lt;embed style='border: 1px solid black' type="text/html" src="snippets/critical_trials.js"  width="800" height="200"&gt;
 
@@ -920,6 +916,314 @@ Catch Filler #1: "Please select 4 for this sentence."
 --
 
 **Important**: The ordering of the trials here is just for human readability. We haven't yet told the program what order to present them in!
+
+
+---
+
+# Defining a Sequence
+
+.pull-left[
+
+&lt;embed style='border: 1px solid black' type="text/html" src="snippets/all_trials.js"  width="350" height="450"&gt;
+
+]
+
+.pull-right[
+
+.bl[List the _names_ of each trial in order:]
+
+```{eval=FALSE}
+ "practice-1",
+ "gp.trans",
+ "gp.intrans",
+ "gp.trans",
+ "gp.intrans",
+ "filler-good-01",
+ "filler-bad-01",
+ "filler-catch-01"
+```
+
+]
+
+---
+
+# Defining a Sequence
+
+.pull-left[
+
+&lt;embed style='border: 1px solid black' type="text/html" src="snippets/all_trials.js"  width="350" height="450"&gt;
+
+]
+
+.pull-right[
+
+.bl[Wrap them in `seq()`:]
+
+```{eval=FALSE}
+seq(
+ "practice-1",
+ "gp.trans",
+ "gp.intrans",
+ "gp.trans",
+ "gp.intrans",
+ "filler-good-01",
+ "filler-bad-01",
+ "filler-catch-01"
+)
+```
+
+]
+
+---
+
+# Defining a Sequence
+
+.pull-left[
+
+&lt;embed style='border: 1px solid black' type="text/html" src="snippets/all_trials.js"  width="350" height="450"&gt;
+
+]
+
+.pull-right[
+
+.bl[Assign to `shuffleSequence`:]
+
+
+```r
+var shuffleSequence = seq(
+ "practice-1",
+ "gp.trans",
+ "gp.intrans",
+ "gp.trans",
+ "gp.intrans",
+ "filler-good-01",
+ "filler-bad-01",
+ "filler-catch-01"
+)
+```
+
+]
+
+---
+
+# Defining a Sequence
+
+.pull-left[
+
+&lt;embed style='border: 1px solid black' type="text/html" src="snippets/all_trials.js"  width="350" height="450"&gt;
+
+]
+
+.pull-right[
+
+**Problems**
+
+
+```r
+var shuffleSequence = seq(
+*"practice-1",
+ "gp.trans", 
+ "gp.intrans",
+ "gp.trans", 
+ "gp.intrans",
+*"filler-good-01",
+*"filler-bad-01",
+*"filler-catch-01"
+)
+```
+
+1. Lots of repetition ("-02", "-03", ...)
+
+]
+
+---
+
+# Defining a Sequence
+
+.pull-left[
+
+&lt;embed style='border: 1px solid black' type="text/html" src="snippets/all_trials.js"  width="350" height="450"&gt;
+
+]
+
+.pull-right[
+
+**Problems**
+
+
+```r
+var shuffleSequence = seq(
+ "practice-1",
+*"gp.trans",
+*"gp.intrans",
+*"gp.trans",
+*"gp.intrans",
+*"filler-good-01",
+*"filler-bad-01",
+*"filler-catch-01"
+)
+```
+
+1. Lots of repetition ("-02", "-03", ...)
+
+2. Presentation of some trials should be random
+
+]
+
+
+---
+
+# Defining a Sequence
+
+.pull-left[
+
+&lt;embed style='border: 1px solid black' type="text/html" src="snippets/all_trials.js"  width="350" height="450"&gt;
+
+]
+
+.pull-right[
+
+**Problems**
+
+
+```r
+var shuffleSequence = seq(
+ "practice-1",
+*"gp.trans",
+*"gp.intrans",
+*"gp.trans",
+*"gp.intrans",
+ "filler-good-01",
+ "filler-bad-01",
+ "filler-catch-01"
+)
+```
+
+1. Lots of repetition ("-02", "-03", ...)
+
+2. Presentation of some trials should be random
+
+3. How can we implement counterbalancing?
+
+
+]
+
+---
+
+# Sequence: multiple selection
+
+&lt;p style='margin-block-end:0;'&gt;To save us from writing repetitive code, we use &lt;code&gt;startsWith()&lt;/code&gt;&lt;/p&gt;
+
+.pull-left[
+
+```r
+var shuffleSequence = seq(
+*"practice-1",
+ "gp.trans", 
+ "gp.intrans",
+ "gp.trans", 
+ "gp.intrans", 
+*"filler-good-01",
+*"filler-bad-01",
+*"filler-catch-01"
+)
+```
+]
+
+.pull-right[
+
+
+```r
+var shuffleSequence = seq(
+*startsWith("practice"),
+*startsWith("gp")
+*startsWith("filler")
+)
+```
+]
+
+--
+
+The function `startsWith()` matches all names that starts with the given string.
+
+--
+
+**Important** - Matching is sensitive to the ordering of components _as it is written_ inside `var items = []`
+
+---
+
+# Sequence: randomization
+
+&lt;p style='margin-block-end:0;'&gt;To present trials in random order, we use &lt;code&gt;rshuffle()&lt;/code&gt;&lt;/p&gt;
+
+.pull-left[
+
+```r
+var shuffleSequence = seq(
+ startsWith("practice"),
+*startsWith("gp")
+*startsWith("filler")
+)
+```
+]
+
+.pull-right[
+
+
+```r
+var shuffleSequence = seq(
+ startsWith("practice"),
+*rshuffle(startsWith("gp"), startsWith("filler"))
+)
+```
+]
+
+--
+
+By wrapping both the critical trials (_gp..._) and the filler trials (_filler..._) in `rshuffle()`, they are mixed together and presented in random order.
+
+--
+
+**Important**: We want practice trials to always be presented first, so it's not placed inside `rshuffle()`
+
+---
+
+# Sequence: counterbalancing
+
+The .bl[set number] in our critical trials automatically does this:
+
+.center[[["gp.trans", .bl[1]], ...], [["gp.intrans", .bl[1]], ...], [["gp.trans", .bl[2]], ...], [["gp.intrans", .bl[2]], ...]]
+
+--
+
+&lt;img src="img/counterbalancing.png" width="700px" style="display: block; margin: auto;" /&gt;
+
+--
+
+We just need to provide a .bl[counter] inside `var items` that keeps track of this:
+
+```{eval=F}
+["setcounter", "__SetCounter__", { }]
+```
+
+--
+
+**Important**: The "setcounter" component should be included _before the trials_.
+
+---
+
+# What we have so far
+
+&lt;embed style='border: 1px solid black' type="text/html" src="snippets/body_sequence.js"  width="800" height="450"&gt;
+
+
+---
+
+# Settings
+
+A very basic set of settings:
+
+&lt;embed style='border: 1px solid black' type="text/html" src="snippets/settings.js"  width="800" height="330"&gt;
 
     </textarea>
 <style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>

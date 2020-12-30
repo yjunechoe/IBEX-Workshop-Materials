@@ -85,6 +85,7 @@ a {
 .bl {
   font-weight: bold;
   color: black;
+  border: 0px;
 }
 
 .super{
@@ -561,6 +562,8 @@ knitr::include_graphics("img/template_outline.png")
 
 --
 
+<br>
+
 .center[.bl[Note: this is a _within-participant_ design!]]
 
 ---
@@ -708,8 +711,6 @@ $\quad$
 <br>
 \]
 
---
-
 This can be put into a single line:
 
 ```{r, eval=FALSE}
@@ -728,7 +729,7 @@ Item set #2:
 
 .can-edit[
 ```{r, eval=FALSE}
-<text here>
+<code here>
 ```
 ]
 

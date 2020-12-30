@@ -6,7 +6,7 @@
     <meta name="date" content="2020-12-31" />
     <script src="libs/header-attrs/header-attrs.js"></script>
     <link href="libs/tachyons/tachyons.min.css" rel="stylesheet" />
-    <script type="application/json" id="xaringanExtra-editable-docid">{"id":"x44b36b9119c408c97817a2b32bd89f0","expires":14}</script>
+    <script type="application/json" id="xaringanExtra-editable-docid">{"id":"e2963932bc184e578f6c8f7b9d4a13ad","expires":14}</script>
     <script src="libs/himalaya/himalaya.js"></script>
     <script src="libs/js-cookie/js.cookie.js"></script>
     <link href="libs/editable/editable.css" rel="stylesheet" />
@@ -542,14 +542,81 @@ Options for editing the file:
 
 .center[.bl[Note: this is a _within-participant_ design!]]
 
+
+---
+
+# Trial Template
+
+For each trial in our acceptability judgment experiment, we write this code:
+
+.center[.bl[[["_Trial name_", _Set Number_], "_Experiment Type_", {s: "_Sentence_"}]]]
+
+--
+
+This is a list (array) of three elements (clearer with spacing):
+
+--
+
+.pull-left[
+
+.bg-washed-green.b--dark-green.ba.bw2.br3.shadow-5.ph3[
+
+\[
+&lt;br&gt;
+`\(\quad\)`
+\["_Trial name_", _Set Number_ \],
+&lt;br&gt;
+`\(\quad\)`
+"_Experiment Type_",
+&lt;br&gt;
+`\(\quad\)`
+{s: "Sentence"}
+&lt;br&gt;
+\]
+
+]
+
+]
+
+
+.pull-right[
+&lt;p style='margin:1em'&gt;&lt;/p&gt;
+.bg-washed-green.b--dark-green.ba.bw2.br3.shadow-5.ph3[
+
+\[
+\["_Trial name_", _Set Number_ \],
+&lt;br&gt;
+`\(\quad\)`
+"_Experiment Type_",
+&lt;br&gt;
+`\(\quad\)`
+{s: "Sentence"}
+\]
+
+]
+
+]
+
+
+--
+
+&lt;p style='padding-top:25px'&gt;We have one big bracket which contains &lt;strong&gt;three elements&lt;/strong&gt;:&lt;/p&gt;
+
+1. Another list, consisting of the _name of the trial_ and _set number_
+
+2. A string specifying the _type of the experiment_
+
+3. A curly bracket (_braces_), which has "s" and the _sentence_ separated by a colon
+
 ---
 
 # Translating the design to code
 
-For the gp.trans condition, the first stimuli in our acceptability judgement experiment is the sentence "While Anna trained the kitten paid attention".
+.bl[Example 1:]
 
---
+For the gp.trans condition, the first stimuli in our acceptability judgment experiment is the sentence "While Anna trained the kitten paid attention".
 
+.bg-washed-green.b--dark-green.ba.bw2.br3.shadow-5.ph4[
 \[
 &lt;br&gt;
 `\(\quad\)`
@@ -562,13 +629,17 @@ For the gp.trans condition, the first stimuli in our acceptability judgement exp
 {s: "While Anna trained the kitten paid attention."}
 &lt;br&gt;
 \]
+]
 
 ---
 
 # Translating the design to code
 
-For the .blue[gp.trans condition], the first stimuli in our acceptability judgement experiment is the sentence "While Anna trained the kitten paid attention".
+.bl[Example 1:]
 
+For the .blue[gp.trans condition], the first stimuli in our acceptability judgment experiment is the sentence "While Anna trained the kitten paid attention".
+
+.bg-washed-green.b--dark-green.ba.bw2.br3.shadow-5.ph4[
 \[
 &lt;br&gt;
 `\(\quad\)`
@@ -581,13 +652,17 @@ For the .blue[gp.trans condition], the first stimuli in our acceptability judgem
 {s: "While Anna trained the kitten paid attention."}
 &lt;br&gt;
 \]
+]
 
 ---
 
 # Translating the design to code
 
-For the .blue[gp.trans condition], the **first stimuli** in our acceptability judgement experiment is the sentence "While Anna trained the kitten paid attention".
+.bl[Example 1:]
 
+For the .blue[gp.trans condition], the **first stimuli** in our acceptability judgment experiment is the sentence "While Anna trained the kitten paid attention".
+
+.bg-washed-green.b--dark-green.ba.bw2.br3.shadow-5.ph4[
 \[
 &lt;br&gt;
 `\(\quad\)`
@@ -600,14 +675,17 @@ For the .blue[gp.trans condition], the **first stimuli** in our acceptability ju
 {s: "While Anna trained the kitten paid attention."}
 &lt;br&gt;
 \]
-
+]
 
 ---
 
 # Translating the design to code
 
-For the .blue[gp.trans condition], the **first stimuli** in our .bl[acceptability judgement experiment] is the sentence "While Anna trained the kitten paid attention".
+.bl[Example 1:]
 
+For the .blue[gp.trans condition], the **first stimuli** in our .bl[acceptability judgment experiment] is the sentence "While Anna trained the kitten paid attention".
+
+.bg-washed-green.b--dark-green.ba.bw2.br3.shadow-5.ph4[
 \[
 &lt;br&gt;
 `\(\quad\)`
@@ -620,13 +698,17 @@ For the .blue[gp.trans condition], the **first stimuli** in our .bl[acceptabilit
 {s: "While Anna trained the kitten paid attention."}
 &lt;br&gt;
 \]
+]
 
 ---
 
 # Translating the design to code
 
-For the .blue[gp.trans condition], the **first stimuli** in our .bl[acceptability judgement experiment] is the .purple[sentence] "While Anna trained the kitten paid attention". 
+.bl[Example 1:]
 
+For the .blue[gp.trans condition], the **first stimuli** in our .bl[acceptability judgment experiment] is the .purple[sentence] "While Anna trained the kitten paid attention". 
+
+.bg-washed-green.b--dark-green.ba.bw2.br3.shadow-5.ph4[
 \[
 &lt;br&gt;
 `\(\quad\)`
@@ -639,14 +721,17 @@ For the .blue[gp.trans condition], the **first stimuli** in our .bl[acceptabilit
 {.purple[s]: "While Anna trained the kitten paid attention."}
 &lt;br&gt;
 \]
-
+]
 
 ---
 
 # Translating the design to code
 
-For the .blue[gp.trans condition], the **first stimuli** in our .bl[acceptability judgement experiment] is the .purple[sentence] .orange["While Anna trained the kitten paid attention"]. 
+.bl[Example 1:]
 
+For the .blue[gp.trans condition], the **first stimuli** in our .bl[acceptability judgment experiment] is the .purple[sentence] .orange["While Anna trained the kitten paid attention"]. 
+
+.bg-washed-green.b--dark-green.ba.bw2.br3.shadow-5.ph4[
 \[
 &lt;br&gt;
 `\(\quad\)`
@@ -659,6 +744,7 @@ For the .blue[gp.trans condition], the **first stimuli** in our .bl[acceptabilit
 {.purple[s]: .orange["While Anna trained the kitten paid attention."]}
 &lt;br&gt;
 \]
+]
 
 --
 
@@ -673,8 +759,11 @@ This can be put into a single line:
 
 # Translating the design to code
 
-For the .green[gp.intrans condition], the **first stimuli** in our .bl[acceptability judgement experiment] is the .purple[sentence] .orange["While Anna dressed the kitten paid attention"]. 
+.bl[Example 2:]
 
+For the .green[gp.intrans condition], the **first stimuli** in our .bl[acceptability judgment experiment] is the .purple[sentence] .orange["While Anna dressed the kitten paid attention"]. 
+
+.bg-washed-green.b--dark-green.ba.bw2.br3.shadow-5.ph4[
 \[
 &lt;br&gt;
 `\(\quad\)`
@@ -687,6 +776,7 @@ For the .green[gp.intrans condition], the **first stimuli** in our .bl[acceptabi
 {.purple[s]: .orange["While Anna dressed the kitten paid attention."]}
 &lt;br&gt;
 \]
+]
 
 This can be put into a single line:
 

@@ -566,14 +566,81 @@ knitr::include_graphics("img/template_outline.png")
 
 .center[.bl[Note: this is a _within-participant_ design!]]
 
+
+---
+
+# Trial Template
+
+For each trial in our acceptability judgment experiment, we write this code:
+
+.center[.bl[[["_Trial name_", _Set Number_], "_Experiment Type_", {s: "_Sentence_"}]]]
+
+--
+
+This is a list (array) of three elements (clearer with spacing):
+
+--
+
+.pull-left[
+
+.bg-washed-green.b--dark-green.ba.bw2.br3.shadow-5.ph3[
+
+\[
+<br>
+$\quad$
+\["_Trial name_", _Set Number_ \],
+<br>
+$\quad$
+"_Experiment Type_",
+<br>
+$\quad$
+{s: "Sentence"}
+<br>
+\]
+
+]
+
+]
+
+
+.pull-right[
+<p style='margin:1em'></p>
+.bg-washed-green.b--dark-green.ba.bw2.br3.shadow-5.ph3[
+
+\[
+\["_Trial name_", _Set Number_ \],
+<br>
+$\quad$
+"_Experiment Type_",
+<br>
+$\quad$
+{s: "Sentence"}
+\]
+
+]
+
+]
+
+
+--
+
+<p style='padding-top:25px'>We have one big bracket which contains <strong>three elements</strong>:</p>
+
+1. Another list, consisting of the _name of the trial_ and _set number_
+
+2. A string specifying the _type of the experiment_
+
+3. A curly bracket (_braces_), which has "s" and the _sentence_ separated by a colon
+
 ---
 
 # Translating the design to code
 
-For the gp.trans condition, the first stimuli in our acceptability judgement experiment is the sentence "While Anna trained the kitten paid attention".
+.bl[Example 1:]
 
---
+For the gp.trans condition, the first stimuli in our acceptability judgment experiment is the sentence "While Anna trained the kitten paid attention".
 
+.bg-washed-green.b--dark-green.ba.bw2.br3.shadow-5.ph4[
 \[
 <br>
 $\quad$
@@ -586,13 +653,17 @@ $\quad$
 {s: "While Anna trained the kitten paid attention."}
 <br>
 \]
+]
 
 ---
 
 # Translating the design to code
 
-For the .blue[gp.trans condition], the first stimuli in our acceptability judgement experiment is the sentence "While Anna trained the kitten paid attention".
+.bl[Example 1:]
 
+For the .blue[gp.trans condition], the first stimuli in our acceptability judgment experiment is the sentence "While Anna trained the kitten paid attention".
+
+.bg-washed-green.b--dark-green.ba.bw2.br3.shadow-5.ph4[
 \[
 <br>
 $\quad$
@@ -605,13 +676,17 @@ $\quad$
 {s: "While Anna trained the kitten paid attention."}
 <br>
 \]
+]
 
 ---
 
 # Translating the design to code
 
-For the .blue[gp.trans condition], the **first stimuli** in our acceptability judgement experiment is the sentence "While Anna trained the kitten paid attention".
+.bl[Example 1:]
 
+For the .blue[gp.trans condition], the **first stimuli** in our acceptability judgment experiment is the sentence "While Anna trained the kitten paid attention".
+
+.bg-washed-green.b--dark-green.ba.bw2.br3.shadow-5.ph4[
 \[
 <br>
 $\quad$
@@ -624,14 +699,17 @@ $\quad$
 {s: "While Anna trained the kitten paid attention."}
 <br>
 \]
-
+]
 
 ---
 
 # Translating the design to code
 
-For the .blue[gp.trans condition], the **first stimuli** in our .bl[acceptability judgement experiment] is the sentence "While Anna trained the kitten paid attention".
+.bl[Example 1:]
 
+For the .blue[gp.trans condition], the **first stimuli** in our .bl[acceptability judgment experiment] is the sentence "While Anna trained the kitten paid attention".
+
+.bg-washed-green.b--dark-green.ba.bw2.br3.shadow-5.ph4[
 \[
 <br>
 $\quad$
@@ -644,13 +722,17 @@ $\quad$
 {s: "While Anna trained the kitten paid attention."}
 <br>
 \]
+]
 
 ---
 
 # Translating the design to code
 
-For the .blue[gp.trans condition], the **first stimuli** in our .bl[acceptability judgement experiment] is the .purple[sentence] "While Anna trained the kitten paid attention". 
+.bl[Example 1:]
 
+For the .blue[gp.trans condition], the **first stimuli** in our .bl[acceptability judgment experiment] is the .purple[sentence] "While Anna trained the kitten paid attention". 
+
+.bg-washed-green.b--dark-green.ba.bw2.br3.shadow-5.ph4[
 \[
 <br>
 $\quad$
@@ -663,14 +745,17 @@ $\quad$
 {.purple[s]: "While Anna trained the kitten paid attention."}
 <br>
 \]
-
+]
 
 ---
 
 # Translating the design to code
 
-For the .blue[gp.trans condition], the **first stimuli** in our .bl[acceptability judgement experiment] is the .purple[sentence] .orange["While Anna trained the kitten paid attention"]. 
+.bl[Example 1:]
 
+For the .blue[gp.trans condition], the **first stimuli** in our .bl[acceptability judgment experiment] is the .purple[sentence] .orange["While Anna trained the kitten paid attention"]. 
+
+.bg-washed-green.b--dark-green.ba.bw2.br3.shadow-5.ph4[
 \[
 <br>
 $\quad$
@@ -683,6 +768,7 @@ $\quad$
 {.purple[s]: .orange["While Anna trained the kitten paid attention."]}
 <br>
 \]
+]
 
 --
 
@@ -696,8 +782,11 @@ This can be put into a single line:
 
 # Translating the design to code
 
-For the .green[gp.intrans condition], the **first stimuli** in our .bl[acceptability judgement experiment] is the .purple[sentence] .orange["While Anna dressed the kitten paid attention"]. 
+.bl[Example 2:]
 
+For the .green[gp.intrans condition], the **first stimuli** in our .bl[acceptability judgment experiment] is the .purple[sentence] .orange["While Anna dressed the kitten paid attention"]. 
+
+.bg-washed-green.b--dark-green.ba.bw2.br3.shadow-5.ph4[
 \[
 <br>
 $\quad$
@@ -710,6 +799,7 @@ $\quad$
 {.purple[s]: .orange["While Anna dressed the kitten paid attention."]}
 <br>
 \]
+]
 
 This can be put into a single line:
 

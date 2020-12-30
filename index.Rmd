@@ -779,12 +779,11 @@ Item set #2:
 
 ---
 
-# Putting it together
+# Putting together the stimuli
 
-Need to separate them out by commas:
+Need to separate each stimuli by comma and wrap in `var item = []`:
 
-```{r}
+<embed style='border: 1px solid black' type="text/html" src="snippets/critical_trials.js"  width="800" height="170">
 
-```
 
 

@@ -32,7 +32,7 @@ style_duo_accent(
 )
 xaringanExtra::use_tachyons()
 xaringanExtra::use_editable()
-xaringanExtra::use_tachyons()
+xaringanExtra::use_panelset()
 ```
 
 
@@ -701,7 +701,7 @@ For the .green[gp.intrans condition], the **first stimuli** in our .bl[acceptabi
 \[
 <br>
 $\quad$
-\[ ".green[gp.trans]", **1** \],
+\[ ".green[gp.intrans]", **1** \],
 <br>
 $\quad$
 ".bl[AcceptabilityJudgment]",
@@ -739,51 +739,111 @@ Item set #2:
 ```{r, eval = FALSE}
 [["gp.trans",2],
   "AcceptabilityJudgment",
-  {s: "Since Dave improved the department was satisfied."}],
+  {s: "Since Dave improved the department was satisfied."}]
 [["gp.intrans",2],
   "AcceptabilityJudgment",
   {s: "Since Dave worried the counselor devised a plan."}]
 ```
 ]
-
----
-
-# Practice
-
-Item set #2:
-
-.center[(transitive) - "Since Dave improved the department was satisfied."]
-
-.center[(intransitive) - "Since Dave worried the counselor devised a plan."]
-
-.can-edit[
-```{r, eval=FALSE}
-[["gp.trans",2],
-  "AcceptabilityJudgment",
-  {s: "Since Dave improved the department was satisfied."}],
-[["gp.intrans",2],
-  "AcceptabilityJudgment",
-  {s: "Since Dave worried the counselor devised a plan."}]
-```
-]
-
-```{r, eval = FALSE}
-[["gp.trans",2],
-  "AcceptabilityJudgment",
-  {s: "Since Dave improved the department was satisfied."}],
-[["gp.intrans",2],
-  "AcceptabilityJudgment",
-  {s: "Since Dave worried the counselor devised a plan."}]
-```
 
 
 ---
 
 # Putting together the stimuli
 
-Need to separate each stimuli by comma and wrap in `var item = []`:
+Wrap in `var item = []` and separate by a .bl[comma]:
 
-<embed style='border: 1px solid black' type="text/html" src="snippets/critical_trials.js"  width="800" height="170">
+<embed style='border: 1px solid black' type="text/html" src="snippets/critical_trials.js"  width="800" height="200">
 
+--
 
+Good scripting habits:
+
+- Grouping item sets together and separating sets with new line
+
+- Adding comments (starts with two or more slashes `//`)
+
+- Saving often! (editing in IBEX not recommended)
+
+---
+
+# Practice and Fillers
+
+.bl[Practice Trials]:
+
+- Presented at the beginning, accompanied by instructions and feedback
+
+--
+
+.bl[Filler Trials]:
+
+- Mixed in with the critical trials
+
+--
+
+.center[.bl[For both trials, only minor tweaks are needed!]]
+
+The _first element of the big bracket_ can just be the _name of the stimuli_, since we **don't need to counterbalance** practice and filler trials.
+
+--
+
+.panelset[
+.panel[.panel-name[Practice]
+
+Practice #1: "The car drove like a dream"
+
+```{r, eval = FALSE}
+["practice-1",
+ "AcceptabilityJudgment",
+ {s: "The car drove like a dream."}]
+```
+
+]
+
+.panel[.panel-name[Filler-good]
+
+Good Filler #1: "When Harry fell, the audience was shocked."
+
+```{r, eval = FALSE}
+["filler-good-01",
+ "AcceptabilityJudgment",
+ {s: "When Harry fell, the audience was shocked."}]
+```
+
+]
+
+.panel[.panel-name[Filler-bad]
+
+Bad Filler #1: "When Tyler sneezed the driver, he passed a tissue."
+
+```{r, eval = FALSE}
+["filler-bad-01",
+ "AcceptabilityJudgment",
+ {s: "When Tyler sneezed the driver, he passed a tissue."}]
+```
+
+]
+
+.panel[.panel-name[Filler-catch]
+
+Catch Filler #1: "Please select 4 for this sentence."
+
+```{r, eval = FALSE}
+["filler-catch-01",
+ "AcceptabilityJudgment",
+ {s: "Please select 4 for this sentence."}]
+```
+
+]
+]
+
+---
+
+<h1 style='margin-bottom:20px'>Putting together the trials</h1>
+
+<embed style='border: 1px solid black' type="text/html" src="snippets/all_trials.js"  width="800" height="420">
+
+--
+
+**Important**: The ordering of the trials here is just for human readability. We haven't yet told the program what order to present them in!
 

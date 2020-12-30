@@ -3,14 +3,16 @@
   <head>
     <title>Experimental Linguistics with IBEX</title>
     <meta charset="utf-8" />
-    <meta name="date" content="2020-12-30" />
+    <meta name="date" content="2020-12-31" />
     <script src="libs/header-attrs/header-attrs.js"></script>
     <link href="libs/tachyons/tachyons.min.css" rel="stylesheet" />
-    <script type="application/json" id="xaringanExtra-editable-docid">{"id":"d169ce5160c4415ba56fbd733a309bc8","expires":14}</script>
+    <script type="application/json" id="xaringanExtra-editable-docid">{"id":"x44b36b9119c408c97817a2b32bd89f0","expires":14}</script>
     <script src="libs/himalaya/himalaya.js"></script>
     <script src="libs/js-cookie/js.cookie.js"></script>
     <link href="libs/editable/editable.css" rel="stylesheet" />
     <script src="libs/editable/editable.js"></script>
+    <link href="libs/panelset/panelset.css" rel="stylesheet" />
+    <script src="libs/panelset/panelset.js"></script>
     <link rel="stylesheet" href="xaringan-themer.css" type="text/css" />
   </head>
   <body>
@@ -20,7 +22,7 @@ class: center, middle, inverse, title-slide
 # Experimental Linguistics with IBEX
 ## A Walkthrough
 ### 
-### 2020-12-30
+### 2020-12-31
 
 ---
 
@@ -676,7 +678,7 @@ For the .green[gp.intrans condition], the **first stimuli** in our .bl[acceptabi
 \[
 &lt;br&gt;
 `\(\quad\)`
-\[ ".green[gp.trans]", **1** \],
+\[ ".green[gp.intrans]", **1** \],
 &lt;br&gt;
 `\(\quad\)`
 ".bl[AcceptabilityJudgment]",
@@ -717,55 +719,117 @@ Item set #2:
 ```r
 [["gp.trans",2],
   "AcceptabilityJudgment",
-  {s: "Since Dave improved the department was satisfied."}],
+  {s: "Since Dave improved the department was satisfied."}]
 [["gp.intrans",2],
   "AcceptabilityJudgment",
   {s: "Since Dave worried the counselor devised a plan."}]
 ```
 ]
-
----
-
-# Practice
-
-Item set #2:
-
-.center[(transitive) - "Since Dave improved the department was satisfied."]
-
-.center[(intransitive) - "Since Dave worried the counselor devised a plan."]
-
-.can-edit[
-
-```r
-[["gp.trans",2],
-  "AcceptabilityJudgment",
-  {s: "Since Dave improved the department was satisfied."}],
-[["gp.intrans",2],
-  "AcceptabilityJudgment",
-  {s: "Since Dave worried the counselor devised a plan."}]
-```
-]
-
-
-```r
-[["gp.trans",2],
-  "AcceptabilityJudgment",
-  {s: "Since Dave improved the department was satisfied."}],
-[["gp.intrans",2],
-  "AcceptabilityJudgment",
-  {s: "Since Dave worried the counselor devised a plan."}]
-```
 
 
 ---
 
 # Putting together the stimuli
 
-Need to separate each stimuli by comma and wrap in `var item = []`:
+Wrap in `var item = []` and separate by a .bl[comma]:
 
-&lt;embed style='border: 1px solid black' type="text/html" src="snippets/critical_trials.js"  width="800" height="170"&gt;
+&lt;embed style='border: 1px solid black' type="text/html" src="snippets/critical_trials.js"  width="800" height="200"&gt;
+
+--
+
+Good scripting habits:
+
+- Grouping item sets together and separating sets with new line
+
+- Adding comments (starts with two or more slashes `//`)
+
+- Saving often! (editing in IBEX not recommended)
+
+---
+
+# Practice and Fillers
+
+.bl[Practice Trials]:
+
+- Presented at the beginning, accompanied by instructions and feedback
+
+--
+
+.bl[Filler Trials]:
+
+- Mixed in with the critical trials
+
+--
+
+.center[.bl[For both trials, only minor tweaks are needed!]]
+
+The _first element of the big bracket_ can just be the _name of the stimuli_, since we **don't need to counterbalance** practice and filler trials.
+
+--
+
+.panelset[
+.panel[.panel-name[Practice]
+
+Practice #1: "The car drove like a dream"
 
 
+```r
+["practice-1",
+ "AcceptabilityJudgment",
+ {s: "The car drove like a dream."}]
+```
+
+]
+
+.panel[.panel-name[Filler-good]
+
+Good Filler #1: "When Harry fell, the audience was shocked."
+
+
+```r
+["filler-good-01",
+ "AcceptabilityJudgment",
+ {s: "When Harry fell, the audience was shocked."}]
+```
+
+]
+
+.panel[.panel-name[Filler-bad]
+
+Bad Filler #1: "When Tyler sneezed the driver, he passed a tissue."
+
+
+```r
+["filler-bad-01",
+ "AcceptabilityJudgment",
+ {s: "When Tyler sneezed the driver, he passed a tissue."}]
+```
+
+]
+
+.panel[.panel-name[Filler-catch]
+
+Catch Filler #1: "Please select 4 for this sentence."
+
+
+```r
+["filler-catch-01",
+ "AcceptabilityJudgment",
+ {s: "Please select 4 for this sentence."}]
+```
+
+]
+]
+
+---
+
+&lt;h1 style='margin-bottom:20px'&gt;Putting together the trials&lt;/h1&gt;
+
+&lt;embed style='border: 1px solid black' type="text/html" src="snippets/all_trials.js"  width="800" height="420"&gt;
+
+--
+
+**Important**: The ordering of the trials here is just for human readability. We haven't yet told the program what order to present them in!
 
     </textarea>
 <style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>

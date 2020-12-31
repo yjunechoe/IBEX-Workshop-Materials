@@ -12,9 +12,7 @@ var showProgressBar = false
 var defaults = [
     "DashedSentence", {
        mode: "self-paced reading",
-       display: "dashed",
-       showAhead: true,
-       showBehind: true
+       display: "dashed"
     }]
 
 
@@ -37,7 +35,7 @@ var items = [
   //// Introduction
   ["intro", "Message", {html:
     ["div",
-      ["p", ["h1", "Title of Research Study: Example Acceptability Judgment Experiment"]],
+      ["p", ["h1", "Title of Research Study: Example Self-Paced Reading"]],
       ["p", ["strong", "Investigator: John Doe"]],
       ["p", ["strong", "Supported by: The University"]],
       ["p"],
@@ -65,12 +63,10 @@ var items = [
   //// Directions
   ["directions", "Message", {html:
     ["div",
-      ["p", "In this experiment, you will be reading sentences and judging them on how acceptable they sound."],
-      ["p", "Please rate the sentences on a scale of 1 to 7."],
+      ["p", "In this experiment, you will be reading sentences word-by-word, with the press of the ", ["strong", "spacebar key"], "."],
       ["p", "A few things to keep in mind:"],
-      ["li", "You do not get to go back once you've made a decision."],
-      ["li", "Go with your gut feeling. Do not overanalyze the sentences."],
-      ["li", "There are no ", ["em", "correct"], " answers. We want to know what sounds the most appropriate to YOU."],
+      ["li", "You do not get to go back once you've revealed the next word in the sentence."],
+      ["li", "Proceed at your normal reading pace. Do not overanalyze the sentences."],
       ["p", "If you have understood the instructions, please continue."]
     ]
   }],
@@ -87,7 +83,7 @@ var items = [
   ["practice-1", "DashedSentence", {s: "The car drove like a dream."}],
   ["practice-1-feedback", "Message", {html:
     ["div",
-      ["p", "How was that? Many people rate that sentence pretty good."],
+      ["p", "Let's try another one."],
       ["em", "Press any key to continue."]
     ],
     transfer: "keypress"
@@ -96,7 +92,6 @@ var items = [
   ["practice-2", "DashedSentence", {s: "The cat ever has eaten cheese the."}],
   ["practice-2-feedback", "Message", {html:
     ["div",
-      ["p", "That sentence usually receives pretty poor ratings."],
       ["p", "OK! That's it. It's time to begin"],
       ["em", "Press any key to continue."]
     ],
@@ -131,6 +126,6 @@ var items = [
   ["filler-bad-01","DashedSentence", {s: "When Tyler sneezed the driver, he passed a tissue."}],
 
   //// Fillers (Catch)
-  ["filler-catch-01", "DashedSentence", {s: "Please select 4 for this sentence."}]
+  ["filler-catch-01", "DashedSentence", {s: "This sentence is an attention check. Please_Wait_Three_Seconds_Before_Proceeding"}]
 
 ]

@@ -1693,3 +1693,13 @@ var items = [
 ]
 ```
 
+
+---
+
+# Our second experiment
+
+After re-writing some of the ".bl[Messages]" items, we have our [new experiment](https://spellout.net/ibexexps/skku_ibex/workshop_DashedSentence/experiment.html)!
+
+<embed style='border: 1px solid black' type="text/html" src="ibex_files/SPR.js"  width="800" height="420">
+
+

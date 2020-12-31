@@ -6,7 +6,7 @@
     <meta name="date" content="2021-01-22" />
     <script src="libs/header-attrs/header-attrs.js"></script>
     <link href="libs/tachyons/tachyons.min.css" rel="stylesheet" />
-    <script type="application/json" id="xaringanExtra-editable-docid">{"id":"b9e6e6ed2a5c4e35bb199d7600830f15","expires":14}</script>
+    <script type="application/json" id="xaringanExtra-editable-docid">{"id":"b12e5d110ace4c78b78a96eba3305af9","expires":14}</script>
     <script src="libs/himalaya/himalaya.js"></script>
     <script src="libs/js-cookie/js.cookie.js"></script>
     <link href="libs/editable/editable.css" rel="stylesheet" />
@@ -241,7 +241,7 @@ class: middle, center
 
 # What is IBEX?
 
-- &lt;p&gt;Stands for (I)nternet-(B)ased (EX)periments&lt;/p&gt;
+- &lt;p&gt;Stands for (.bl[I])nternet-(.bl[B])ased (.bl[EX])periments&lt;/p&gt;
 
 --
 
@@ -556,7 +556,7 @@ Options for editing the file:
 
 ---
 
-# Trial Template
+# Trial Syntax
 
 For each trial in our acceptability judgment experiment, we write this code:
 
@@ -1149,7 +1149,7 @@ var shuffleSequence = seq(
 
 2. Presentation of some trials should be random
 
-3. How can we implement counterbalancing?
+3. How do we counterbalance critical trials?
 
 
 ]
@@ -1165,10 +1165,10 @@ var shuffleSequence = seq(
 ```r
 var shuffleSequence = seq(
 *"practice-1",
- "gp.trans", 
- "gp.intrans",
- "gp.trans", 
- "gp.intrans", 
+*"gp.trans",
+*"gp.intrans",
+*"gp.trans",
+*"gp.intrans",
 *"filler-good-01",
 *"filler-bad-01",
 *"filler-catch-01"
@@ -1196,7 +1196,7 @@ The function `startsWith()` matches all names that starts with the given string.
 
 # Sequence: randomization
 
-&lt;p style='margin-block-end:0;'&gt;To present trials in random order, we use &lt;code&gt;rshuffle()&lt;/code&gt;&lt;/p&gt;
+&lt;p style='margin-block-end:0;'&gt;To mix critical and filler trials in random order, we use &lt;code&gt;rshuffle()&lt;/code&gt;&lt;/p&gt;
 
 .pull-left[
 
@@ -1215,7 +1215,10 @@ var shuffleSequence = seq(
 ```r
 var shuffleSequence = seq(
  startsWith("practice"),
-*rshuffle(startsWith("gp"), startsWith("filler"))
+*rshuffle(
+*  startsWith("gp"),
+*  startsWith("filler")
+* )
 )
 ```
 ]
@@ -1223,6 +1226,18 @@ var shuffleSequence = seq(
 --
 
 By wrapping both the critical trials (_gp..._) and the filler trials (_filler..._) in `rshuffle()`, they are mixed together and presented in random order.
+
+--
+
+We can also write this out more compactly:
+
+
+```r
+var shuffleSequence = seq(
+ startsWith("practice"),
+*rshuffle(startsWith("gp"), startsWith("filler"))
+)
+```
 
 ---
 
@@ -1244,9 +1259,41 @@ We just need to add a .bl[counter] inside `items` to track group assignment:
 ["setcounter", "__SetCounter__", { }]
 ```
 
+
+---
+
+# Sequence: counterbalancing
+
+Adding the counter to the experiment is simple:
+
+
+```r
+var shuffleSequence = seq(
+  "setcounter", 
+  ...
+)
+
+var items = [
+  
+  ["setcounter", "__SetCounter__", { }], 
+  ...
+  
+]
+```
+
 --
 
-**Important**: The "setcounter" component should be included _before the trials_.
+**Note**: Sometimes you want to place "setcounter" in the _middle_ of the experiment
+
+
+```r
+var shuffleSequence = seq(
+  "intro"
+  "consent",
+  "setcounter", 
+  ...
+)
+```
 
 ---
 
@@ -1264,9 +1311,11 @@ Just need one more step: **Settings**
 
 Consist of miscellaneous options that we can put at the top of the script.
 
+--
+
 At the very least, we want to do two things:
 
-1. Generate unique **participant IDs** (sent to results)
+1. Generate unique **participant IDs** (`var randomCode`)
 
 2. Specify the **method design** (in `var defaults`)
 
@@ -1279,19 +1328,27 @@ At the very least, we want to do two things:
 
 You can also change other options, such as showing a message at the end:
 
+.center[`var completionMessage`]
+
 ```{eval=F}
 //// A message to show to participants at completion (useful for confirmation, raffle entry, etc.)
 var completionMessage = "Thank you for your participation. Your participation code is: " + randomCode
 ```
 
+--
+
 And whether to show a progress bar:
+
+.center[`var showProgressBar`]
 
 ```{eval=F}
 //// Show a progress bar at the top? (true/false)
 var showProgressBar = false
 ```
 
-You can learn more about these various elements in [the documentation](https://github.com/addrummond/ibex/blob/master/docs/manual.md#miscellaneous--options)
+--
+
+You can learn more about these various elements in [the documentation](https://github.com/addrummond/ibex/blob/master/docs/manual.md#miscellaneous--options).
 
 ---
 

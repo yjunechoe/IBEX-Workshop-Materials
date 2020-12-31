@@ -245,7 +245,7 @@ class: middle, center
 
 # What is IBEX?
 
-- <p>Stands for (I)nternet-(B)ased (EX)periments</p>
+- <p>Stands for (.bl[I])nternet-(.bl[B])ased (.bl[EX])periments</p>
 
 --
 
@@ -1267,9 +1267,39 @@ We just need to add a .bl[counter] inside `items` to track group assignment:
 ["setcounter", "__SetCounter__", { }]
 ```
 
+
+---
+
+# Sequence: counterbalancing
+
+Adding the counter to the experiment is simple:
+
+```{r eval=FALSE}
+var shuffleSequence = seq(
+  "setcounter", 
+  ...
+)
+
+var items = [
+  
+  ["setcounter", "__SetCounter__", { }], 
+  ...
+  
+]
+```
+
 --
 
-**Important**: The "setcounter" component should be included _before the trials_.
+**Note**: Sometimes you want to place "setcounter" in the _middle_ of the experiment
+
+```{r eval=FALSE}
+var shuffleSequence = seq(
+  "intro"
+  "consent",
+  "setcounter", 
+  ...
+)
+```
 
 ---
 

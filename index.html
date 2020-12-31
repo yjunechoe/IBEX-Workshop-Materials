@@ -8,7 +8,7 @@
     <link href="libs/tile-view/tile-view.css" rel="stylesheet" />
     <script src="libs/tile-view/tile-view.js"></script>
     <link href="libs/tachyons/tachyons.min.css" rel="stylesheet" />
-    <script type="application/json" id="xaringanExtra-editable-docid">{"id":"x89672e6d1b34bcf9de00ec68aae9a2d","expires":14}</script>
+    <script type="application/json" id="xaringanExtra-editable-docid">{"id":"c5c6809c1e6b4964ac1f6c7260c11116","expires":14}</script>
     <script src="libs/himalaya/himalaya.js"></script>
     <script src="libs/js-cookie/js.cookie.js"></script>
     <link href="libs/editable/editable.css" rel="stylesheet" />
@@ -1403,7 +1403,7 @@ We now have a [minimally working experiment](https://spellout.net/ibexexps/skku_
 
 ---
 
-# Interim Summary
+# Interim Summary #1
 
 .bl[What we've covered:]
 
@@ -1587,13 +1587,39 @@ Here's a [complete experiment](https://spellout.net/ibexexps/skku_ibex/workshop_
 
 ---
 
+# Getting the experiment up
+
+So we have a new script, but how do we host the experiment?
+
+1. Go to the [IBEX website](https://spellout.net/ibexfarm/) and log in.
+
+2. Click on your experiment (or create one if you haven't already).
+
+3. Click .blue[edit] next to the &lt;em&gt;example_data.js&lt;/em&gt; file in the **data_includes** section.
+
+4. Delete its contents and copy paste your new code.
+
+5. Click on the link at the top of the page.
+
+&lt;img src="img/exp_link.png" width="400px" style="display: block; margin: auto;" /&gt;
+
+The URL shown in your browser is the link to your experiment!
+
+&lt;img src="img/exp_url.png" width="400px" style="display: block; margin: auto;" /&gt;
+
+.center[https://spellout.net/ibexexps/skku_ibex/workshop_minimal/experiment.html]
+
+---
+
 # Making a different experiment
 
-Suppose that we find the acceptability judgments to be inappropriate for our answering our research question.
+Suppose that after a pilot experiment, we find acceptability judgments to be inappropriate for answering our research question.
 
 --
 
 We want a _finer-grained measure_ of recovery difficulty, so we'd like to change the experiment to **self-paced reading** and look at reading time differences.
+
+&amp;nbsp;
 
 --
 
@@ -1605,15 +1631,15 @@ Given our existing template, we take the following steps:
 
 --
 
-2. Specify the design of that controller in the `defaults` variable
+2. Specify the design of that controller in the `defaults` variable.
 
 --
 
-3. Make changes to the .bl[Messages] items (directions, feedback on practice trials, etc.)
+3. Change our trials in `items` from ".bl[acceptabilityJudgment]" to that Controller.
 
----
+--
 
-# 
+4. Make changes to the text of the ".bl[Messages]" items (directions, feedback on practice, etc.).
 
     </textarea>
 <style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>

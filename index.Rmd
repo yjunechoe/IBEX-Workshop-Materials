@@ -585,7 +585,7 @@ knitr::include_graphics("img/template_outline.png")
 
 For each trial in our acceptability judgment experiment, we write this code:
 
-.center[.bl[[["_Trial name_", _Set #_], "_Experiment Type_", {s: "_Sentence_"}]]]
+.center[.bl[[["_Trial name_", _Set #_], "_Trial Type_", {s: "_Sentence_"}]]]
 
 --
 
@@ -603,7 +603,7 @@ $\quad$
 \["_Trial name_", _Set #_ \],
 <br>
 $\quad$
-"_Experiment Type_",
+"_Trial Type_",
 <br>
 $\quad$
 {s: "Sentence"}
@@ -623,7 +623,7 @@ $\quad$
 \["_Trial name_", _Set #_ \],
 <br>
 $\quad$
-"_Experiment Type_",
+"_Trial Type_",
 <br>
 $\quad$
 {s: "Sentence"}
@@ -640,7 +640,7 @@ $\quad$
 
 1. Another list, consisting of the _name of the trial_ and _set number_
 
-2. A string specifying the _type of the experiment_
+2. A string specifying the _type of the trial_ (called .bl[Controllers])
 
 3. A curly bracket (_braces_), which has "s" and the _sentence_ separated by a colon
 
@@ -1335,9 +1335,9 @@ Consist of miscellaneous options that we can put at the top of the script.
 
 At the very least, we want to do two things:
 
-1. Generate unique **participant IDs** (`var randomCode`)
+1. Generate unique **participant IDs** (`randomCode`)
 
-2. Specify the parameters for the **method design** (in `var defaults`)
+2. Specify the parameters for the **method design** (`defaults`)
 
 <embed style='border: 1px solid black' type="text/html" src="snippets/settings.js"  width="800" height="245">
 
@@ -1434,6 +1434,156 @@ var defaults = [
 
     - Introduction page, consent form, feedback on practice trials, etc.
     
+--
+    
 - How can we extend this workflow for other experimental designs?
 
     - Self-paced reading, comprehension tasks, etc.
+
+---
+
+# The "Message" controller
+
+A list of 3 elements, similar to the "AcceptabilityJudgement" items:
+
+.center[.bl[["_Trial name_", "Message", {html: _text_}]]]
+
+--
+
+- .bl[_Trial name_] is used to reference the trial in sequencing, as seen earlier 
+
+--
+
+- .bl["Message"] tells IBEX that this trial just shows text on a new screen
+
+--
+
+- Inside of the curly braces .bl[{}] we can add text in the .bl[html] parameter:
+
+```{r, eval=FALSE}
+["intro", "Message", {html: ["p", "Welcome to the experiment!"]}]
+```
+
+--
+
+Notes on .bl[html]:
+
+The code `["p", "<your text here>"]` prints a single paragraph of text.
+
+--
+
+The "p" is called a .bl[tags] and there are [many others](https://www.w3schools.com/TAGs/), but usually messages don't get more complicated than simple paragraphs.
+
+---
+
+# Message examples
+
+.panelset[
+.panel[.panel-name[1-paragraph]
+
+A message composed of a single paragraph:
+
+```{r, eval = FALSE}
+["intro", "Message", {html: ["p", "Welcome to the experiment!"]}]
+```
+
+```{r, echo=F, out.width = '300px', out.extra="style='border:1px solid black; margin:auto; display:block;'"}
+knitr::include_graphics("img/1-paragraph.png")
+```
+
+]
+
+.panel[.panel-name[n-paragraphs]
+
+A message composed of multiple paragraphs must be combined inside a "div":
+
+```{r, eval = FALSE}
+["intro", "Message", {html:
+    ["div", #<<
+      ["p", "Welcome to the experiment!"],
+      ["p", "Here's another paragraph."],
+      ["p", "These paragraphs are all wrapped inside \"div\"."]
+    ] #<<
+}]
+```
+
+```{r, echo=F, out.width = '300px', out.extra="style='border:1px solid black; margin:auto; display:block;'"}
+knitr::include_graphics("img/n-paragraphs.png")
+```
+
+**Note**: You can .bl[escape] special characters like quotes `"` with a backslash `\`
+
+]
+
+.panel[.panel-name[consent]
+
+Ask for consent with a set of `consent...` parameters
+
+```{r, eval = FALSE}
+["consent", "Message", {
+  html: ["p", "Do you consent?"],
+  consentRequired: true, #<<
+  consentMessage: "I consent." #<<
+}]
+```
+
+```{r, echo=F, out.width = '300px', out.extra="style='border:1px solid black; margin:auto; display:block;'"}
+knitr::include_graphics("img/consent.png")
+```
+
+]
+
+.panel[.panel-name[keypress]
+
+Use the `transfer` argument to specify how the participant can move on.
+
+Setting `transfer` to `"keypress"` removes the default ".blue[Click here to continue.]" message and allows participants to proceed with the press of any key.
+
+```{r, eval = FALSE}
+["move_on", "Message", {
+  html: ["div", 
+          ["p", "The option for \"transfer\" is \"keypress\""],
+          ["em", "Press any key to continue."]
+        ],
+  transfer: "keypress" #<<
+}]
+```
+
+```{r, echo=F, out.width = '300px', out.extra="style='border:1px solid black; margin:auto; display:block;'"}
+knitr::include_graphics("img/keypress.png")
+```
+
+]
+
+.panel[.panel-name[separator]
+
+You might want to insert a page that separates the trials:
+
+```{r, eval = FALSE}
+["sep", "Message", {
+  html: ["p", "Press any key to continue."],
+  transfer: "keypress"
+}]
+```
+
+```{r, echo=F, out.width = '300px', out.extra="style='border:1px solid black; margin:auto; display:block;'"}
+knitr::include_graphics("img/separator.png")
+```
+
+You can do so using `sepWith()` in `shuffleSequence`:
+
+```{r, eval=F}
+var shuffleSequence = seq(
+  "practice",
+  seqWith("sep", rshuffle(startsWith("gp"), startsWith("filler"))) #<<
+)
+```
+
+]
+]
+
+---
+
+# Putting everything together
+
+

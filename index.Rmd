@@ -418,9 +418,9 @@ The above script creates [this self-paced reading experiment](https://spellout.n
 
 The _example_data.js_ script works, but is not very friendly.
 
-We'll use **our own file** - <em><a href="ibex_files/template.js" download>template.js</a></em> - to demonstrate how the script works.
+We'll use **our own** - <strong><a href="ibex_files/full_exp.js">template.js</a></strong> - to demonstrate how the script works.
 
-<embed style='border: 1px solid black' type="text/html" src="ibex_files/template.js"  width="800" height="300">
+<embed style='border: 1px solid black' type="text/html" src="ibex_files/full_exp.js"  width="800" height="300">
 
 The above script creates [this acceptability rating experiment](https://spellout.net/ibexexps/skku_ibex/workshop_example/experiment.html).
 
@@ -1349,7 +1349,33 @@ At the very least, we want to do two things:
 
 --
 
-More details in the .bl[AcceptabilityJudgment] section of the [documentation](https://github.com/addrummond/ibex/blob/master/docs/manual.md) 
+More details in the .bl[AcceptabilityJudgment] section of the [documentation](https://github.com/addrummond/ibex/blob/master/docs/manual.md).
+
+
+---
+
+# A minimal experiment
+
+The specifications in `defaults` set the design of the trials:
+
+```{eval=F}
+var defaults = [
+    "AcceptabilityJudgment", {
+       as: ["1", "2", "3", "4", "5", "6", "7"],           
+       presentAsScale: true,                             
+       instructions: "Use number keys or click boxes to answer.",    
+       leftComment: "(Bad)",
+       rightComment: "(Good)"
+    }]
+```
+
+--
+
+```{r, echo=F, out.width = '550px', out.extra="style='border:1px solid black; margin:auto; display:block;'"}
+knitr::include_graphics("img/minimal.png")
+```
+
+
 ---
 
 # Settings (Miscellaneous)
@@ -1382,31 +1408,9 @@ You can learn more about these various elements in the .bl[Miscellaneous options
 
 # A minimal experiment
 
-We now have a [minimally working experiment](/ibexexps/skku_ibex/workshop_minimal/experiment.html)!
+We now have a [minimally working experiment](https://spellout.net/ibexexps/skku_ibex/workshop_minimal/experiment.html)!
 
 <embed style='border: 1px solid black' type="text/html" src="ibex_files/minimal_exp.js"  width="800" height="400">
-
----
-
-# A minimal experiment
-
-Note how the our settings in `var defaults` are reflected in the trials:
-
-```{r, echo=F, out.width = '550px', out.extra="style='border:1px solid black; margin:auto; display:block;'"}
-knitr::include_graphics("img/minimal.png")
-```
-
-```{eval=F}
-var defaults = [
-    "AcceptabilityJudgment", {
-       as: ["1", "2", "3", "4", "5", "6", "7"],           
-       presentAsScale: true,                             
-       instructions: "Use number keys or click boxes to answer.",    
-       leftComment: "(Bad)",
-       rightComment: "(Good)"
-    }]
-
-```
 
 ---
 
@@ -1590,7 +1594,38 @@ var shuffleSequence = seq(
 
 # Putting everything together
 
-Here's a [complete experiment](/ibexexps/skku_ibex/workshop_acceptabilityJudgment/experiment.html) with .bl[Message] controllers added.
+Here's a [complete experiment](https://spellout.net/ibexexps/skku_ibex/workshop_acceptabilityJudgment/experiment.html) with several .bl[Message] controllers added.
 
 <embed style='border: 1px solid black' type="text/html" src="ibex_files/full_exp.js"  width="800" height="420">
+
+
+---
+
+# Making a different experiment
+
+Suppose that we find the acceptability judgments to be inappropriate for our answering our research question.
+
+--
+
+We want a _finer-grained measure_ of recovery difficulty, so we'd like to change the experiment to **self-paced reading** and look at reading time differences.
+
+--
+
+Given our existing template, we take the following steps:
+
+--
+
+1. Go to the [documentation](https://github.com/addrummond/ibex/blob/master/docs/manual.md) and find a Controller for self-paced reading.
+
+--
+
+2. Specify the design of that controller in the `defaults` variable
+
+--
+
+3. Make changes to the .bl[Messages] items (directions, feedback on practice trials, etc.)
+
+---
+
+# 
 

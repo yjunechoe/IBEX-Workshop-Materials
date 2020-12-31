@@ -8,7 +8,7 @@
     <link href="libs/tile-view/tile-view.css" rel="stylesheet" />
     <script src="libs/tile-view/tile-view.js"></script>
     <link href="libs/tachyons/tachyons.min.css" rel="stylesheet" />
-    <script type="application/json" id="xaringanExtra-editable-docid">{"id":"f8e3b2a222f046c18fe517c59499cbae","expires":14}</script>
+    <script type="application/json" id="xaringanExtra-editable-docid">{"id":"f619b726a9a54e90a655b161b07f0aca","expires":14}</script>
     <script src="libs/himalaya/himalaya.js"></script>
     <script src="libs/js-cookie/js.cookie.js"></script>
     <link href="libs/editable/editable.css" rel="stylesheet" />
@@ -1646,6 +1646,36 @@ Given our existing template, we take the following steps:
 
 4. Make changes to the text of the ".bl[Messages]" items (e.g., directions).
 
+---
+
+# "DashedSentence" Controller
+
+The .bl["DashedSentence"] Controller creates self-paced reading trials.
+
+We first re-write `defaults` to specify appropriate settings for .bl["DashedSentence"].
+
+
+```r
+var defaults = [
+    "DashedSentence", {
+       mode: "self-paced reading",
+       display: "dashed"
+    }]
+```
+
+Then, we replace .bl["acceptabilityJudgment"] with .bl["DashedSentence"] in `items`.
+
+
+```r
+var items = [
+  ...
+  [["gp.trans",1], "DashedSentence", {s: "While Anna trained the kitten paid attention."}],
+  [["gp.intrans",1], "DashedSentence", {s: "While Anna dressed the kitten paid attention."}],
+  [["gp.trans",2], "DashedSentence", {s: "Since Dave improved the department was satisfied."}],
+  [["gp.intrans",2], "DashedSentence", {s: "Since Dave worried the counselor devised a plan."}],
+  ...
+]
+```
 
     </textarea>
 <style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>

@@ -1664,4 +1664,32 @@ Given our existing template, we take the following steps:
 
 4. Make changes to the text of the ".bl[Messages]" items (e.g., directions).
 
+---
+
+# "DashedSentence" Controller
+
+The .bl["DashedSentence"] Controller creates self-paced reading trials.
+
+We first re-write `defaults` to specify appropriate settings for .bl["DashedSentence"].
+
+```{r, eval=F}
+var defaults = [
+    "DashedSentence", {
+       mode: "self-paced reading",
+       display: "dashed"
+    }]
+```
+
+Then, we replace .bl["acceptabilityJudgment"] with .bl["DashedSentence"] in `items`.
+
+```{r, eval=F}
+var items = [
+  ...
+  [["gp.trans",1], "DashedSentence", {s: "While Anna trained the kitten paid attention."}],
+  [["gp.intrans",1], "DashedSentence", {s: "While Anna dressed the kitten paid attention."}],
+  [["gp.trans",2], "DashedSentence", {s: "Since Dave improved the department was satisfied."}],
+  [["gp.intrans",2], "DashedSentence", {s: "Since Dave worried the counselor devised a plan."}],
+  ...
+]
+```
 

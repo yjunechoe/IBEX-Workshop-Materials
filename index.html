@@ -6,7 +6,7 @@
     <meta name="date" content="2021-01-22" />
     <script src="libs/header-attrs/header-attrs.js"></script>
     <link href="libs/tachyons/tachyons.min.css" rel="stylesheet" />
-    <script type="application/json" id="xaringanExtra-editable-docid">{"id":"x95f471341cf41c08a048208ff97a3af","expires":14}</script>
+    <script type="application/json" id="xaringanExtra-editable-docid">{"id":"xa76944f7e4748ca87e426a7c20803e7","expires":14}</script>
     <script src="libs/himalaya/himalaya.js"></script>
     <script src="libs/js-cookie/js.cookie.js"></script>
     <link href="libs/editable/editable.css" rel="stylesheet" />
@@ -45,6 +45,7 @@ a {
 .showme:hover + .hide {
   display: block;
 }
+
 .hide {
   display: none;
 }
@@ -1363,7 +1364,7 @@ var showProgressBar = false
 
 --
 
-You can learn more about these various elements in .bl[Miscellaneous options] section of the [documentation](https://github.com/addrummond/ibex/blob/master/docs/manual.md).
+You can learn more about these various elements in the .bl[Miscellaneous options] section of the [documentation](https://github.com/addrummond/ibex/blob/master/docs/manual.md).
 
 ---
 
@@ -1372,6 +1373,26 @@ You can learn more about these various elements in .bl[Miscellaneous options] se
 We have a [minimally working experiment](/ibexexps/skku_ibex/workshop_minimal/experiment.html)!
 
 &lt;embed style='border: 1px solid black' type="text/html" src="ibex_files/minimal_exp.js"  width="800" height="400"&gt;
+
+---
+
+# A minimal experiment
+
+Note how the our settings in `var defaults` are reflected in the trials:
+
+&lt;img src="img/minimal.png" width="550px" style='border:1px solid black; margin:auto; display:block;' /&gt;
+
+```{eval=F}
+var defaults = [
+    "AcceptabilityJudgment", {
+       as: ["1", "2", "3", "4", "5", "6", "7"],           
+       presentAsScale: true,                             
+       instructions: "Use number keys or click boxes to answer.",    
+       leftComment: "(Bad)",
+       rightComment: "(Good)"
+    }]
+
+```
 
 ---
 

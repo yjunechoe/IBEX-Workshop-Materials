@@ -49,6 +49,7 @@ a {
 .showme:hover + .hide {
   display: block;
 }
+
 .hide {
   display: none;
 }
@@ -1369,7 +1370,7 @@ var showProgressBar = false
 
 --
 
-You can learn more about these various elements in .bl[Miscellaneous options] section of the [documentation](https://github.com/addrummond/ibex/blob/master/docs/manual.md).
+You can learn more about these various elements in the .bl[Miscellaneous options] section of the [documentation](https://github.com/addrummond/ibex/blob/master/docs/manual.md).
 
 ---
 
@@ -1378,6 +1379,28 @@ You can learn more about these various elements in .bl[Miscellaneous options] se
 We have a [minimally working experiment](/ibexexps/skku_ibex/workshop_minimal/experiment.html)!
 
 <embed style='border: 1px solid black' type="text/html" src="ibex_files/minimal_exp.js"  width="800" height="400">
+
+---
+
+# A minimal experiment
+
+Note how the our settings in `var defaults` are reflected in the trials:
+
+```{r, echo=F, out.width = '550px', out.extra="style='border:1px solid black; margin:auto; display:block;'"}
+knitr::include_graphics("img/minimal.png")
+```
+
+```{eval=F}
+var defaults = [
+    "AcceptabilityJudgment", {
+       as: ["1", "2", "3", "4", "5", "6", "7"],           
+       presentAsScale: true,                             
+       instructions: "Use number keys or click boxes to answer.",    
+       leftComment: "(Bad)",
+       rightComment: "(Good)"
+    }]
+
+```
 
 ---
 

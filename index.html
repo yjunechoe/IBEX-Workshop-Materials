@@ -6,7 +6,7 @@
     <meta name="date" content="2021-01-22" />
     <script src="libs/header-attrs/header-attrs.js"></script>
     <link href="libs/tachyons/tachyons.min.css" rel="stylesheet" />
-    <script type="application/json" id="xaringanExtra-editable-docid">{"id":"b12e5d110ace4c78b78a96eba3305af9","expires":14}</script>
+    <script type="application/json" id="xaringanExtra-editable-docid">{"id":"x95f471341cf41c08a048208ff97a3af","expires":14}</script>
     <script src="libs/himalaya/himalaya.js"></script>
     <script src="libs/js-cookie/js.cookie.js"></script>
     <link href="libs/editable/editable.css" rel="stylesheet" />
@@ -1315,13 +1315,28 @@ Consist of miscellaneous options that we can put at the top of the script.
 
 At the very least, we want to do two things:
 
+1. Generate unique **participant IDs**
+
+2. Specify the parameters for the **method design**
+
+
+---
+
+# Settings (Basic)
+
+Consist of miscellaneous options that we can put at the top of the script.
+
+At the very least, we want to do two things:
+
 1. Generate unique **participant IDs** (`var randomCode`)
 
-2. Specify the **method design** (in `var defaults`)
+2. Specify the parameters for the **method design** (in `var defaults`)
 
-&lt;embed style='border: 1px solid black' type="text/html" src="snippets/settings.js"  width="800" height="250"&gt;
+&lt;embed style='border: 1px solid black' type="text/html" src="snippets/settings.js"  width="800" height="245"&gt;
 
+--
 
+More details in the .bl[AcceptabilityJudgment] section of the [documentation](https://github.com/addrummond/ibex/blob/master/docs/manual.md) 
 ---
 
 # Settings (Miscellaneous)
@@ -1348,7 +1363,7 @@ var showProgressBar = false
 
 --
 
-You can learn more about these various elements in [the documentation](https://github.com/addrummond/ibex/blob/master/docs/manual.md#miscellaneous--options).
+You can learn more about these various elements in .bl[Miscellaneous options] section of the [documentation](https://github.com/addrummond/ibex/blob/master/docs/manual.md).
 
 ---
 
@@ -1366,7 +1381,7 @@ We have a [minimally working experiment](/ibexexps/skku_ibex/workshop_minimal/ex
 
 --
 
-- &lt;p&gt;We use a special syntax to define trials&lt;/p&gt;
+- &lt;p&gt;We use a special syntax to create stimuli&lt;/p&gt;
 
 --
 
@@ -1383,6 +1398,16 @@ We have a [minimally working experiment](/ibexexps/skku_ibex/workshop_minimal/ex
 --
 
 .bl[A few more things to know:]
+
+--
+
+- How can we add plain text?
+
+    - Introduction page, consent form, feedback on practice trials, etc.
+    
+- How can we extend this workflow for other experimental designs?
+
+    - Self-paced reading, comprehension tasks, etc.
     </textarea>
 <style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
 <script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>

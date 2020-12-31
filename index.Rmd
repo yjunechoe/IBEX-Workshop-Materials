@@ -30,9 +30,15 @@ style_duo_accent(
   secondary_color = "#990000",
   inverse_header_color = "#FFFFFF"
 )
+
+xaringanExtra::use_tile_view()
 xaringanExtra::use_tachyons()
 xaringanExtra::use_editable()
 xaringanExtra::use_panelset()
+xaringanExtra::use_extra_styles(
+  hover_code_line = TRUE,         
+  mute_unhighlighted_code = FALSE  
+)
 ```
 
 
@@ -1376,7 +1382,7 @@ You can learn more about these various elements in the .bl[Miscellaneous options
 
 # A minimal experiment
 
-We have a [minimally working experiment](/ibexexps/skku_ibex/workshop_minimal/experiment.html)!
+We now have a [minimally working experiment](/ibexexps/skku_ibex/workshop_minimal/experiment.html)!
 
 <embed style='border: 1px solid black' type="text/html" src="ibex_files/minimal_exp.js"  width="800" height="400">
 
@@ -1430,13 +1436,13 @@ var defaults = [
 
 --
 
-- How can we add plain text?
+- How can we add _plain text_?
 
     - Introduction page, consent form, feedback on practice trials, etc.
     
 --
     
-- How can we extend this workflow for other experimental designs?
+- How can we extend this workflow for _other experimental designs_?
 
     - Self-paced reading, comprehension tasks, etc.
 
@@ -1458,7 +1464,7 @@ A list of 3 elements, similar to the "AcceptabilityJudgement" items:
 
 --
 
-- Inside of the curly braces .bl[{}] we can add text in the .bl[html] parameter:
+- Inside of the curly braces .bl[{}] we can add text for the .bl[html] parameter:
 
 ```{r, eval=FALSE}
 ["intro", "Message", {html: ["p", "Welcome to the experiment!"]}]
@@ -1469,8 +1475,6 @@ A list of 3 elements, similar to the "AcceptabilityJudgement" items:
 Notes on .bl[html]:
 
 The code `["p", "<your text here>"]` prints a single paragraph of text.
-
---
 
 The "p" is called a .bl[tags] and there are [many others](https://www.w3schools.com/TAGs/), but usually messages don't get more complicated than simple paragraphs.
 
@@ -1561,7 +1565,7 @@ You might want to insert a page that separates the trials:
 
 ```{r, eval = FALSE}
 ["sep", "Message", {
-  html: ["p", "Press any key to continue."],
+  html: ["em", "Press any key to continue."],
   transfer: "keypress"
 }]
 ```
@@ -1575,7 +1579,7 @@ You can do so using `sepWith()` in `shuffleSequence`:
 ```{r, eval=F}
 var shuffleSequence = seq(
   "practice",
-  seqWith("sep", rshuffle(startsWith("gp"), startsWith("filler"))) #<<
+  sepWith("sep", rshuffle(startsWith("gp"), startsWith("filler"))) #<<
 )
 ```
 
@@ -1586,4 +1590,7 @@ var shuffleSequence = seq(
 
 # Putting everything together
 
+Here's a [complete experiment](/ibexexps/skku_ibex/workshop_acceptabilityJudgment/experiment.html) with .bl[Message] controllers added.
+
+<embed style='border: 1px solid black' type="text/html" src="ibex_files/full_exp.js"  width="800" height="420">
 

@@ -5,14 +5,17 @@
     <meta charset="utf-8" />
     <meta name="date" content="2021-01-22" />
     <script src="libs/header-attrs/header-attrs.js"></script>
+    <link href="libs/tile-view/tile-view.css" rel="stylesheet" />
+    <script src="libs/tile-view/tile-view.js"></script>
     <link href="libs/tachyons/tachyons.min.css" rel="stylesheet" />
-    <script type="application/json" id="xaringanExtra-editable-docid">{"id":"beb2af4a5bd04b27b967ece847b22e71","expires":14}</script>
+    <script type="application/json" id="xaringanExtra-editable-docid">{"id":"b9c6a109a05e4435acb490250bcfc185","expires":14}</script>
     <script src="libs/himalaya/himalaya.js"></script>
     <script src="libs/js-cookie/js.cookie.js"></script>
     <link href="libs/editable/editable.css" rel="stylesheet" />
     <script src="libs/editable/editable.js"></script>
     <link href="libs/panelset/panelset.css" rel="stylesheet" />
     <script src="libs/panelset/panelset.js"></script>
+    <link href="libs/xaringanExtra-extra-styles/xaringanExtra-extra-styles.css" rel="stylesheet" />
     <link rel="stylesheet" href="xaringan-themer.css" type="text/css" />
   </head>
   <body>
@@ -1370,7 +1373,7 @@ You can learn more about these various elements in the .bl[Miscellaneous options
 
 # A minimal experiment
 
-We have a [minimally working experiment](/ibexexps/skku_ibex/workshop_minimal/experiment.html)!
+We now have a [minimally working experiment](/ibexexps/skku_ibex/workshop_minimal/experiment.html)!
 
 &lt;embed style='border: 1px solid black' type="text/html" src="ibex_files/minimal_exp.js"  width="800" height="400"&gt;
 
@@ -1422,13 +1425,13 @@ var defaults = [
 
 --
 
-- How can we add plain text?
+- How can we add _plain text_?
 
     - Introduction page, consent form, feedback on practice trials, etc.
     
 --
     
-- How can we extend this workflow for other experimental designs?
+- How can we extend this workflow for _other experimental designs_?
 
     - Self-paced reading, comprehension tasks, etc.
 
@@ -1450,7 +1453,7 @@ A list of 3 elements, similar to the "AcceptabilityJudgement" items:
 
 --
 
-- Inside of the curly braces .bl[{}] we can add text in the .bl[html] parameter:
+- Inside of the curly braces .bl[{}] we can add text for the .bl[html] parameter:
 
 
 ```r
@@ -1462,8 +1465,6 @@ A list of 3 elements, similar to the "AcceptabilityJudgement" items:
 Notes on .bl[html]:
 
 The code `["p", "&lt;your text here&gt;"]` prints a single paragraph of text.
-
---
 
 The "p" is called a .bl[tags] and there are [many others](https://www.w3schools.com/TAGs/), but usually messages don't get more complicated than simple paragraphs.
 
@@ -1551,7 +1552,7 @@ You might want to insert a page that separates the trials:
 
 ```r
 ["sep", "Message", {
-  html: ["p", "Press any key to continue."],
+  html: ["em", "Press any key to continue."],
   transfer: "keypress"
 }]
 ```
@@ -1564,7 +1565,7 @@ You can do so using `sepWith()` in `shuffleSequence`:
 ```r
 var shuffleSequence = seq(
   "practice",
-* seqWith("sep", rshuffle(startsWith("gp"), startsWith("filler")))
+* sepWith("sep", rshuffle(startsWith("gp"), startsWith("filler")))
 )
 ```
 
@@ -1575,6 +1576,9 @@ var shuffleSequence = seq(
 
 # Putting everything together
 
+Here's a [complete experiment](/ibexexps/skku_ibex/workshop_acceptabilityJudgment/experiment.html) with .bl[Message] controllers added.
+
+&lt;embed style='border: 1px solid black' type="text/html" src="ibex_files/full_exp.js"  width="800" height="420"&gt;
 
     </textarea>
 <style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>

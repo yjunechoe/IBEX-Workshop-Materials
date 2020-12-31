@@ -889,10 +889,11 @@ Good scripting habits:
 
 --
 
-.center[.bl[For both types of trials, only minor tweaks are needed!]]
+.center[**Both types of trials are invariant across conditions**]
 
-The _first element of the big bracket_ can just be the _name of the stimuli_, since we **don't need to counterbalance** practice and filler trials.
+This means that the _first element_ of the big bracket can just be the _name of the stimuli_.
 
+--
 
 .panelset[
 .panel[.panel-name[Practice]
@@ -946,7 +947,7 @@ Catch Filler #1: "Please select 4 for this sentence."
 
 ---
 
-<h1 style='margin-bottom:20px'>Putting together all stimuli</h1>
+<h1 style='margin-bottom:20px'>Putting together the Body</h1>
 
 <embed style='border: 1px solid black' type="text/html" src="snippets/all_trials.js"  width="800" height="420">
 
@@ -957,7 +958,7 @@ Catch Filler #1: "Please select 4 for this sentence."
 
 ---
 
-# Defining a Sequence
+# Defining the Sequence
 
 .pull-left[
 
@@ -984,7 +985,7 @@ Catch Filler #1: "Please select 4 for this sentence."
 
 ---
 
-# Defining a Sequence
+# Defining the Sequence
 
 .pull-left[
 
@@ -1013,7 +1014,7 @@ seq(
 
 ---
 
-# Defining a Sequence
+# Defining the Sequence
 
 .pull-left[
 
@@ -1042,7 +1043,7 @@ var shuffleSequence = seq(
 
 ---
 
-# Defining a Sequence
+# Defining the Sequence
 
 .pull-left[
 
@@ -1073,7 +1074,7 @@ The `shuffleSequence` variable handles the _order of presentation_ of the .bl[ex
 
 ---
 
-# Defining a Sequence
+# Defining the Sequence
 
 .pull-left[
 
@@ -1104,7 +1105,7 @@ var shuffleSequence = seq(
 
 ---
 
-# Defining a Sequence
+# Defining the Sequence
 
 .pull-left[
 
@@ -1138,7 +1139,7 @@ var shuffleSequence = seq(
 
 ---
 
-# Defining a Sequence
+# Defining the Sequence
 
 .pull-left[
 
@@ -1442,7 +1443,7 @@ We now have a [minimally working experiment](https://spellout.net/ibexexps/skku_
 
 - How can we add _plain text_?
 
-    - Introduction page, consent form, feedback on practice trials, etc.
+    - Introduction page, consent form, directions, etc.
     
 --
     
@@ -1454,7 +1455,11 @@ We now have a [minimally working experiment](https://spellout.net/ibexexps/skku_
 
 # The "Message" controller
 
-A list of 3 elements, similar to the "AcceptabilityJudgement" items:
+The **"Message"** controller shows text on a new page.
+
+--
+
+It is a list of 3 elements, similar to the "AcceptabilityJudgement" items:
 
 .center[.bl[["_Trial name_", "Message", {html: _text_}]]]
 
@@ -1468,7 +1473,7 @@ A list of 3 elements, similar to the "AcceptabilityJudgement" items:
 
 --
 
-- Inside of the curly braces .bl[{}] we can add text for the .bl[html] parameter:
+- Inside of the curly braces .bl[{}] we can add text in the .bl[html] parameter:
 
 ```{r, eval=FALSE}
 ["intro", "Message", {html: ["p", "Welcome to the experiment!"]}]
@@ -1631,11 +1636,11 @@ knitr::include_graphics("img/exp_url.png")
 
 # Making a different experiment
 
-Suppose that after a pilot experiment, we find acceptability judgments to be inappropriate for answering our research question.
+Suppose that after a _pilot experiment_, we find acceptability judgments to be inappropriate for answering our research question.
 
 --
 
-We want a _finer-grained measure_ of recovery difficulty, so we'd like to change the experiment to **self-paced reading** and look at reading time differences.
+We want a _finer-grained measure_ of recovery difficulty, so we'd like to change the experiment to **self-paced reading** and look at differences in _reading time_.
 
 &nbsp;
 
@@ -1657,5 +1662,6 @@ Given our existing template, we take the following steps:
 
 --
 
-4. Make changes to the text of the ".bl[Messages]" items (directions, feedback on practice, etc.).
+4. Make changes to the text of the ".bl[Messages]" items (e.g., directions).
+
 

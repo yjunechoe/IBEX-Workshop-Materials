@@ -8,7 +8,7 @@
     <link href="libs/tile-view/tile-view.css" rel="stylesheet" />
     <script src="libs/tile-view/tile-view.js"></script>
     <link href="libs/tachyons/tachyons.min.css" rel="stylesheet" />
-    <script type="application/json" id="xaringanExtra-editable-docid">{"id":"c5c6809c1e6b4964ac1f6c7260c11116","expires":14}</script>
+    <script type="application/json" id="xaringanExtra-editable-docid">{"id":"f8e3b2a222f046c18fe517c59499cbae","expires":14}</script>
     <script src="libs/himalaya/himalaya.js"></script>
     <script src="libs/js-cookie/js.cookie.js"></script>
     <link href="libs/editable/editable.css" rel="stylesheet" />
@@ -866,10 +866,11 @@ Good scripting habits:
 
 --
 
-.center[.bl[For both types of trials, only minor tweaks are needed!]]
+.center[**Both types of trials are invariant across conditions**]
 
-The _first element of the big bracket_ can just be the _name of the stimuli_, since we **don't need to counterbalance** practice and filler trials.
+This means that the _first element_ of the big bracket can just be the _name of the stimuli_.
 
+--
 
 .panelset[
 .panel[.panel-name[Practice]
@@ -927,7 +928,7 @@ Catch Filler #1: "Please select 4 for this sentence."
 
 ---
 
-&lt;h1 style='margin-bottom:20px'&gt;Putting together all stimuli&lt;/h1&gt;
+&lt;h1 style='margin-bottom:20px'&gt;Putting together the Body&lt;/h1&gt;
 
 &lt;embed style='border: 1px solid black' type="text/html" src="snippets/all_trials.js"  width="800" height="420"&gt;
 
@@ -938,7 +939,7 @@ Catch Filler #1: "Please select 4 for this sentence."
 
 ---
 
-# Defining a Sequence
+# Defining the Sequence
 
 .pull-left[
 
@@ -965,7 +966,7 @@ Catch Filler #1: "Please select 4 for this sentence."
 
 ---
 
-# Defining a Sequence
+# Defining the Sequence
 
 .pull-left[
 
@@ -994,7 +995,7 @@ seq(
 
 ---
 
-# Defining a Sequence
+# Defining the Sequence
 
 .pull-left[
 
@@ -1024,7 +1025,7 @@ var shuffleSequence = seq(
 
 ---
 
-# Defining a Sequence
+# Defining the Sequence
 
 .pull-left[
 
@@ -1056,7 +1057,7 @@ The `shuffleSequence` variable handles the _order of presentation_ of the .bl[ex
 
 ---
 
-# Defining a Sequence
+# Defining the Sequence
 
 .pull-left[
 
@@ -1088,7 +1089,7 @@ var shuffleSequence = seq(
 
 ---
 
-# Defining a Sequence
+# Defining the Sequence
 
 .pull-left[
 
@@ -1123,7 +1124,7 @@ var shuffleSequence = seq(
 
 ---
 
-# Defining a Sequence
+# Defining the Sequence
 
 .pull-left[
 
@@ -1431,7 +1432,7 @@ We now have a [minimally working experiment](https://spellout.net/ibexexps/skku_
 
 - How can we add _plain text_?
 
-    - Introduction page, consent form, feedback on practice trials, etc.
+    - Introduction page, consent form, directions, etc.
     
 --
     
@@ -1443,7 +1444,11 @@ We now have a [minimally working experiment](https://spellout.net/ibexexps/skku_
 
 # The "Message" controller
 
-A list of 3 elements, similar to the "AcceptabilityJudgement" items:
+The **"Message"** controller shows text on a new page.
+
+--
+
+It is a list of 3 elements, similar to the "AcceptabilityJudgement" items:
 
 .center[.bl[["_Trial name_", "Message", {html: _text_}]]]
 
@@ -1457,7 +1462,7 @@ A list of 3 elements, similar to the "AcceptabilityJudgement" items:
 
 --
 
-- Inside of the curly braces .bl[{}] we can add text for the .bl[html] parameter:
+- Inside of the curly braces .bl[{}] we can add text in the .bl[html] parameter:
 
 
 ```r
@@ -1613,11 +1618,11 @@ The URL shown in your browser is the link to your experiment!
 
 # Making a different experiment
 
-Suppose that after a pilot experiment, we find acceptability judgments to be inappropriate for answering our research question.
+Suppose that after a _pilot experiment_, we find acceptability judgments to be inappropriate for answering our research question.
 
 --
 
-We want a _finer-grained measure_ of recovery difficulty, so we'd like to change the experiment to **self-paced reading** and look at reading time differences.
+We want a _finer-grained measure_ of recovery difficulty, so we'd like to change the experiment to **self-paced reading** and look at differences in _reading time_.
 
 &amp;nbsp;
 
@@ -1639,7 +1644,8 @@ Given our existing template, we take the following steps:
 
 --
 
-4. Make changes to the text of the ".bl[Messages]" items (directions, feedback on practice, etc.).
+4. Make changes to the text of the ".bl[Messages]" items (e.g., directions).
+
 
     </textarea>
 <style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>

@@ -3,10 +3,10 @@
   <head>
     <title>Experimental Linguistics with IBEX</title>
     <meta charset="utf-8" />
-    <meta name="date" content="2020-12-31" />
+    <meta name="date" content="2021-01-22" />
     <script src="libs/header-attrs/header-attrs.js"></script>
     <link href="libs/tachyons/tachyons.min.css" rel="stylesheet" />
-    <script type="application/json" id="xaringanExtra-editable-docid">{"id":"e44a6c228c86404aabc2469e82121178","expires":14}</script>
+    <script type="application/json" id="xaringanExtra-editable-docid">{"id":"b9e6e6ed2a5c4e35bb199d7600830f15","expires":14}</script>
     <script src="libs/himalaya/himalaya.js"></script>
     <script src="libs/js-cookie/js.cookie.js"></script>
     <link href="libs/editable/editable.css" rel="stylesheet" />
@@ -22,7 +22,7 @@ class: center, middle, inverse, title-slide
 # Experimental Linguistics with IBEX
 ## A Walkthrough
 ### 
-### 2020-12-31
+### 2021-01-22
 
 ---
 
@@ -50,6 +50,15 @@ a {
 }
 .hide:hover {
   display: block;
+}
+
+.hljs-github .hljs-keyword {
+  color: black;
+  font-weight:normal;
+}
+
+.hljs-github .hljs-literal {
+  color: black;
 }
 
 .hljs-github .hljs-string {
@@ -551,7 +560,7 @@ Options for editing the file:
 
 For each trial in our acceptability judgment experiment, we write this code:
 
-.center[.bl[[["_Trial name_", _Set Number_], "_Experiment Type_", {s: "_Sentence_"}]]]
+.center[.bl[[["_Trial name_", _Set #_], "_Experiment Type_", {s: "_Sentence_"}]]]
 
 --
 
@@ -566,7 +575,7 @@ This is a list (array) of three elements (clearer with spacing):
 \[
 &lt;br&gt;
 `\(\quad\)`
-\["_Trial name_", _Set Number_ \],
+\["_Trial name_", _Set #_ \],
 &lt;br&gt;
 `\(\quad\)`
 "_Experiment Type_",
@@ -586,7 +595,7 @@ This is a list (array) of three elements (clearer with spacing):
 .bg-washed-green.b--dark-green.ba.bw2.br3.shadow-5.ph3[
 
 \[
-\["_Trial name_", _Set Number_ \],
+\["_Trial name_", _Set #_ \],
 &lt;br&gt;
 `\(\quad\)`
 "_Experiment Type_",
@@ -853,11 +862,10 @@ Good scripting habits:
 
 --
 
-.center[.bl[For both trials, only minor tweaks are needed!]]
+.center[.bl[For both types of trials, only minor tweaks are needed!]]
 
 The _first element of the big bracket_ can just be the _name of the stimuli_, since we **don't need to counterbalance** practice and filler trials.
 
---
 
 .panelset[
 .panel[.panel-name[Practice]
@@ -915,7 +923,7 @@ Catch Filler #1: "Please select 4 for this sentence."
 
 ---
 
-&lt;h1 style='margin-bottom:20px'&gt;Putting together the trials&lt;/h1&gt;
+&lt;h1 style='margin-bottom:20px'&gt;Putting together all stimuli&lt;/h1&gt;
 
 &lt;embed style='border: 1px solid black' type="text/html" src="snippets/all_trials.js"  width="800" height="420"&gt;
 
@@ -1007,6 +1015,38 @@ var shuffleSequence = seq(
  "filler-catch-01"
 )
 ```
+
+]
+
+---
+
+# Defining a Sequence
+
+.pull-left[
+
+&lt;embed style='border: 1px solid black' type="text/html" src="snippets/all_trials.js"  width="350" height="450"&gt;
+
+]
+
+.pull-right[
+
+.bl[Assign to `shuffleSequence`:]
+
+
+```r
+var shuffleSequence = seq(
+ "practice-1",
+ "gp.trans",
+ "gp.intrans",
+ "gp.trans",
+ "gp.intrans",
+ "filler-good-01",
+ "filler-bad-01",
+ "filler-catch-01"
+)
+```
+
+The `shuffleSequence` variable handles the _order of presentation_ of the .bl[experiment materials] that are stored inside the `items` variable.
 
 ]
 
@@ -1152,10 +1192,6 @@ var shuffleSequence = seq(
 
 The function `startsWith()` matches all names that starts with the given string.
 
---
-
-**Important** - Matching is sensitive to the ordering of components _as it is written_ inside `var items = []`
-
 ---
 
 # Sequence: randomization
@@ -1188,10 +1224,6 @@ var shuffleSequence = seq(
 
 By wrapping both the critical trials (_gp..._) and the filler trials (_filler..._) in `rshuffle()`, they are mixed together and presented in random order.
 
---
-
-**Important**: We want practice trials to always be presented first, so it's not placed inside `rshuffle()`
-
 ---
 
 # Sequence: counterbalancing
@@ -1206,7 +1238,7 @@ The .bl[set number] in our critical trials automatically handles **counterbalanc
 
 --
 
-We just need to provide a .bl[counter] inside `var items` that keeps track of this:
+We just need to add a .bl[counter] inside `items` to track group assignment:
 
 ```{eval=F}
 ["setcounter", "__SetCounter__", { }]
@@ -1218,19 +1250,82 @@ We just need to provide a .bl[counter] inside `var items` that keeps track of th
 
 ---
 
-# What we have so far
+# Body and Sequence together
 
-&lt;embed style='border: 1px solid black' type="text/html" src="snippets/body_sequence.js"  width="800" height="450"&gt;
+&lt;embed style='border: 1px solid black' type="text/html" src="snippets/body_sequence.js"  width="800" height="400"&gt;
+
+--
+
+Just need one more step: **Settings**
+
+---
+
+# Settings (Basic)
+
+Consist of miscellaneous options that we can put at the top of the script.
+
+At the very least, we want to do two things:
+
+1. Generate unique **participant IDs** (sent to results)
+
+2. Specify the **method design** (in `var defaults`)
+
+&lt;embed style='border: 1px solid black' type="text/html" src="snippets/settings.js"  width="800" height="250"&gt;
 
 
 ---
 
-# Settings
+# Settings (Miscellaneous)
 
-A very basic set of settings:
+You can also change other options, such as showing a message at the end:
 
-&lt;embed style='border: 1px solid black' type="text/html" src="snippets/settings.js"  width="800" height="330"&gt;
+```{eval=F}
+//// A message to show to participants at completion (useful for confirmation, raffle entry, etc.)
+var completionMessage = "Thank you for your participation. Your participation code is: " + randomCode
+```
 
+And whether to show a progress bar:
+
+```{eval=F}
+//// Show a progress bar at the top? (true/false)
+var showProgressBar = false
+```
+
+You can learn more about these various elements in [the documentation](https://github.com/addrummond/ibex/blob/master/docs/manual.md#miscellaneous--options)
+
+---
+
+# A minimal experiment
+
+We have a [minimally working experiment](/ibexexps/skku_ibex/workshop_minimal/experiment.html)!
+
+&lt;embed style='border: 1px solid black' type="text/html" src="ibex_files/minimal_exp.js"  width="800" height="400"&gt;
+
+---
+
+# Interim Summary
+
+.bl[What we've covered:]
+
+--
+
+- &lt;p&gt;We use a special syntax to define trials&lt;/p&gt;
+
+--
+
+- We store all the materials for our experiment inside `items`
+
+--
+
+- We specify the order of presentation inside `shuffleSequence`
+
+--
+
+- We set various options at the top of the script, such as defaults for the experiment _method_ and the assignment of _participant ID_
+
+--
+
+.bl[A few more things to know:]
     </textarea>
 <style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
 <script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>

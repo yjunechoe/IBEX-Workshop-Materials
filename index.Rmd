@@ -3,7 +3,7 @@ title: "Experimental Linguistics with IBEX"
 subtitle: "A Walkthrough"  
 author: 
   - ""
-date: '`r Sys.Date()`'
+date: '2021-01-22'
 output:
   xaringan::moon_reader:
     lib_dir: libs
@@ -54,6 +54,15 @@ a {
 }
 .hide:hover {
   display: block;
+}
+
+.hljs-github .hljs-keyword {
+  color: black;
+  font-weight:normal;
+}
+
+.hljs-github .hljs-literal {
+  color: black;
 }
 
 .hljs-github .hljs-string {
@@ -571,11 +580,11 @@ knitr::include_graphics("img/template_outline.png")
 
 ---
 
-# Trial Template
+# Trial Syntax
 
 For each trial in our acceptability judgment experiment, we write this code:
 
-.center[.bl[[["_Trial name_", _Set Number_], "_Experiment Type_", {s: "_Sentence_"}]]]
+.center[.bl[[["_Trial name_", _Set #_], "_Experiment Type_", {s: "_Sentence_"}]]]
 
 --
 
@@ -590,7 +599,7 @@ This is a list (array) of three elements (clearer with spacing):
 \[
 <br>
 $\quad$
-\["_Trial name_", _Set Number_ \],
+\["_Trial name_", _Set #_ \],
 <br>
 $\quad$
 "_Experiment Type_",
@@ -610,7 +619,7 @@ $\quad$
 .bg-washed-green.b--dark-green.ba.bw2.br3.shadow-5.ph3[
 
 \[
-\["_Trial name_", _Set Number_ \],
+\["_Trial name_", _Set #_ \],
 <br>
 $\quad$
 "_Experiment Type_",
@@ -873,11 +882,10 @@ Good scripting habits:
 
 --
 
-.center[.bl[For both trials, only minor tweaks are needed!]]
+.center[.bl[For both types of trials, only minor tweaks are needed!]]
 
 The _first element of the big bracket_ can just be the _name of the stimuli_, since we **don't need to counterbalance** practice and filler trials.
 
---
 
 .panelset[
 .panel[.panel-name[Practice]
@@ -931,7 +939,7 @@ Catch Filler #1: "Please select 4 for this sentence."
 
 ---
 
-<h1 style='margin-bottom:20px'>Putting together the trials</h1>
+<h1 style='margin-bottom:20px'>Putting together all stimuli</h1>
 
 <embed style='border: 1px solid black' type="text/html" src="snippets/all_trials.js"  width="800" height="420">
 
@@ -1037,6 +1045,37 @@ var shuffleSequence = seq(
 
 .pull-right[
 
+.bl[Assign to `shuffleSequence`:]
+
+```{r eval=FALSE}
+var shuffleSequence = seq(
+ "practice-1",
+ "gp.trans",
+ "gp.intrans",
+ "gp.trans",
+ "gp.intrans",
+ "filler-good-01",
+ "filler-bad-01",
+ "filler-catch-01"
+)
+```
+
+The `shuffleSequence` variable handles the _order of presentation_ of the .bl[experiment materials] that are stored inside the `items` variable.
+
+]
+
+---
+
+# Defining a Sequence
+
+.pull-left[
+
+<embed style='border: 1px solid black' type="text/html" src="snippets/all_trials.js"  width="350" height="450">
+
+]
+
+.pull-right[
+
 **Problems**
 
 ```{r eval=FALSE}
@@ -1121,7 +1160,7 @@ var shuffleSequence = seq(
 
 2. Presentation of some trials should be random
 
-3. How can we implement counterbalancing?
+3. How do we counterbalance critical trials?
 
 
 ]
@@ -1136,10 +1175,10 @@ var shuffleSequence = seq(
 ```{r eval=FALSE}
 var shuffleSequence = seq(
  "practice-1", #<<
- "gp.trans", 
- "gp.intrans",
- "gp.trans", 
- "gp.intrans", 
+ "gp.trans",  #<<
+ "gp.intrans", #<<
+ "gp.trans",  #<<
+ "gp.intrans",  #<<
  "filler-good-01", #<<
  "filler-bad-01", #<<
  "filler-catch-01" #<<
@@ -1162,15 +1201,11 @@ var shuffleSequence = seq(
 
 The function `startsWith()` matches all names that starts with the given string.
 
---
-
-**Important** - Matching is sensitive to the ordering of components _as it is written_ inside `var items = []`
-
 ---
 
 # Sequence: randomization
 
-<p style='margin-block-end:0;'>To present trials in random order, we use <code>rshuffle()</code></p>
+<p style='margin-block-end:0;'>To mix critical and filler trials in random order, we use <code>rshuffle()</code></p>
 
 .pull-left[
 ```{r eval=FALSE}
@@ -1187,7 +1222,10 @@ var shuffleSequence = seq(
 ```{r eval=FALSE}
 var shuffleSequence = seq(
  startsWith("practice"),
- rshuffle(startsWith("gp"), startsWith("filler")) #<<
+ rshuffle( #<<
+   startsWith("gp"), #<<
+   startsWith("filler") #<<
+ ) #<<
 )
 ```
 ]
@@ -1198,7 +1236,14 @@ By wrapping both the critical trials (_gp..._) and the filler trials (_filler...
 
 --
 
-**Important**: We want practice trials to always be presented first, so it's not placed inside `rshuffle()`
+We can also write this out more compactly:
+
+```{r eval=FALSE}
+var shuffleSequence = seq(
+ startsWith("practice"),
+ rshuffle(startsWith("gp"), startsWith("filler")) #<<
+)
+```
 
 ---
 
@@ -1216,7 +1261,7 @@ knitr::include_graphics("img/counterbalancing.png")
 
 --
 
-We just need to provide a .bl[counter] inside `var items` that keeps track of this:
+We just need to add a .bl[counter] inside `items` to track group assignment:
 
 ```{eval=F}
 ["setcounter", "__SetCounter__", { }]
@@ -1228,16 +1273,89 @@ We just need to provide a .bl[counter] inside `var items` that keeps track of th
 
 ---
 
-# What we have so far
+# Body and Sequence together
 
-<embed style='border: 1px solid black' type="text/html" src="snippets/body_sequence.js"  width="800" height="450">
+<embed style='border: 1px solid black' type="text/html" src="snippets/body_sequence.js"  width="800" height="400">
+
+--
+
+Just need one more step: **Settings**
+
+---
+
+# Settings (Basic)
+
+Consist of miscellaneous options that we can put at the top of the script.
+
+--
+
+At the very least, we want to do two things:
+
+1. Generate unique **participant IDs** (`var randomCode`)
+
+2. Specify the **method design** (in `var defaults`)
+
+<embed style='border: 1px solid black' type="text/html" src="snippets/settings.js"  width="800" height="250">
 
 
 ---
 
-# Settings
+# Settings (Miscellaneous)
 
-A very basic set of settings:
+You can also change other options, such as showing a message at the end:
 
-<embed style='border: 1px solid black' type="text/html" src="snippets/settings.js"  width="800" height="330">
+.center[`var completionMessage`]
 
+```{eval=F}
+//// A message to show to participants at completion (useful for confirmation, raffle entry, etc.)
+var completionMessage = "Thank you for your participation. Your participation code is: " + randomCode
+```
+
+--
+
+And whether to show a progress bar:
+
+.center[`var showProgressBar`]
+
+```{eval=F}
+//// Show a progress bar at the top? (true/false)
+var showProgressBar = false
+```
+
+--
+
+You can learn more about these various elements in [the documentation](https://github.com/addrummond/ibex/blob/master/docs/manual.md#miscellaneous--options).
+
+---
+
+# A minimal experiment
+
+We have a [minimally working experiment](/ibexexps/skku_ibex/workshop_minimal/experiment.html)!
+
+<embed style='border: 1px solid black' type="text/html" src="ibex_files/minimal_exp.js"  width="800" height="400">
+
+---
+
+# Interim Summary
+
+.bl[What we've covered:]
+
+--
+
+- <p>We use a special syntax to define trials</p>
+
+--
+
+- We store all the materials for our experiment inside `items`
+
+--
+
+- We specify the order of presentation inside `shuffleSequence`
+
+--
+
+- We set various options at the top of the script, such as defaults for the experiment _method_ and the assignment of _participant ID_
+
+--
+
+.bl[A few more things to know:]

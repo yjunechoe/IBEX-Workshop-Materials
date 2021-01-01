@@ -1,4 +1,4 @@
-var item = [
+var items = [
 
   //// Practice
   ["practice-1", "AcceptabilityJudgment", {s: "The car drove like a dream."}],

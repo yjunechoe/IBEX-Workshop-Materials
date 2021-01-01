@@ -1099,7 +1099,7 @@ var shuffleSequence = seq(
 )
 ```
 
-1. Lots of repetition ("-02", "-03", ...)
+1. A lot of typing ("-02", "-03", ...)
 
 ]
 
@@ -1130,9 +1130,9 @@ var shuffleSequence = seq(
 )
 ```
 
-1. Lots of repetition ("-02", "-03", ...)
+1. A lot of typing ("-02", "-03", ...)
 
-2. Presentation of some trials should be random
+2. Presentation order of some trials should be random
 
 ]
 
@@ -1164,9 +1164,9 @@ var shuffleSequence = seq(
 )
 ```
 
-1. Lots of repetition ("-02", "-03", ...)
+1. A lot of typing ("-02", "-03", ...)
 
-2. Presentation of some trials should be random
+2. Presentation order of some trials should be random
 
 3. How do we counterbalance critical trials?
 

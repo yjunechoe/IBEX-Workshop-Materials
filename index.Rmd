@@ -31,10 +31,7 @@ style_duo_accent(
   inverse_header_color = "#FFFFFF"
 )
 
-xaringanExtra::use_tile_view()
-xaringanExtra::use_tachyons()
-xaringanExtra::use_editable()
-xaringanExtra::use_panelset()
+xaringanExtra::use_xaringan_extra(c('tile_view', 'tachyons', 'editable', 'panelset'))
 xaringanExtra::use_extra_styles(
   hover_code_line = TRUE,         
   mute_unhighlighted_code = FALSE  
@@ -237,7 +234,7 @@ a {
 ]]
 
 .pull-right-wide[
-  Data Analysis
+  Analysis of the results
   - Understanding the output format
   - Importing into R
 ]
@@ -246,7 +243,7 @@ a {
 
 class: middle, center
 
-# Introduction to IBEX
+# 1. Introduction to IBEX
 
 ---
 
@@ -396,7 +393,7 @@ knitr::include_graphics("img/file_structure.png")
 
 class: middle, center
 
-# Scripting an experiment
+# 2. Scripting an experiment
 
 
 ---
@@ -544,7 +541,7 @@ knitr::include_graphics("img/template_outline.png")
 
 ---
 
-# But first, the experiment design
+# Our first experiment
 
 --
 
@@ -1355,7 +1352,7 @@ More details in the .bl[AcceptabilityJudgment] section of the [documentation](ht
 
 ---
 
-# A minimal experiment
+# `defaults` variable
 
 The specifications in `defaults` set the design of the trials:
 
@@ -1701,5 +1698,12 @@ var items = [
 After re-writing some of the ".bl[Messages]" items, we have our [new experiment](https://spellout.net/ibexexps/skku_ibex/workshop_DashedSentence/experiment.html)!
 
 <embed style='border: 1px solid black' type="text/html" src="ibex_files/SPR.js"  width="800" height="420">
+
+
+---
+
+class: middle, center
+
+# 3. Analysis of the results
 
 

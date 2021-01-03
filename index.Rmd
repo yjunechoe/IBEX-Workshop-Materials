@@ -1661,6 +1661,10 @@ Given our existing template, we take the following steps:
 
 4. Make changes to the text of the ".bl[Messages]" items (e.g., directions).
 
+--
+
+Let's go look at the documentation!
+
 ---
 
 # "DashedSentence" Controller
@@ -1695,7 +1699,7 @@ var items = [
 
 # Our second experiment
 
-After re-writing some of the ".bl[Messages]" items, we have our [new experiment](https://spellout.net/ibexexps/skku_ibex/workshop_DashedSentence/experiment.html)!
+Finally, after re-writing some of the ".bl[Message]" items, we have a [new experiment](https://spellout.net/ibexexps/skku_ibex/workshop_DashedSentence/experiment.html)!
 
 <embed style='border: 1px solid black' type="text/html" src="ibex_files/SPR.js"  width="800" height="420">
 
@@ -1705,5 +1709,151 @@ After re-writing some of the ".bl[Messages]" items, we have our [new experiment]
 class: middle, center
 
 # 3. Analysis of the results
+
+---
+
+# Where to find the data
+
+The data collected in the experiment can be found on the experiment page, under the .bl[results] section.
+
+```{r, echo=F, out.width = '600px', out.extra="style='border:1px solid black; margin:auto; display:block;'"}
+knitr::include_graphics("img/results_section.png")
+```
+
+The section comprises of two files, of which *results* is the better formatted one.
+
+---
+
+<h1 style='margin-bottom:0px'>The <em>results</em> file</h1>
+
+*Results* is a .bl[csv] file (.bl[c]omma .bl[s]eparated .bl[v]alues), meaning that each line contains a set of values that are separated by a comma.
+
+--
+
+```{r, echo=F, out.width = '550px', out.extra="style='border:1px solid black; margin:auto; display:block;'"}
+knitr::include_graphics("img/results_img.png")
+```
+
+--
+
+The lines that start with a pound symbol "#" are .b[comments] that include _metadata_.
+
+They tell us what **variables** each comma-separated values correspond to.
+
+---
+
+# The **variables**
+
+All IBEX experiments return these **7** variables:
+
+1. .blue[Time]
+
+2. .blue[Participant ID]
+
+3. .blue[Controller Name]
+
+4. .blue[Item number]
+
+5. .blue[Element number]
+
+6. .blue[Type]
+
+7. .blue[Group]
+
+---
+
+# The **variables**
+
+Generally, we only care about **4** of these:
+
+1. .deemph[Time]
+
+2. .blue[Participant ID]: A unique ID for each participant.
+
+3. .blue[Controller Name]: The controller that the values are from.
+
+4. .deemph[Item number]
+
+5. .deemph[Element number]
+
+6. .blue[Type]: The name of the trial.
+
+7. .blue[Group]: The item group number.
+
+--
+
+The last two variables uniquely identify each trial created in `items`:
+
+--
+
+.center[.bl[[[.blue["_Type_"], .blue[_Group_]], "_Trial Type_", {s: "_Sentence_"}]]]
+
+.center[.bl[[[.blue["gp.trans"], .blue[1]], "DashedSentence", {s: "..."}]]]
+
+---
+
+# The **variables**
+
+Depending on the experiment, IBEX returns other variables specific to the design.
+
+--
+
+For self-paced reading with .b["DashedSentence"], we get **5** more columns:
+
+8. .green[Word number] - The index of the word in the sentence.
+
+9. .green[Word] - The text of that word.
+
+10. .green[Reading time] - Reading time for that word.
+
+11. .green[Newline?] - 0 or 1 indicating whether there was a line break.
+
+12. .green[Sentence] - The text of the sentence.
+
+--
+
+These are also outlined in the [documentation](https://github.com/addrummond/ibex/blob/master/docs/manual.md) for .bl["DashedSentence"], so you know what variables to expect beforehand.
+
+--
+
+For the analysis of the results, we need the results to be imported as a **data frame** (where every value is a cell and each variable forms a column). 
+
+---
+
+# Importing - Excel
+
+Steps for importing the data into Excel:
+
+1. Copy the text of the _results_ file from IBEX
+
+2. Paste into the first column of an Excel spreadsheet
+
+3. Highlight that column and click .bl[Data] tab -> .bl[Filter]
+
+4. Click on the dropdown arrow that appears at the top cell
+
+5. Click .bl[Text Filters] -> .bl[Begins With...] and type in "#"
+
+6. Go to .bl[Home] tab -> .bl[Find & Select], check "Visible cells only", and click OK
+
+7. Right click on any part of the sheet and select .bl[Delete Row]
+
+8. Click the first column again and go to .bl[Data] tab -> .bl[Text to Columns]
+
+9. Check "Delimited", "Comma", then "General" for each prompt
+
+10. Add an empty row at the top and manually type in the column names from the comments of the original _results_ file
+
+---
+
+<h1 style='margin-bottom:0px'>Importing - Excel</h1>
+
+<video controls width="800" height="500">
+<source src="vid/excel_import.mp4" type="video/mp4">
+</video>
+
+---
+
+# Importing - R
 
 

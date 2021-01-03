@@ -1,11 +1,6 @@
 #' Reads in the `results` file from an IBEX experiment as data frame
-#'
 #' @param results_file The exact text of the `results` file as downloaded from IBEX
-#'
 #' @return A data frame if the controller writes a single line to the results file (e.g., "DashedSentence") OR a list of data frames if the controller writes more than one line to the results file (e.g., "AcceptabilityJudgment"). Check the \href{https://github.com/addrummond/ibex/blob/master/docs/manual.md}{IBEX documentation} for more details.
-#' @export
-#'
-#' @examples
 read_ibex <- function(results_file) {
   
   raw_lines <- readLines(results_file, warn = FALSE)
@@ -37,8 +32,8 @@ read_ibex <- function(results_file) {
     data_group
   })
   
-  if (length(results) == 1) {
-    results[[1]]
+  if (length(results) == 1L) {
+    results[[1L]]
   } else{
     results
   }

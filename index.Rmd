@@ -315,7 +315,7 @@ knitr::include_graphics("img/create_exp.png")
 
 ---
 
-# Navigating IBEX
+<h1 style='margin-bottom:0px'>Navigating Ibex</h1>
 
 <video controls width="800" height="500">
 <source src="vid/ibex_login.mp4" type="video/mp4">
@@ -1726,7 +1726,7 @@ The section comprises of two files, of which *results* is the better formatted o
 
 <h1 style='margin-bottom:0px'>The <em>results</em> file</h1>
 
-*Results* is a .bl[csv] file (.bl[c]omma .bl[s]eparated .bl[v]alues), meaning that each line contains a set of values that are separated by a comma.
+*results* is a .bl[csv] file (.bl[c]omma .bl[s]eparated .bl[v]alues), meaning that each line contains a set of values that are separated by a comma.
 
 --
 
@@ -1798,7 +1798,7 @@ Depending on the experiment, IBEX returns other variables specific to the design
 
 --
 
-For self-paced reading with .b["DashedSentence"], we get **5** more columns:
+For self-paced reading with .b["DashedSentence"], we get **5** more variables:
 
 8. .green[Word number] - The index of the word in the sentence.
 
@@ -1860,7 +1860,7 @@ Steps for importing into R:
 
 1. Download the text of the _results_ file (as ".txt")
 
-2. Open it with `read_ibex()` function from [here]()
+2. Open it with the `read_ibex()` function from [here](https://github.com/yjunechoe/IBEX-Workshop-Materials/blob/master/R%20codes/read_ibex.R)
 
 --
 

@@ -10,7 +10,7 @@
     <link href="libs/tachyons/tachyons.min.css" rel="stylesheet" />
     <link href="libs/panelset/panelset.css" rel="stylesheet" />
     <script src="libs/panelset/panelset.js"></script>
-    <script type="application/json" id="xaringanExtra-editable-docid">{"id":"d6e7b75c384041cf8aa53b89ec69b75d","expires":14}</script>
+    <script type="application/json" id="xaringanExtra-editable-docid">{"id":"aa0270cdf05f40c790d6cb075fe6e015","expires":14}</script>
     <script src="libs/himalaya/himalaya.js"></script>
     <script src="libs/js-cookie/js.cookie.js"></script>
     <link href="libs/editable/editable.css" rel="stylesheet" />
@@ -1799,7 +1799,7 @@ These are also outlined in the [documentation](https://github.com/addrummond/ibe
 
 --
 
-For the analysis of the results, we need the results to be imported as a **data frame** (where every value is a cell and each variable forms a column). 
+For an actual analysis of the results, we need the results to be imported somewhere as a **data frame** (where every value is a cell and each variable forms a column). 
 
 ---
 
@@ -1825,7 +1825,7 @@ Steps for importing the data into Excel:
 
 9. Check "Delimited", "Comma", then "General" for each prompt
 
-10. Add an empty row at the top and type in the column names from the comments of the original _results_ file
+10. Add an empty row at the top and manually type in the column names from the comments of the original _results_ file
 
 ---
 
@@ -1838,6 +1838,38 @@ Steps for importing the data into Excel:
 ---
 
 # Importing - R
+
+Steps for importing into R:
+
+1. Download the text of the _results_ file (as ".txt")
+
+2. Open it with `read_ibex()` function from [here]()
+
+--
+
+
+
+
+```r
+# Load the script containing the `read_ibex()` function
+source("R codes/read_ibex.R")
+# Read in the results file
+results &lt;- read_ibex("ibex_files/SPR_results.txt")
+# Sample a couple lines and exclude some columns
+results[sample(nrow(results), 3), -c(1, 2, 4, 5, 11)]
+```
+
+```
+##    Controller name          Type Group Word number    Word Reading time
+## 92  DashedSentence    gp.intrans     2           8   plan.          261
+## 75  DashedSentence      gp.trans     1           5  kitten          277
+## 95  DashedSentence filler-bad-01  NULL           3 sneezed          339
+##                              Sentence (or sentence MD5)
+## 92     Since Dave worried the counselor devised a plan.
+## 75        While Anna trained the kitten paid attention.
+## 95 When Tyler sneezed the driver%2C he passed a tissue.
+```
+
     </textarea>
 <style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
 <script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>

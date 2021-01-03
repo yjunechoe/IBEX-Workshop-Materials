@@ -1,4 +1,4 @@
-// Options and Other Variables //
+// Defaults and other settings //
 
 //// Generates random number assigned to participants (Participant ID)
 var randomCode = Math.random().toString(36).substr(2,9)

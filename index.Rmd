@@ -1873,7 +1873,21 @@ set.seed(20210122)
 source("R codes/read_ibex.R")
 # Read in the results file
 results <- read_ibex("ibex_files/SPR_results.txt")
+```
+
+```{r echo = FALSE}
 # Sample a couple lines and exclude some columns
 results[sample(nrow(results), 3), -c(1, 2, 4, 5, 11)]
 ```
 
+--
+
+<p style='padding-top:15px'>Preferred method because data can get more complicated.</p>
+
+---
+
+# Resources
+
+All materials from this presentation can be found [here](https://github.com/yjunechoe/IBEX-Workshop-Materials):
+
+- Slides, IBEX scripts, R codes, etc.

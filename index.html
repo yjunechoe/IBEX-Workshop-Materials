@@ -10,7 +10,7 @@
     <link href="libs/tachyons/tachyons.min.css" rel="stylesheet" />
     <link href="libs/panelset/panelset.css" rel="stylesheet" />
     <script src="libs/panelset/panelset.js"></script>
-    <script type="application/json" id="xaringanExtra-editable-docid">{"id":"a5962abe901e499d9384e1f797c3f667","expires":14}</script>
+    <script type="application/json" id="xaringanExtra-editable-docid">{"id":"bf806b042c224ca08adc226c60870308","expires":14}</script>
     <script src="libs/himalaya/himalaya.js"></script>
     <script src="libs/js-cookie/js.cookie.js"></script>
     <link href="libs/editable/editable.css" rel="stylesheet" />
@@ -1855,9 +1855,8 @@ Steps for importing into R:
 source("R codes/read_ibex.R")
 # Read in the results file
 results &lt;- read_ibex("ibex_files/SPR_results.txt")
-# Sample a couple lines and exclude some columns
-results[sample(nrow(results), 3), -c(1, 2, 4, 5, 11)]
 ```
+
 
 ```
 ##    Controller name          Type Group Word number    Word Reading time
@@ -1870,6 +1869,17 @@ results[sample(nrow(results), 3), -c(1, 2, 4, 5, 11)]
 ## 95 When Tyler sneezed the driver%2C he passed a tissue.
 ```
 
+--
+
+&lt;p style='padding-top:15px'&gt;Preferred method because data can get more complicated.&lt;/p&gt;
+
+---
+
+# Resources
+
+All materials from this presentation can be found [here](https://github.com/yjunechoe/IBEX-Workshop-Materials):
+
+- Slides, IBEX scripts, R codes, etc.
     </textarea>
 <style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
 <script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>

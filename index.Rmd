@@ -1943,10 +1943,10 @@ More resources from the community:
 
 - The official [google group](https://groups.google.com/g/ibexexperiments/c/-PTeVD39h9o) to ask questions. 
 
-.bl[Other platforms:]
+<p style = 'padding-top:25px'><strong style='color:black'>Other platforms</strong></p>
 
-- [PCIbex (Penn Controller for IBEX)](https://www.pcibex.net)
+- PCIbex (Penn Controller for IBEX) [Link](https://www.pcibex.net)
 
-- [PsychoPy](https://www.psychopy.org)
+- PsychoPy [Link](https://www.psychopy.org)
 
-- [_magpie (minimal architecture for the generation of portable interactive experiments)](https://magpie-ea.github.io/magpie-site)
+- _magpie (minimal architecture for the generation of portable interactive experiments) [Link](https://magpie-ea.github.io/magpie-site)

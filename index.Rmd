@@ -236,7 +236,7 @@ a {
 .pull-right-wide[
   Analysis of the results
   - Understanding the output format
-  - Importing into R
+  - Importing into Excel and R
 ]
 
 ---
@@ -257,10 +257,10 @@ class: middle, center
 
 --
 
-    - Host experiments with webpage links
+    - Host experiments on a webpage
 --
 
-    - Log user interactions
+    - Log user interactions with the experiment
 --
 
     - Store data on a secure server
@@ -565,22 +565,21 @@ knitr::include_graphics("img/template_outline.png")
 
 --
 
-.center[(transitive) - "While Anna .blue[_trained_] the kitten paid attention."]
+.center[(transitive-biased) - "While Anna .blue[_trained_] the kitten paid attention."]
 
 --
 
-.center[(intransitive) - "While Anna .green[_dressed_] the kitten paid attention."]
+.center[(intransitive-biased) - "While Anna .green[_dressed_] the kitten paid attention."]
 
 --
 
-**Prediction**: Lower .bl[acceptability ratings] in the transitive condition (.blue[_gp.trans_]) than in the intransitive condition (.green[_gp.intrans_]).
+**Prediction**: Lower .bl[acceptability ratings] in the transitive-biased condition (.blue[_gp.trans_]) than in the intransitive-biased condition (.green[_gp.intrans_]).
 
 --
 
-<br>
-
+<div style = 'padding-top: 20px'>
 .center[.bl[Note: this is a _within-participant_ design!]]
-
+</div>
 
 ---
 
@@ -593,8 +592,6 @@ For each trial in our acceptability judgment experiment, we write this code:
 --
 
 This is a list (array) of three elements (clearer with spacing):
-
---
 
 .pull-left[
 
@@ -1868,14 +1865,14 @@ Steps for importing into R:
 set.seed(20210122)
 ```
 
-```{r}
-# Load the script containing the `read_ibex()` function
+```{r, eval=F}
 source("R codes/read_ibex.R")
-# Read in the results file
 results <- read_ibex("ibex_files/SPR_results.txt")
 ```
 
-```{r echo = FALSE}
+```{r, echo = FALSE}
+source("R codes/read_ibex.R")
+results <- read_ibex("ibex_files/SPR_results.txt")
 # Sample a couple lines and exclude some columns
 results[sample(nrow(results), 3), -c(1, 2, 4, 5, 11)]
 ```

@@ -10,7 +10,7 @@
     <link href="libs/tachyons/tachyons.min.css" rel="stylesheet" />
     <link href="libs/panelset/panelset.css" rel="stylesheet" />
     <script src="libs/panelset/panelset.js"></script>
-    <script type="application/json" id="xaringanExtra-editable-docid">{"id":"bf806b042c224ca08adc226c60870308","expires":14}</script>
+    <script type="application/json" id="xaringanExtra-editable-docid">{"id":"x3afd66c433a433e98d54baa48e2c8d2","expires":14}</script>
     <script src="libs/himalaya/himalaya.js"></script>
     <script src="libs/js-cookie/js.cookie.js"></script>
     <link href="libs/editable/editable.css" rel="stylesheet" />
@@ -232,7 +232,7 @@ a {
 .pull-right-wide[
   Analysis of the results
   - Understanding the output format
-  - Importing into R
+  - Importing into Excel and R
 ]
 
 ---
@@ -253,10 +253,10 @@ class: middle, center
 
 --
 
-    - Host experiments with webpage links
+    - Host experiments on a webpage
 --
 
-    - Log user interactions
+    - Log user interactions with the experiment
 --
 
     - Store data on a secure server
@@ -541,22 +541,21 @@ Options for editing the file:
 
 --
 
-.center[(transitive) - "While Anna .blue[_trained_] the kitten paid attention."]
+.center[(transitive-biased) - "While Anna .blue[_trained_] the kitten paid attention."]
 
 --
 
-.center[(intransitive) - "While Anna .green[_dressed_] the kitten paid attention."]
+.center[(intransitive-biased) - "While Anna .green[_dressed_] the kitten paid attention."]
 
 --
 
-**Prediction**: Lower .bl[acceptability ratings] in the transitive condition (.blue[_gp.trans_]) than in the intransitive condition (.green[_gp.intrans_]).
+**Prediction**: Lower .bl[acceptability ratings] in the transitive-biased condition (.blue[_gp.trans_]) than in the intransitive-biased condition (.green[_gp.intrans_]).
 
 --
 
-&lt;br&gt;
-
+&lt;div style = 'padding-top: 20px'&gt;
 .center[.bl[Note: this is a _within-participant_ design!]]
-
+&lt;/div&gt;
 
 ---
 
@@ -569,8 +568,6 @@ For each trial in our acceptability judgment experiment, we write this code:
 --
 
 This is a list (array) of three elements (clearer with spacing):
-
---
 
 .pull-left[
 
@@ -1841,9 +1838,9 @@ Steps for importing the data into Excel:
 
 Steps for importing into R:
 
-1. Download the text of the _results_ file (as ".txt")
+1. Download the _results_ file from IBEX
 
-2. Open it with the `read_ibex()` function from [here](https://github.com/yjunechoe/IBEX-Workshop-Materials/blob/master/R%20codes/read_ibex.R)
+2. Open it with the `read_ibex()` function [using a script](https://github.com/yjunechoe/IBEX-Workshop-Materials/blob/master/R%20codes/read_ibex.R)
 
 --
 
@@ -1851,10 +1848,8 @@ Steps for importing into R:
 
 
 ```r
-# Load the script containing the `read_ibex()` function
-source("R codes/read_ibex.R")
-# Read in the results file
-results &lt;- read_ibex("ibex_files/SPR_results.txt")
+source("read_ibex.R")
+results &lt;- read_ibex("SPR_results.txt")
 ```
 
 
@@ -1877,9 +1872,65 @@ results &lt;- read_ibex("ibex_files/SPR_results.txt")
 
 # Resources
 
-All materials from this presentation can be found [here](https://github.com/yjunechoe/IBEX-Workshop-Materials):
+All materials from this presentation can be found on [github](https://github.com/yjunechoe/IBEX-Workshop-Materials).
 
-- Slides, IBEX scripts, R codes, etc.
+More resources from the community:
+
+- The official [IBEX documentation](https://github.com/addrummond/ibex/blob/master/docs/manual.md).
+
+- The official [google group](https://groups.google.com/g/ibexexperiments/c/-PTeVD39h9o) to ask questions. 
+
+--
+
+&lt;p style = 'padding-top:25px'&gt;&lt;strong&gt;UPDATE (01/01/2021)&lt;/strong&gt;&lt;/p&gt;
+
+There is a **new version of IBEX** at a different link: [https://ibex.spellout.net](https://ibex.spellout.net)
+
+&lt;img src="img/ibex_new.png" width="650px" style='border:1px solid black; margin:auto; display:block;' /&gt;
+
+---
+
+# Resources
+
+All materials from this presentation can be found on [github](https://github.com/yjunechoe/IBEX-Workshop-Materials).
+
+More resources from the community:
+
+- The official [IBEX documentation](https://github.com/addrummond/ibex/blob/master/docs/manual.md).
+
+- The official [google group](https://groups.google.com/g/ibexexperiments/c/-PTeVD39h9o) to ask questions. 
+
+&lt;p style = 'padding-top:25px'&gt;&lt;strong&gt;UPDATE (01/01/2021)&lt;/strong&gt;&lt;/p&gt;
+
+**New feature**: results can be downloaded directly as a spreadsheet.
+
+.pull-left[
+&lt;img src="img/new_feature_1.png" width="400px" style='border:1px solid black; margin:auto; display:block;' /&gt;
+]
+
+.pull-right[
+&lt;img src="img/new_feature_2.png" width="400px" style='border:1px solid black; margin:auto; display:block;' /&gt;
+]
+
+---
+
+# Resources
+
+All materials from this presentation can be found on [github](https://github.com/yjunechoe/IBEX-Workshop-Materials).
+
+More resources from the community:
+
+- The official [IBEX documentation](https://github.com/addrummond/ibex/blob/master/docs/manual.md).
+
+- The official [google group](https://groups.google.com/g/ibexexperiments/c/-PTeVD39h9o) to ask questions. 
+
+.bl[Other platforms:]
+
+- [PCIbex (Penn Controller for IBEX)](https://www.pcibex.net)
+
+- [PsychoPy](https://www.psychopy.org)
+
+- [_magpie (minimal architecture for the generation of portable interactive experiments)](https://magpie-ea.github.io/magpie-site)
     </textarea>
 <style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
 <script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>

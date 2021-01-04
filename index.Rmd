@@ -1855,9 +1855,9 @@ Steps for importing the data into Excel:
 
 Steps for importing into R:
 
-1. Download the text of the _results_ file (as ".txt")
+1. Download the _results_ file from IBEX
 
-2. Open it with the `read_ibex()` function from [here](https://github.com/yjunechoe/IBEX-Workshop-Materials/blob/master/R%20codes/read_ibex.R)
+2. Open it with the `read_ibex()` function [using a script](https://github.com/yjunechoe/IBEX-Workshop-Materials/blob/master/R%20codes/read_ibex.R)
 
 --
 
@@ -1866,8 +1866,8 @@ set.seed(20210122)
 ```
 
 ```{r, eval=F}
-source("R codes/read_ibex.R")
-results <- read_ibex("ibex_files/SPR_results.txt")
+source("read_ibex.R")
+results <- read_ibex("SPR_results.txt")
 ```
 
 ```{r, echo = FALSE}
@@ -1885,6 +1885,68 @@ results[sample(nrow(results), 3), -c(1, 2, 4, 5, 11)]
 
 # Resources
 
-All materials from this presentation can be found [here](https://github.com/yjunechoe/IBEX-Workshop-Materials):
+All materials from this presentation can be found on [github](https://github.com/yjunechoe/IBEX-Workshop-Materials).
 
-- Slides, IBEX scripts, R codes, etc.
+More resources from the community:
+
+- The official [IBEX documentation](https://github.com/addrummond/ibex/blob/master/docs/manual.md).
+
+- The official [google group](https://groups.google.com/g/ibexexperiments/c/-PTeVD39h9o) to ask questions. 
+
+--
+
+<p style = 'padding-top:25px'><strong>UPDATE (01/01/2021)</strong></p>
+
+There is a **new version of IBEX** at a different link: [https://ibex.spellout.net](https://ibex.spellout.net)
+
+```{r, echo=F, out.width = '650px', out.extra="style='border:1px solid black; margin:auto; display:block;'"}
+knitr::include_graphics("img/ibex_new.png")
+```
+
+---
+
+# Resources
+
+All materials from this presentation can be found on [github](https://github.com/yjunechoe/IBEX-Workshop-Materials).
+
+More resources from the community:
+
+- The official [IBEX documentation](https://github.com/addrummond/ibex/blob/master/docs/manual.md).
+
+- The official [google group](https://groups.google.com/g/ibexexperiments/c/-PTeVD39h9o) to ask questions. 
+
+<p style = 'padding-top:25px'><strong>UPDATE (01/01/2021)</strong></p>
+
+**New feature**: results can be downloaded directly as a spreadsheet.
+
+.pull-left[
+```{r, echo=F, out.width = '400px', out.extra="style='border:1px solid black; margin:auto; display:block;'"}
+knitr::include_graphics("img/new_feature_1.png")
+```
+]
+
+.pull-right[
+```{r, echo=F, out.width = '400px', out.extra="style='border:1px solid black; margin:auto; display:block;'"}
+knitr::include_graphics("img/new_feature_2.png")
+```
+]
+
+---
+
+# Resources
+
+All materials from this presentation can be found on [github](https://github.com/yjunechoe/IBEX-Workshop-Materials).
+
+More resources from the community:
+
+- The official [IBEX documentation](https://github.com/addrummond/ibex/blob/master/docs/manual.md).
+
+- The official [google group](https://groups.google.com/g/ibexexperiments/c/-PTeVD39h9o) to ask questions. 
+
+.bl[Other platforms:]
+
+- [PCIbex (Penn Controller for IBEX)](https://www.pcibex.net)
+
+- [PsychoPy](https://www.psychopy.org)
+
+- [_magpie (minimal architecture for the generation of portable interactive experiments)](https://magpie-ea.github.io/magpie-site)

@@ -10,7 +10,7 @@
     <link href="libs/tachyons/tachyons.min.css" rel="stylesheet" />
     <link href="libs/panelset/panelset.css" rel="stylesheet" />
     <script src="libs/panelset/panelset.js"></script>
-    <script type="application/json" id="xaringanExtra-editable-docid">{"id":"xd11cebb96e24713a5b87b9afae4ab63","expires":14}</script>
+    <script type="application/json" id="xaringanExtra-editable-docid">{"id":"x2516af7797445aea007d1324aeb2c88","expires":14}</script>
     <script src="libs/himalaya/himalaya.js"></script>
     <script src="libs/js-cookie/js.cookie.js"></script>
     <link href="libs/editable/editable.css" rel="stylesheet" />
@@ -401,11 +401,11 @@ The above script creates [this self-paced reading experiment](https://spellout.n
 
 The _example_data.js_ script works, but is not very friendly.
 
-We'll use **our own** - &lt;strong&gt;&lt;a href="ibex_files/full_exp.js"&gt;template.js&lt;/a&gt;&lt;/strong&gt; - to demonstrate how the script works.
+We'll use **our own** - &lt;strong&gt;&lt;a href="ibex_files/full_exp.js"&gt;template file&lt;/a&gt;&lt;/strong&gt; - to demonstrate how the script works.
 
 &lt;embed style='border: 1px solid black' type="text/html" src="ibex_files/full_exp.js"  width="800" height="300"&gt;
 
-The above script creates [this acceptability rating experiment](https://spellout.net/ibexexps/skku_ibex/workshop_example/experiment.html).
+The above script creates [this acceptability rating experiment](https://spellout.net/ibexexps/skku_ibex/workshop_acceptabilityJudgment/experiment.html).
 
 ---
 
@@ -1343,7 +1343,7 @@ More details in the .bl[AcceptabilityJudgment] section of the [documentation](ht
 
 ---
 
-# `defaults` variable
+# The `defaults` variable
 
 The specifications in `defaults` set the design of the trials:
 
@@ -1362,6 +1362,47 @@ var defaults = [
 
 &lt;img src="img/minimal.png" width="550px" style='border:1px solid black; margin:auto; display:block;' /&gt;
 
+
+---
+
+# Another `defaults` example
+
+Suppose you'd like to show participants _multiple sentences_ but have them only rate the acceptability of **one** of the sentences.
+
+.panelset[
+.panel[.panel-name[Code]
+
+
+```eval
+[["ConditionA", 1],
+ "AcceptabilityJudgment",
+ {s: ["div",
+*   ["p", "Speaker A: Who left this sandwich on the table?"]
+*   ["p", "Speaker B: Fred did."]
+ ]}]
+```
+
+
+
+```r
+var defaults = [
+    "AcceptabilityJudgment", {
+       ...                     
+*      instructions: "Rate how natural Speaker B's response sounds.",
+       ...
+    }]
+```
+
+**Note**: You can show multiple lines of text using .bl[html] tags like "p" and "div" - more on that later
+
+]
+
+.panel[.panel-name[Output]
+
+&lt;img src="img/defaults_change.png" width="600px" style='border:1px solid black; margin:auto; display:block;' /&gt;
+
+]
+]
 
 ---
 
@@ -1902,7 +1943,7 @@ More resources from the community:
 
 &lt;p style = 'padding-top:25px'&gt;&lt;strong&gt;UPDATE (01/01/2021)&lt;/strong&gt;&lt;/p&gt;
 
-**New feature**: results can be downloaded directly as a spreadsheet.
+**New feature**: results can be downloaded as a spreadsheet ([full list of changes](https://gist.github.com/addrummond/b345d3d4f23436838e52afbe880ebbd9)).
 
 .pull-left[
 &lt;img src="img/new_feature_1.png" width="400px" style='border:1px solid black; margin:auto; display:block;' /&gt;

@@ -415,11 +415,11 @@ The above script creates [this self-paced reading experiment](https://spellout.n
 
 The _example_data.js_ script works, but is not very friendly.
 
-We'll use **our own** - <strong><a href="ibex_files/full_exp.js">template.js</a></strong> - to demonstrate how the script works.
+We'll use **our own** - <strong><a href="ibex_files/full_exp.js">template file</a></strong> - to demonstrate how the script works.
 
 <embed style='border: 1px solid black' type="text/html" src="ibex_files/full_exp.js"  width="800" height="300">
 
-The above script creates [this acceptability rating experiment](https://spellout.net/ibexexps/skku_ibex/workshop_example/experiment.html).
+The above script creates [this acceptability rating experiment](https://spellout.net/ibexexps/skku_ibex/workshop_acceptabilityJudgment/experiment.html).
 
 ---
 
@@ -1349,7 +1349,7 @@ More details in the .bl[AcceptabilityJudgment] section of the [documentation](ht
 
 ---
 
-# `defaults` variable
+# The `defaults` variable
 
 The specifications in `defaults` set the design of the trials:
 
@@ -1370,6 +1370,47 @@ var defaults = [
 knitr::include_graphics("img/minimal.png")
 ```
 
+
+---
+
+# Another `defaults` example
+
+Suppose you'd like to show participants _multiple sentences_ but have them only rate the acceptability of **one** of the sentences.
+
+.panelset[
+.panel[.panel-name[Code]
+
+```{eval = F}
+[["ConditionA", 1],
+ "AcceptabilityJudgment",
+ {s: ["div",
+    ["p", "Speaker A: Who left this sandwich on the table?"] #<<
+    ["p", "Speaker B: Fred did."] #<<
+ ]}]
+```
+
+
+```{r, eval = FALSE}
+var defaults = [
+    "AcceptabilityJudgment", {
+       ...                     
+       instructions: "Rate how natural Speaker B's response sounds.", #<<
+       ...
+    }]
+```
+
+**Note**: You can show multiple lines of text using .bl[html] tags like "p" and "div" - more on that later
+
+]
+
+.panel[.panel-name[Output]
+
+```{r, echo=F, out.width = '600px', out.extra="style='border:1px solid black; margin:auto; display:block;'"}
+knitr::include_graphics("img/defaults_change.png")
+```
+
+]
+]
 
 ---
 
@@ -1917,7 +1958,7 @@ More resources from the community:
 
 <p style = 'padding-top:25px'><strong>UPDATE (01/01/2021)</strong></p>
 
-**New feature**: results can be downloaded directly as a spreadsheet.
+**New feature**: results can be downloaded as a spreadsheet ([full list of changes](https://gist.github.com/addrummond/b345d3d4f23436838e52afbe880ebbd9)).
 
 .pull-left[
 ```{r, echo=F, out.width = '400px', out.extra="style='border:1px solid black; margin:auto; display:block;'"}

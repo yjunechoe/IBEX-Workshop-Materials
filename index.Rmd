@@ -1799,7 +1799,7 @@ knitr::include_graphics("img/spr_form.png")
 }] #<<
 ```
 
-This explains why each bl.[AcceptabilityJudgment] trial adds two lines to the _results_ file (more on this later)
+Because of this, .bl[AcceptabilityJudgment] trial adds two lines to the _results_ file - one line from .bl[Message] and one line from .bl[Question] (more on this later)
 
 ]
 ]
@@ -2020,6 +2020,18 @@ Acceptability_results[sample(nrow(Acceptability_results), 3), -c(1, 2, 4, 5, 9, 
 ]
 ]
 
+
+---
+
+class: middle, center
+
+# Break
+
+---
+
+class: middle, center
+
+# Exercise
 
 ---
 

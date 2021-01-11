@@ -1790,13 +1790,13 @@ knitr::include_graphics("img/spr_form.png")
 ```{r, eval = F}
 [["gp.trans",1],
 "Message", {html: "While Anna trained the kitten paid attention."},
-"Question", { #<<
-  as: ["1", "2", "3", "4", "5", "6", "7"], #<<
-  presentAsScale: true, #<<
-  instructions: "Use number keys or click boxes to answer.", #<<
-  leftComment: "(Bad)", #<<
-  rightComment: "(Good)" #<<
-}] #<<
+"Question", { 
+  as: ["1", "2", "3", "4", "5", "6", "7"], 
+  presentAsScale: true, 
+  instructions: "Use number keys or click boxes to answer.", 
+  leftComment: "(Bad)", 
+  rightComment: "(Good)" 
+}] 
 ```
 
 Because of this, .bl[AcceptabilityJudgment] trial adds two lines to the _results_ file - one line from .bl[Message] and one line from .bl[Question] (more on this later)

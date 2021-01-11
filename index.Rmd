@@ -27,7 +27,7 @@ library(icon)
 library(xaringanthemer)
 style_duo_accent(
   primary_color = "#011F5b",
-  secondary_color = "#990000",
+  secondary_color = "#600018",
   inverse_header_color = "#FFFFFF"
 )
 
@@ -2029,9 +2029,45 @@ class: middle, center
 
 ---
 
-class: middle, center
+class: middle, center, inverse
 
 # Exercise
+
+.center[`r icon_style(fontawesome("edit", style = "solid"), scale = 4, fill = "#FFFFFF")`]
+
+---
+
+# Task
+
+The experiment script <a href="ibex_files/incomplete.js">incomplete.js</a> has some missing pieces.
+
+<embed style='border: 1px solid black' type="text/html" src="ibex_files/incomplete.js" width="800" height="400">
+
+---
+
+# Task
+
+.bl[Directions]:
+
+1. Download <a href="ibex_files/incomplete.js">incomplete.js</a>
+
+2. Create a new experiment on your ibex account called "workshop_exercise" and replace the contents of *example_data.js* in the **data_includes** section with _incomplete.js_.
+
+3. Click .blue[edit] and follow the directions in the script to fill in the blanks.
+
+4. Complete as many of tasks as possible (.bl[8 total]).
+
+If you finish, save and click on your experiment link at the top of the page. Check to see that your experiment looks similar to the [complete version](https://spellout.net/ibexexps/skku_ibex/workshop_exercise/experiment.html).
+
+<p style='padding-top:25px'><strong>Make sure to use the IBEX documentation!</strong></p>
+
+[https://github.com/addrummond/ibex/blob/master/docs/manual.md](https://github.com/addrummond/ibex/blob/master/docs/manual.md)
+
+---
+
+# Solutions
+
+.center[**This slide will be updated with solutions.**]
 
 ---
 

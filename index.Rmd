@@ -2067,7 +2067,17 @@ If you finish, save and click on your experiment link at the top of the page. Ch
 
 # Solutions
 
-.center[**This slide will be updated with solutions.**]
+&nbsp;
+
+&nbsp;
+
+.center[**Live demo on Atom**]
+
+.center[_This slide will be updated with solutions_]
+
+<!--
+Panelset of solutions for the 8 tasks
+-->
 
 ---
 

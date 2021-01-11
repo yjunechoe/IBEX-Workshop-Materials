@@ -84,3 +84,46 @@
 1609685533,a4da1f176adfea0b761238da725fd6e8,AcceptabilityJudgment,11,0,gp.intrans,1,NULL,2,NULL,246
 1609685533,a4da1f176adfea0b761238da725fd6e8,AcceptabilityJudgment,16,0,filler-catch-01,NULL,Please select 4 for this sentence.
 1609685533,a4da1f176adfea0b761238da725fd6e8,AcceptabilityJudgment,16,0,filler-catch-01,NULL,NULL,2,NULL,160
+#
+# Results on Saturday January 09 2021 02:29:38 UTC.
+# USER AGENT: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.88 Safari/537.36 Edg/87.0.664.66
+# Design number was non-random = 2
+#
+# The lines below this comment are in groups of 2.
+# The formats of the lines in each of these groups are as follows:
+#
+# Line 1:
+#     Col. 1: Time results were received.
+#     Col. 2: MD5 hash of participant's IP address.
+#     Col. 3: Controller name.
+#     Col. 4: Item number.
+#     Col. 5: Element number.
+#     Col. 6: Type.
+#     Col. 7: Group.
+#     Col. 8: Sentence (or sentence MD5).
+# Line 2:
+#     Col. 1: Time results were received.
+#     Col. 2: MD5 hash of participant's IP address.
+#     Col. 3: Controller name.
+#     Col. 4: Item number.
+#     Col. 5: Element number.
+#     Col. 6: Type.
+#     Col. 7: Group.
+#     Col. 8: Question (NULL if none).
+#     Col. 9: Answer.
+#     Col. 10: Whether or not answer was correct (NULL if N/A).
+#     Col. 11: Time taken to answer.
+1610159378,0801753f5ce88ff000a0904129810045,AcceptabilityJudgment,4,0,practice-1,NULL,The car drove like a dream.
+1610159378,0801753f5ce88ff000a0904129810045,AcceptabilityJudgment,4,0,practice-1,NULL,NULL,3,NULL,2468
+1610159378,0801753f5ce88ff000a0904129810045,AcceptabilityJudgment,6,0,practice-2,NULL,The cat ever has eaten cheese the.
+1610159378,0801753f5ce88ff000a0904129810045,AcceptabilityJudgment,6,0,practice-2,NULL,NULL,3,NULL,861
+1610159378,0801753f5ce88ff000a0904129810045,AcceptabilityJudgment,14,0,filler-good-01,NULL,When Harry fell%2C the audience was shocked.
+1610159378,0801753f5ce88ff000a0904129810045,AcceptabilityJudgment,14,0,filler-good-01,NULL,NULL,5,NULL,917
+1610159378,0801753f5ce88ff000a0904129810045,AcceptabilityJudgment,15,0,filler-bad-01,NULL,When Tyler sneezed the driver%2C he passed a tissue.
+1610159378,0801753f5ce88ff000a0904129810045,AcceptabilityJudgment,15,0,filler-bad-01,NULL,NULL,6,NULL,898
+1610159378,0801753f5ce88ff000a0904129810045,AcceptabilityJudgment,13,0,gp.intrans,2,Since Dave worried the counselor devised a plan.
+1610159378,0801753f5ce88ff000a0904129810045,AcceptabilityJudgment,13,0,gp.intrans,2,NULL,7,NULL,1048
+1610159378,0801753f5ce88ff000a0904129810045,AcceptabilityJudgment,16,0,filler-catch-01,NULL,Please select 4 for this sentence.
+1610159378,0801753f5ce88ff000a0904129810045,AcceptabilityJudgment,16,0,filler-catch-01,NULL,NULL,7,NULL,788
+1610159378,0801753f5ce88ff000a0904129810045,AcceptabilityJudgment,10,0,gp.trans,1,While Anna trained the kitten paid attention.
+1610159378,0801753f5ce88ff000a0904129810045,AcceptabilityJudgment,10,0,gp.trans,1,NULL,7,NULL,561

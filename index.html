@@ -10,7 +10,7 @@
     <link href="libs/tachyons/tachyons.min.css" rel="stylesheet" />
     <link href="libs/panelset/panelset.css" rel="stylesheet" />
     <script src="libs/panelset/panelset.js"></script>
-    <script type="application/json" id="xaringanExtra-editable-docid">{"id":"x2516af7797445aea007d1324aeb2c88","expires":14}</script>
+    <script type="application/json" id="xaringanExtra-editable-docid">{"id":"cd945c7777774f66a22199bc13416da6","expires":14}</script>
     <script src="libs/himalaya/himalaya.js"></script>
     <script src="libs/js-cookie/js.cookie.js"></script>
     <link href="libs/editable/editable.css" rel="stylesheet" />
@@ -948,7 +948,8 @@ Catch Filler #1: "Please select 4 for this sentence."
 
 .bl[List the _names_ of each trial in order:]
 
-```{eval=FALSE}
+
+```r
  "practice-1",
  "gp.trans",
  "gp.intrans",
@@ -975,7 +976,8 @@ Catch Filler #1: "Please select 4 for this sentence."
 
 .bl[Wrap them in `seq()`:]
 
-```{eval=FALSE}
+
+```r
 seq(
  "practice-1",
  "gp.trans",
@@ -1257,7 +1259,8 @@ The .bl[set number] in our critical trials automatically handles **counterbalanc
 
 We just need to add a .bl[counter] inside `items` to track group assignment:
 
-```{eval=F}
+
+```r
 ["setcounter", "__SetCounter__", { }]
 ```
 
@@ -1347,7 +1350,8 @@ More details in the .bl[AcceptabilityJudgment] section of the [documentation](ht
 
 The specifications in `defaults` set the design of the trials:
 
-```{eval=F}
+
+```r
 var defaults = [
     "AcceptabilityJudgment", {
        as: ["1", "2", "3", "4", "5", "6", "7"],           
@@ -1373,17 +1377,6 @@ Suppose you'd like to show participants _multiple sentences_ but have them only 
 .panel[.panel-name[Code]
 
 
-```eval
-[["ConditionA", 1],
- "AcceptabilityJudgment",
- {s: ["div",
-*   ["p", "Speaker A: Who left this sandwich on the table?"]
-*   ["p", "Speaker B: Fred did."]
- ]}]
-```
-
-
-
 ```r
 var defaults = [
     "AcceptabilityJudgment", {
@@ -1391,6 +1384,16 @@ var defaults = [
 *      instructions: "Rate how natural Speaker B's response sounds.",
        ...
     }]
+```
+
+
+```r
+[["ConditionA", 1],
+ "AcceptabilityJudgment",
+ {s: ["div",
+*   ["p", "Speaker A: Who left this sandwich on the table?"]
+*   ["p", "Speaker B: Fred did."]
+ ]}]
 ```
 
 **Note**: You can show multiple lines of text using .bl[html] tags like "p" and "div" - more on that later
@@ -1412,7 +1415,8 @@ You can also change other options, such as showing a message at the end:
 
 .center[`var completionMessage`]
 
-```{eval=F}
+
+```r
 //// A message to show to participants at completion (useful for confirmation, raffle entry, etc.)
 var completionMessage = "Thank you for your participation. Your participation code is: " + randomCode
 ```
@@ -1423,7 +1427,8 @@ And whether to show a progress bar:
 
 .center[`var showProgressBar`]
 
-```{eval=F}
+
+```r
 //// Show a progress bar at the top? (true/false)
 var showProgressBar = false
 ```
@@ -1728,6 +1733,68 @@ Finally, after re-writing some of the ".bl[Message]" items, we have a [new exper
 
 &lt;embed style='border: 1px solid black' type="text/html" src="ibex_files/SPR.js"  width="800" height="420"&gt;
 
+---
+
+# Multiple controllers
+
+For more complex trials, combine multiple controllers:
+
+.panelset[
+.panel[.panel-name[DashedSentence+Question]
+
+Add a .bl[Question] controller to ask a comprehension question:
+
+
+```r
+[["gp.trans",1],
+"DashedSentence", {s: "While Anna trained the kitten paid attention."},
+*"Question", {q: "Was the kitten trained?", as: ["Yes", "No"]}]
+```
+
+&lt;img src="img/spr_question.png" width="200px" style="display: block; margin: auto;" /&gt;
+
+
+]
+
+.panel[.panel-name[DashedSentence+Form]
+
+Add a .bl[Form] controller with a "textarea" element to collect a free response:
+
+
+```r
+[["gp.trans",1],
+"DashedSentence", {s: "While Anna trained the kitten paid attention."},
+*"Form", {html: ["div",
+*  ["p", "In your own words, paraphrase the sentence you just read."],
+*  ["textarea"]
+*]}]
+```
+
+&lt;img src="img/spr_form.png" width="400px" style="display: block; margin: auto;" /&gt;
+
+]
+
+.panel[.panel-name[Message+Question]
+
+.bl[AcceptabilityJudgment] is just a combination of .bl[Message] and .bl[Question]!
+
+
+```r
+[["gp.trans",1],
+"Message", {html: "While Anna trained the kitten paid attention."},
+*"Question", {
+* as: ["1", "2", "3", "4", "5", "6", "7"],
+* presentAsScale: true,
+* instructions: "Use number keys or click boxes to answer.",
+* leftComment: "(Bad)",
+* rightComment: "(Good)"
+*}]
+```
+
+This explains why each bl.[AcceptabilityJudgment] trial adds two lines to the _results_ file (more on this later)
+
+]
+]
 
 ---
 
@@ -1875,17 +1942,34 @@ Steps for importing the data into Excel:
 
 ---
 
+# Complex results
+
+Some Controllers return more than 1 line of results, making thing complicated.
+
+--
+
+For example, each **AcceptabilityJudgment** trial adds two lines to _results_:
+
+&lt;img src="img/results_AJ_img.png" width="550px" style='border:1px solid black; margin:auto; display:block;' /&gt;
+
+--
+
+In cases like these, using a .bl[processing script (R/Python)] is recommended
+
+---
+
 # Importing - R
 
 Steps for importing into R:
 
 1. Download the _results_ file from IBEX
 
-2. Open it with the `read_ibex()` function [using a script](https://github.com/yjunechoe/IBEX-Workshop-Materials/blob/master/R%20codes/read_ibex.R)
-
---
+2. Open it with the `read_ibex()` function from this [read_ibex.R](https://github.com/yjunechoe/IBEX-Workshop-Materials/blob/master/R%20codes/read_ibex.R) script
 
 
+
+.panelset[
+.panel[.panel-name[DashedSentence]
 
 
 ```r
@@ -1905,9 +1989,31 @@ results &lt;- read_ibex("SPR_results.txt")
 ## 95 When Tyler sneezed the driver%2C he passed a tissue.
 ```
 
---
+]
 
-&lt;p style='padding-top:15px'&gt;Preferred method because data can get more complicated.&lt;/p&gt;
+.panel[.panel-name[AcceptabilityJudgment]
+
+
+```r
+source("read_ibex.R")
+results &lt;- read_ibex("Acceptability_results.txt")
+```
+
+
+```
+##          Controller name            Type Group
+## 16 AcceptabilityJudgment      gp.intrans     2
+## 5  AcceptabilityJudgment filler-catch-01  NULL
+## 2  AcceptabilityJudgment      gp.intrans     2
+##                          Sentence (or sentence MD5) Answer
+## 16 Since Dave worried the counselor devised a plan.      7
+## 5                Please select 4 for this sentence.      4
+## 2  Since Dave worried the counselor devised a plan.      4
+```
+
+]
+]
+
 
 ---
 
@@ -1972,6 +2078,24 @@ More resources from the community:
 - PsychoPy [Link](https://www.psychopy.org)
 
 - _magpie (minimal architecture for the generation of portable interactive experiments) [Link](https://magpie-ea.github.io/magpie-site)
+
+---
+
+# Resources
+
+All materials from this presentation can be found on [github](https://github.com/yjunechoe/IBEX-Workshop-Materials).
+
+More resources from the community:
+
+- The official [IBEX documentation](https://github.com/addrummond/ibex/blob/master/docs/manual.md).
+
+- The official [google group](https://groups.google.com/g/ibexexperiments/c/-PTeVD39h9o) to ask questions. 
+
+&lt;p style = 'padding-top:25px'&gt;&lt;strong style='color:black'&gt;Platforms to recruit participants for your IBEX experiment&lt;/strong&gt;&lt;/p&gt;
+
+- MTurk (Amazon Mechanical Turk) [Link](https://www.mturk.com/)
+
+- Prolific [Link](https://www.prolific.co/)
     </textarea>
 <style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
 <script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>

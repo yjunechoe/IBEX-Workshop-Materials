@@ -964,7 +964,7 @@ Catch Filler #1: "Please select 4 for this sentence."
 
 .bl[List the _names_ of each trial in order:]
 
-```{eval=FALSE}
+```{r eval=FALSE}
  "practice-1",
  "gp.trans",
  "gp.intrans",
@@ -991,7 +991,7 @@ Catch Filler #1: "Please select 4 for this sentence."
 
 .bl[Wrap them in `seq()`:]
 
-```{eval=FALSE}
+```{r, eval=FALSE}
 seq(
  "practice-1",
  "gp.trans",
@@ -1265,7 +1265,7 @@ knitr::include_graphics("img/counterbalancing.png")
 
 We just need to add a .bl[counter] inside `items` to track group assignment:
 
-```{eval=F}
+```{r, eval=F}
 ["setcounter", "__SetCounter__", { }]
 ```
 
@@ -1353,7 +1353,7 @@ More details in the .bl[AcceptabilityJudgment] section of the [documentation](ht
 
 The specifications in `defaults` set the design of the trials:
 
-```{eval=F}
+```{r, eval=F}
 var defaults = [
     "AcceptabilityJudgment", {
        as: ["1", "2", "3", "4", "5", "6", "7"],           
@@ -1380,16 +1380,6 @@ Suppose you'd like to show participants _multiple sentences_ but have them only 
 .panelset[
 .panel[.panel-name[Code]
 
-```{eval = F}
-[["ConditionA", 1],
- "AcceptabilityJudgment",
- {s: ["div",
-    ["p", "Speaker A: Who left this sandwich on the table?"] #<<
-    ["p", "Speaker B: Fred did."] #<<
- ]}]
-```
-
-
 ```{r, eval = FALSE}
 var defaults = [
     "AcceptabilityJudgment", {
@@ -1397,6 +1387,15 @@ var defaults = [
        instructions: "Rate how natural Speaker B's response sounds.", #<<
        ...
     }]
+```
+
+```{r, eval = F}
+[["ConditionA", 1],
+ "AcceptabilityJudgment",
+ {s: ["div",
+    ["p", "Speaker A: Who left this sandwich on the table?"] #<<
+    ["p", "Speaker B: Fred did."] #<<
+ ]}]
 ```
 
 **Note**: You can show multiple lines of text using .bl[html] tags like "p" and "div" - more on that later
@@ -1420,7 +1419,7 @@ You can also change other options, such as showing a message at the end:
 
 .center[`var completionMessage`]
 
-```{eval=F}
+```{r, eval=F}
 //// A message to show to participants at completion (useful for confirmation, raffle entry, etc.)
 var completionMessage = "Thank you for your participation. Your participation code is: " + randomCode
 ```
@@ -1431,7 +1430,7 @@ And whether to show a progress bar:
 
 .center[`var showProgressBar`]
 
-```{eval=F}
+```{r, eval=F}
 //// Show a progress bar at the top? (true/false)
 var showProgressBar = false
 ```
@@ -1741,6 +1740,69 @@ Finally, after re-writing some of the ".bl[Message]" items, we have a [new exper
 
 <embed style='border: 1px solid black' type="text/html" src="ibex_files/SPR.js"  width="800" height="420">
 
+---
+
+# Multiple controllers
+
+For more complex trials, combine multiple controllers:
+
+.panelset[
+.panel[.panel-name[DashedSentence+Question]
+
+Add a .bl[Question] controller to ask a comprehension question:
+
+```{r, eval = F}
+[["gp.trans",1],
+"DashedSentence", {s: "While Anna trained the kitten paid attention."},
+"Question", {q: "Was the kitten trained?", as: ["Yes", "No"]}] #<<
+```
+
+```{r, echo=F, out.width = '200px', fig.align='center'}
+knitr::include_graphics("img/spr_question.png")
+```
+
+
+]
+
+.panel[.panel-name[DashedSentence+Form]
+
+Add a .bl[Form] controller with a "textarea" element to collect a free response:
+
+```{r, eval = F}
+[["gp.trans",1],
+"DashedSentence", {s: "While Anna trained the kitten paid attention."},
+"Form", {html: ["div", #<<
+   ["p", "In your own words, paraphrase the sentence you just read."], #<<
+   ["textarea"] #<<
+]}] #<<
+```
+
+```{r, echo=F, out.width = '400px', fig.align='center'}
+knitr::include_graphics("img/spr_form.png")
+```
+
+]
+
+.panel[.panel-name[Message+Question]
+
+.bl[AcceptabilityJudgment] is just a combination of .bl[Message] and .bl[Question]!
+
+```{r, eval = F}
+[["gp.trans",1],
+"Message", {html: "While Anna trained the kitten paid attention."},
+"Question", { #<<
+  as: ["1", "2", "3", "4", "5", "6", "7"], #<<
+  presentAsScale: true, #<<
+  instructions: "Use number keys or click boxes to answer.", #<<
+  leftComment: "(Bad)", #<<
+  rightComment: "(Good)" #<<
+}] #<<
+```
+
+This explains why each bl.[AcceptabilityJudgment] trial adds two lines to the _results_ file (more on this later)
+
+]
+]
 
 ---
 
@@ -1892,19 +1954,40 @@ Steps for importing the data into Excel:
 
 ---
 
+# Complex results
+
+Some Controllers return more than 1 line of results, making thing complicated.
+
+--
+
+For example, each **AcceptabilityJudgment** trial adds two lines to _results_:
+
+```{r, echo=F, out.width = '550px', out.extra="style='border:1px solid black; margin:auto; display:block;'"}
+knitr::include_graphics("img/results_AJ_img.png")
+```
+
+--
+
+In cases like these, using a .bl[processing script (R/Python)] is recommended
+
+---
+
 # Importing - R
 
 Steps for importing into R:
 
 1. Download the _results_ file from IBEX
 
-2. Open it with the `read_ibex()` function [using a script](https://github.com/yjunechoe/IBEX-Workshop-Materials/blob/master/R%20codes/read_ibex.R)
-
---
+2. Open it with the `read_ibex()` function from this [read_ibex.R](https://github.com/yjunechoe/IBEX-Workshop-Materials/blob/master/R%20codes/read_ibex.R) script
 
 ```{r, echo = FALSE}
+library(DT)
+options(DT.options = list(dom = 't', scrollX = TRUE, autoWidth = TRUE))
 set.seed(20210122)
 ```
+
+.panelset[
+.panel[.panel-name[DashedSentence]
 
 ```{r, eval=F}
 source("read_ibex.R")
@@ -1913,14 +1996,30 @@ results <- read_ibex("SPR_results.txt")
 
 ```{r, echo = FALSE}
 source("R codes/read_ibex.R")
-results <- read_ibex("ibex_files/SPR_results.txt")
+SPR_results <- read_ibex("ibex_files/SPR_results.txt")
 # Sample a couple lines and exclude some columns
-results[sample(nrow(results), 3), -c(1, 2, 4, 5, 11)]
+SPR_results[sample(nrow(SPR_results), 3), -c(1, 2, 4, 5, 11)]
 ```
 
---
+]
 
-<p style='padding-top:15px'>Preferred method because data can get more complicated.</p>
+.panel[.panel-name[AcceptabilityJudgment]
+
+```{r, eval=F}
+source("read_ibex.R")
+results <- read_ibex("Acceptability_results.txt")
+```
+
+```{r, echo = FALSE}
+source("R codes/read_ibex.R")
+Acceptability_results <- read_ibex("ibex_files/Acceptability_results.txt")
+# Sample a couple lines and exclude some columns
+Acceptability_results[sample(nrow(Acceptability_results), 3), -c(1, 2, 4, 5, 9, 11, 12)]
+```
+
+]
+]
+
 
 ---
 
@@ -1991,3 +2090,21 @@ More resources from the community:
 - PsychoPy [Link](https://www.psychopy.org)
 
 - _magpie (minimal architecture for the generation of portable interactive experiments) [Link](https://magpie-ea.github.io/magpie-site)
+
+---
+
+# Resources
+
+All materials from this presentation can be found on [github](https://github.com/yjunechoe/IBEX-Workshop-Materials).
+
+More resources from the community:
+
+- The official [IBEX documentation](https://github.com/addrummond/ibex/blob/master/docs/manual.md).
+
+- The official [google group](https://groups.google.com/g/ibexexperiments/c/-PTeVD39h9o) to ask questions. 
+
+<p style = 'padding-top:25px'><strong style='color:black'>Platforms to recruit participants for your IBEX experiment</strong></p>
+
+- MTurk (Amazon Mechanical Turk) [Link](https://www.mturk.com/)
+
+- Prolific [Link](https://www.prolific.co/)

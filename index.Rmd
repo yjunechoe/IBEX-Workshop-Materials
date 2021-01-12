@@ -1,6 +1,6 @@
 ---
 title: "Experimental Linguistics with IBEX"
-subtitle: "A Walkthrough"  
+subtitle: "Workshop Day 3"  
 author: 
   - ""
 date: '2021-01-22'
@@ -238,6 +238,12 @@ a {
   - Understanding the output format
   - Importing into Excel and R
 ]
+
+--
+
+&nbsp;
+
+**Link to the slides:** https://ibex-workshop-slides.netlify.app
 
 ---
 
@@ -1668,7 +1674,7 @@ knitr::include_graphics("img/exp_url.png")
 
 ---
 
-# Making a different experiment
+# A different experiment
 
 Suppose that after a _pilot experiment_, we find acceptability judgments to be inappropriate for answering our research question.
 
@@ -2051,13 +2057,13 @@ The experiment script <a href="ibex_files/incomplete.js">incomplete.js</a> has s
 
 1. Download <a href="ibex_files/incomplete.js">incomplete.js</a>
 
-2. Create a new experiment on your ibex account called "workshop_exercise" and replace the contents of *example_data.js* in the **data_includes** section with _incomplete.js_.
+2. Create a new experiment on your ibex account called "WorkshopExercise" and replace the contents of <em>example_data.js</em> in the **data_includes** section with _incomplete.js_.
 
 3. Click .blue[edit] and follow the directions in the script to fill in the blanks.
 
 4. Complete as many of tasks as possible (.bl[8 total]).
 
-If you finish, save and click on your experiment link at the top of the page. Check to see that your experiment looks similar to the [complete version](https://spellout.net/ibexexps/skku_ibex/workshop_exercise/experiment.html).
+If you finish, save the edits and click on your experiment link at the top of the page. Check to see that your experiment looks similar to this [complete version](https://spellout.net/ibexexps/skku_ibex/workshop_exercise/experiment.html).
 
 <p style='padding-top:25px'><strong>Make sure to use the IBEX documentation!</strong></p>
 

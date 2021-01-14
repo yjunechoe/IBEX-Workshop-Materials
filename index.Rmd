@@ -157,7 +157,7 @@ a {
 .pull-right-wide + * { clear: both; }
 ```
 
-<h1 style="text-align:left; margin:15px 0px 0px 0px">Guest</h1>
+<h1 style="text-align:left; margin:15px 0px 0px 0px">Guest<span style="font-size:20px; padding-left:.5em">(Will be answering questions in the chat!)</span></h1>
 
 <img src="https://yjunechoe.github.io/static/img/profile.png" width="150px">
 

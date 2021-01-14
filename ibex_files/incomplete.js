@@ -1,7 +1,7 @@
 //////////////////
 //// Exercise ////
 //
-// There are a total of SEVEN tasks for you to complete in this script.
+// There are a total of EIGHT tasks for you to complete in this script.
 // The instructions for each task are written out as comments.
 // Some parts of the task are completed for you and your job is to fill in the blanks ______.
 //

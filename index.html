@@ -10,7 +10,7 @@
     <link href="libs/tachyons/tachyons.min.css" rel="stylesheet" />
     <link href="libs/panelset/panelset.css" rel="stylesheet" />
     <script src="libs/panelset/panelset.js"></script>
-    <script type="application/json" id="xaringanExtra-editable-docid">{"id":"e80f1e3810de4e8093795a081082c1d4","expires":14}</script>
+    <script type="application/json" id="xaringanExtra-editable-docid">{"id":"x2d35b45bcac4923b3f60bfdb9523de4","expires":14}</script>
     <script src="libs/himalaya/himalaya.js"></script>
     <script src="libs/js-cookie/js.cookie.js"></script>
     <link href="libs/editable/editable.css" rel="stylesheet" />
@@ -30,6 +30,7 @@ class: center, middle, inverse, title-slide
 ---
 
 
+class: inverse, middle, center
 
 
 
@@ -134,21 +135,6 @@ a {
   float: left;
 }
 
-/* five-column layout */
-
-/*.flex {
-  display: flex;
-  justify-content: center;
-  align-items: flex-start;
-}
-.column {
-  float: left;
-  width: 25%;
-  text-align: center;
-}*/
-
-/*.columns { display: flex; }*/
-
 .pull-left {
   padding-top: 0px;
 }
@@ -165,37 +151,25 @@ a {
 
 /* Clear floats after the columns */
 .pull-right-wide + * { clear: both; }
-
-/*-- CUSTOM CLASSES FOR EDUCATIONAL PURPOSES ---------------------------------*/
-
-/* Pull */
-.pull-left-color {
-  float: left;
-  width: 47%;
-  background-color: var(--my-pink);
-}
-
-.pull-right-color {
-  float: right: 47%;
-}
-
-/* Two-column layout */
-.left-column-color {
-  background-color: var(--my-coral);
-  width: 20%;
-  height: 92%;
-  float: left;
-}
-.left-column-color h2:last-of-type, .left-column h3:last-child {
-  color: #000;
-}
-.right-column-color {
-  background-color: var(--my-pink);
-  width: 75%;
-  float: right;
-  padding-top: 1em;
-}
 &lt;/style&gt;
+
+&lt;h1 style="text-align:left; margin:15px 0px 0px 0px"&gt;Guest&lt;/h1&gt;
+
+&lt;img src="https://yjunechoe.github.io/static/img/profile.png" width="150px"&gt;
+
+
+
+&lt;h2 style="margin:15px 0px 10px 0px"&gt; June Choe&lt;/h2&gt;
+
+&lt;h3 style="margin:25px 0px 10px 0px"&gt;Ph.D. Student in Linguistics&lt;/h3&gt;
+
+&lt;p style="margin-top:0px; padding-bottom:20px; border-bottom: 1px solid white"&gt;University of Pennsylvania&lt;br&gt;Philadelphia, PA, USA&lt;/p&gt;
+
+Research: psycholinguistics, computational linguistics
+&lt;p&gt;
+Contact: yjchoe@sas.upenn.edu | &lt;a style="color:white" href="https://yjunechoe.github.io"&gt;yjunechoe.github.io&lt;/a&gt;
+
+---
 
 # Presentation Outline
 
@@ -871,7 +845,7 @@ Good scripting habits:
 
 .center[**Both types of trials are invariant across conditions**]
 
-This means that the _first element_ of the big bracket can just be the _name of the stimuli_.
+This means that the first element of the big bracket can just be the _Trial Name_, without assigning it a _Set #_:
 
 --
 
@@ -882,7 +856,7 @@ Practice #1: "The car drove like a dream"
 
 
 ```r
-["practice-1",
+*["practice-1",
  "AcceptabilityJudgment",
  {s: "The car drove like a dream."}]
 ```
@@ -895,7 +869,7 @@ Good Filler #1: "When Harry fell, the audience was shocked."
 
 
 ```r
-["filler-good-01",
+*["filler-good-01",
  "AcceptabilityJudgment",
  {s: "When Harry fell, the audience was shocked."}]
 ```
@@ -908,7 +882,7 @@ Bad Filler #1: "When Tyler sneezed the driver, he passed a tissue."
 
 
 ```r
-["filler-bad-01",
+*["filler-bad-01",
  "AcceptabilityJudgment",
  {s: "When Tyler sneezed the driver, he passed a tissue."}]
 ```
@@ -921,7 +895,7 @@ Catch Filler #1: "Please select 4 for this sentence."
 
 
 ```r
-["filler-catch-01",
+*["filler-catch-01",
  "AcceptabilityJudgment",
  {s: "Please select 4 for this sentence."}]
 ```
@@ -1166,7 +1140,7 @@ var shuffleSequence = seq(
 
 ---
 
-# Sequence: multiple selection
+# 1. Sequence: multiple selection
 
 &lt;p style='margin-block-end:0;'&gt;To save us from writing repetitive code, we use &lt;code&gt;startsWith()&lt;/code&gt;&lt;/p&gt;
 
@@ -1204,7 +1178,7 @@ The function `startsWith()` matches all names that starts with the given string.
 
 ---
 
-# Sequence: randomization
+# 2. Sequence: randomization
 
 &lt;p style='margin-block-end:0;'&gt;To mix critical and filler trials in random order, we use &lt;code&gt;rshuffle()&lt;/code&gt;&lt;/p&gt;
 
@@ -1251,7 +1225,7 @@ var shuffleSequence = seq(
 
 ---
 
-# Sequence: counterbalancing
+# 3. Sequence: counterbalancing
 
 The .bl[set number] in our critical trials automatically handles **counterbalancing**:
 
@@ -1273,23 +1247,22 @@ We just need to add a .bl[counter] inside `items` to track group assignment:
 
 ---
 
-# Sequence: counterbalancing
+# 3. Sequence: counterbalancing
 
-Adding the counter to the experiment is simple:
+To use the counter, you need to modify both `items` and `shuffleSequence`:
 
 
 ```r
+var items = [
+  ...
+  ["setcounter", "__SetCounter__", { }], // The counter is defined
+  ...
+]
+
 var shuffleSequence = seq(
-  "setcounter", 
+  "setcounter", // The counter is incremented at the start
   ...
 )
-
-var items = [
-  
-  ["setcounter", "__SetCounter__", { }], 
-  ...
-  
-]
 ```
 
 --
@@ -1524,7 +1497,7 @@ Notes on .bl[html]:
 
 The code `["p", "&lt;your text here&gt;"]` prints a single paragraph of text.
 
-The "p" is called a .bl[tags] and there are [many others](https://www.w3schools.com/TAGs/), but usually messages don't get more complicated than simple paragraphs.
+The "p" is called an .bl[HTML tag] and there are [many others](https://www.w3schools.com/TAGs/) (most common: "div", "strong", "em"), but usually these don't get very complicated.
 
 ---
 
@@ -1741,63 +1714,71 @@ Finally, after re-writing some of the ".bl[Message]" items, we have a [new exper
 
 ---
 
-# Multiple controllers
-
-For more complex trials, combine multiple controllers:
+# Question and Form Controllers
 
 .panelset[
-.panel[.panel-name[DashedSentence+Question]
+.panel[.panel-name[Yes/No]
 
-Add a .bl[Question] controller to ask a comprehension question:
+You can use the .bl[Question] controller to ask **Yes/No** comprehension questions:
 
 
 ```r
-[["gp.trans",1],
-"DashedSentence", {s: "While Anna trained the kitten paid attention."},
-*"Question", {q: "Was the kitten trained?", as: ["Yes", "No"]}]
+[["YesNo_example",1],
+*"Question",
+*{q: "Was the kitten trained?", as: ["Yes", "No"]}]
 ```
 
-&lt;img src="img/spr_question.png" width="200px" style="display: block; margin: auto;" /&gt;
-
+&lt;img src="img/spr_question.png" width="250px" style="display: block; margin: auto;" /&gt;
 
 ]
 
-.panel[.panel-name[DashedSentence+Form]
+.panel[.panel-name[Forced-Choice-1]
 
-Add a .bl[Form] controller with a "textarea" element to collect a free response:
+The .purple[as] parameter sets the **answer choices** presented to participants.
 
 
 ```r
-[["gp.trans",1],
-"DashedSentence", {s: "While Anna trained the kitten paid attention."},
-*"Form", {html: ["div",
-*  ["p", "In your own words, paraphrase the sentence you just read."],
-*  ["textarea"]
-*]}]
+[["FC1_example",1], "Question", {
+  instructions: "Choose the more natural sentence.",
+* as: ["Who did you see that ate bread?",
+*      "What did you see the girl who ate?"]}]
 ```
 
-&lt;img src="img/spr_form.png" width="400px" style="display: block; margin: auto;" /&gt;
+&lt;img src="img/FC1.png" width="350px" style="display: block; margin: auto;" /&gt;
 
 ]
 
-.panel[.panel-name[Message+Question]
+.panel[.panel-name[Forced-Choice-2]
 
-.bl[AcceptabilityJudgment] is just a combination of .bl[Message] and .bl[Question]!
+You can ask for **continuations** by modifying the .purple[q] parameter.
 
 
 ```r
-[["gp.trans",1],
-"Message", {html: "While Anna trained the kitten paid attention."},
-"Question", { 
-  as: ["1", "2", "3", "4", "5", "6", "7"], 
-  presentAsScale: true, 
-  instructions: "Use number keys or click boxes to answer.", 
-  leftComment: "(Bad)", 
-  rightComment: "(Good)" 
-}] 
+[["FC2_example",1], "Question", {
+* q: "While Anna dressed the baby ______",
+  instructions: "Choose the more natural continuation.",
+  as: ["started to cry.", "he started to cry."]}]
 ```
 
-Because of this, .bl[AcceptabilityJudgment] trial adds two lines to the _results_ file - one line from .bl[Message] and one line from .bl[Question] (more on this later)
+&lt;img src="img/FC2.png" width="400px" style="display: block; margin: auto;" /&gt;
+
+]
+
+.panel[.panel-name[Free-Response]
+
+Use .bl[Form] controller with the .bl["textarea"] HTML tag to collect a **free response**:
+
+
+```r
+[["FR_example",1],
+ "Form", {html: ["div",
+   ["em", "Fill out a continuation for the sentence fragment:"],
+   ["p", "While Anna dressed the baby ______"],
+* ["textarea"]
+]}]
+```
+
+&lt;img src="img/form.png" width="450px" style="display: block; margin: auto;" /&gt;
 
 ]
 ]
@@ -2051,7 +2032,7 @@ The experiment script &lt;a href="ibex_files/incomplete.js"&gt;incomplete.js&lt;
 
 1. Download &lt;a href="ibex_files/incomplete.js"&gt;incomplete.js&lt;/a&gt;
 
-2. Create a new experiment on your ibex account called "WorkshopExercise" and replace the contents of &lt;em&gt;example_data.js&lt;/em&gt; in the **data_includes** section with _incomplete.js_.
+2. Create a new experiment on your ibex account called "WorkshopExercise" and replace the contents of &lt;em&gt;example_data.js&lt;/em&gt; in the &lt;strong&gt;data_includes&lt;/strong&gt; section with &lt;em&gt;incomplete.js&lt;/em&gt;.
 
 3. Click .blue[edit] and follow the directions in the script to fill in the blanks.
 

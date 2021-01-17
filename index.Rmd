@@ -2167,7 +2167,10 @@ More resources from the community:
 
 # Acknowledgments
 
-- Many thanks to June Choe for assistance with the slides (esp. interactive components)
+Many thanks to...
 
-- Thanks to Brian Dillon (University of Massachusetts Amherst) for permission to use materials from the LSA Minicourse "Doing Experiments for Linguists" (Brian Dillon & Rodica Ivan)
+- June Choe for assistance with the slides (esp. interactive components)
 
+- Brian Dillon (UMass Amherst) for permission to use materials from the LSA Minicourse "Doing Experiments for Linguists" (Brian Dillon & Rodica Ivan)
+
+- Jon Sprouse (UConn) for permission to use materials from LSA 2016, Experimental Syntax Workshop

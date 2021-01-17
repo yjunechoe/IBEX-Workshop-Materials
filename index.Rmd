@@ -53,7 +53,7 @@ meta() %>%
 
 ```{css, echo = FALSE}
 .title-slide {
-  background-image: url(https://raw.githubusercontent.com/yjunechoe/IBEX-Workshop-Materials/master/Card.png);
+  background-image: url(Card.png);
   background-size: cover;
 }
 .title-slide h1 {

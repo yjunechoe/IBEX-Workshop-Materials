@@ -1,9 +1,9 @@
 ---
-title: "Experimental Syntax using IBEX:"
-subtitle: "A Walkthrough"  
+title: "Experimental Syntax using IBEX"
+subtitle: ""  
 author: 
-  - "Nayoun Kim<br><span style='font-size:0.7em'>Arts & Science Postdoctoral fellow, Department of Linguistics<br>University of Toronto</span>"
-date: '2021-01-22'
+  - ""
+date: ''
 output:
   xaringan::moon_reader:
     lib_dir: libs
@@ -42,8 +42,12 @@ xaringanExtra::use_extra_styles(
 
 ```{css, echo = FALSE}
 .title-slide {
-  background-image: url(Figures/Suncor_2018_Background.jpg);
+  background-image: url(https://raw.githubusercontent.com/yjunechoe/IBEX-Workshop-Materials/master/Card.png);
   background-size: cover;
+}
+
+.title-slide h1 {
+  color: transparent;
 }
 
 a {

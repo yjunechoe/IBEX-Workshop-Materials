@@ -182,15 +182,17 @@ a {
 
 
 
-<h2 style="margin:15px 0px 10px 0px"> June Choe</h2>
+<h2 style="margin:15px 0px 3px 0px"> June Choe</h2>
+
+<p style="margin:0px"><a style="color:white" href="https://yjunechoe.github.io">yjunechoe.github.io</a></p>
 
 <h3 style="margin:25px 0px 10px 0px">Ph.D. Student in Linguistics</h3>
 
-<p style="margin-top:0px; padding-bottom:20px; border-bottom: 1px solid white">University of Pennsylvania<br>Philadelphia, PA, USA</p>
+<p style="margin-top:0px; padding-bottom:30px; border-bottom: 1px solid white">University of Pennsylvania (Philadelphia, PA, USA)</p>
 
-Research: psycholinguistics, computational linguistics | <a style="color:white" href="https://yjunechoe.github.io">yjunechoe.github.io</a>
-<br>
-<span style="font-size:20px; padding-left:.5em">(Will be answering questions in the chat!)</span>
+<strong style="color:white">Research</strong>: psycholinguistics, computational linguistics
+
+<p style="font-size:16px; margin-top:2em; margin-bottom: 0px">Will be answering questions in the chat!</p>
 
 ---
 
@@ -2165,6 +2167,7 @@ More resources from the community:
 
 # Acknowledgments
 
+- Many thanks to June Choe for assistance with the slides (esp. interactive components)
 
-
+- Thanks to Brian Dillon (University of Massachusetts Amherst) for permission to use materials from the LSA Minicourse "Doing Experiments for Linguists" (Brian Dillon & Rodica Ivan)
 

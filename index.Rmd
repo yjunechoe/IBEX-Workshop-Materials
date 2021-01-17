@@ -2075,22 +2075,6 @@ If you finish, save the edits and click on your experiment link at the top of th
 
 ---
 
-# Solutions
-
-&nbsp;
-
-&nbsp;
-
-.center[**Live demo on Atom**]
-
-.center[_This slide will be updated with solutions_]
-
-<!--
-Panelset of solutions for the 8 tasks
--->
-
----
-
 # Resources
 
 Materials from this presentation are on [Google Drive](https://drive.google.com/drive/folders/1jgnR0zSPgcsikmc3sT0OW0Jkndl9yar5?usp=sharing).

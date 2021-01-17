@@ -2,7 +2,7 @@
 title: "Experimental Linguistics with IBEX"
 subtitle: "Workshop Day 3"  
 author: 
-  - ""
+  - "Nayoun Kim"
 date: '2021-01-22'
 output:
   xaringan::moon_reader:

@@ -1,8 +1,8 @@
 ---
-title: "Experimental Linguistics with IBEX"
-subtitle: "Workshop Day 3"  
+title: "Experimental Syntax using IBEX:"
+subtitle: "A Walkthrough"  
 author: 
-  - "Nayoun Kim"
+  - "Nayoun Kim<br><span style='font-size:0.7em'>Arts & Science Postdoctoral fellow, Department of Linguistics<br>University of Toronto</span>"
 date: '2021-01-22'
 output:
   xaringan::moon_reader:
@@ -17,7 +17,7 @@ output:
 class: inverse, middle, center
 
 ```{r setup, include=FALSE}
-### Ibex - https://spellout.net/ibexexps/skku_ibex/workshop_example/experiment.html
+### Ibex workshop account
 # ID: skku_ibex
 # PW: 2021workshop
 
@@ -41,6 +41,11 @@ xaringanExtra::use_extra_styles(
 ```
 
 ```{css, echo = FALSE}
+.title-slide {
+  background-image: url(Figures/Suncor_2018_Background.jpg);
+  background-size: cover;
+}
+
 a {
   color: black;
   text-decoration: underline;

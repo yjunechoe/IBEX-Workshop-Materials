@@ -45,7 +45,7 @@ meta() %>%
     title = "Experimental Syntax using IBEX",
     description = "A Walkthrough",
     url = "https://ibex-workshop-slides.netlify.app/",
-    image = "https://raw.githubusercontent.com/yjunechoe/IBEX-Workshop-Materials/master/Card.png",
+    image = "https://raw.githubusercontent.com/yjunechoe/IBEX-Workshop-Materials/master/Card_small.png",
     image_alt = "Title slide of Experimental Syntax using IBEX",
     twitter_card_type = "summary_large_image"
   )

@@ -56,7 +56,6 @@ meta() %>%
   background-image: url(https://raw.githubusercontent.com/yjunechoe/IBEX-Workshop-Materials/master/Card.png);
   background-size: cover;
 }
-
 .title-slide h1 {
   color: transparent;
 }
@@ -177,7 +176,7 @@ a {
 .pull-right-wide + * { clear: both; }
 ```
 
-<h1 style="text-align:left; margin:15px 0px 0px 0px">Guest<span style="font-size:20px; padding-left:.5em">(Will be answering questions in the chat!)</span></h1>
+<h1 style="text-align:left; margin:15px 0px 0px 0px">Guest</h1>
 
 <img src="https://yjunechoe.github.io/static/img/profile.png" width="150px">
 
@@ -189,9 +188,9 @@ a {
 
 <p style="margin-top:0px; padding-bottom:20px; border-bottom: 1px solid white">University of Pennsylvania<br>Philadelphia, PA, USA</p>
 
-Research: psycholinguistics, computational linguistics
-<p>
-Contact: yjchoe@sas.upenn.edu | <a style="color:white" href="https://yjunechoe.github.io">yjunechoe.github.io</a>
+Research: psycholinguistics, computational linguistics | <a style="color:white" href="https://yjunechoe.github.io">yjunechoe.github.io</a>
+<br>
+<span style="font-size:20px; padding-left:.5em">(Will be answering questions in the chat!)</span>
 
 ---
 
@@ -2094,7 +2093,7 @@ Panelset of solutions for the 8 tasks
 
 # Resources
 
-All materials from this presentation can be found on [github](https://github.com/yjunechoe/IBEX-Workshop-Materials).
+Materials from this presentation are on [Google Drive](https://drive.google.com/drive/folders/1jgnR0zSPgcsikmc3sT0OW0Jkndl9yar5?usp=sharing).
 
 More resources from the community:
 
@@ -2116,13 +2115,13 @@ knitr::include_graphics("img/ibex_new.png")
 
 # Resources
 
-All materials from this presentation can be found on [github](https://github.com/yjunechoe/IBEX-Workshop-Materials).
+Materials from this presentation are on [Google Drive](https://drive.google.com/drive/folders/1jgnR0zSPgcsikmc3sT0OW0Jkndl9yar5?usp=sharing).
 
 More resources from the community:
 
 - The official [IBEX documentation](https://github.com/addrummond/ibex/blob/master/docs/manual.md).
 
-- The official [google group](https://groups.google.com/g/ibexexperiments/c/-PTeVD39h9o) to ask questions. 
+- The official [IBEX google group](https://groups.google.com/g/ibexexperiments/c/-PTeVD39h9o) to ask questions. 
 
 <p style = 'padding-top:25px'><strong>UPDATE (01/01/2021)</strong></p>
 
@@ -2144,36 +2143,44 @@ knitr::include_graphics("img/new_feature_2.png")
 
 # Resources
 
-All materials from this presentation can be found on [github](https://github.com/yjunechoe/IBEX-Workshop-Materials).
+Materials from this presentation are on [Google Drive](https://drive.google.com/drive/folders/1jgnR0zSPgcsikmc3sT0OW0Jkndl9yar5?usp=sharing).
 
 More resources from the community:
 
 - The official [IBEX documentation](https://github.com/addrummond/ibex/blob/master/docs/manual.md).
 
-- The official [google group](https://groups.google.com/g/ibexexperiments/c/-PTeVD39h9o) to ask questions. 
+- The official [IBEX google group](https://groups.google.com/g/ibexexperiments/c/-PTeVD39h9o) to ask questions. 
 
 <p style = 'padding-top:25px'><strong style='color:black'>Other platforms</strong></p>
 
-- PCIbex (Penn Controller for IBEX) [Link](https://www.pcibex.net)
+- PCIbex (Penn Controller for IBEX): [https://www.pcibex.net](https://www.pcibex.net)
 
-- PsychoPy [Link](https://www.psychopy.org)
+- PsychoPy: [https://www.psychopy.org](https://www.psychopy.org)
 
-- _magpie (minimal architecture for the generation of portable interactive experiments) [Link](https://magpie-ea.github.io/magpie-site)
+- _magpie (minimal architecture for the generation of portable interactive experiments): [https://magpie-ea.github.io/magpie-site](https://magpie-ea.github.io/magpie-site)
 
 ---
 
 # Resources
 
-All materials from this presentation can be found on [github](https://github.com/yjunechoe/IBEX-Workshop-Materials).
+Materials from this presentation are on [Google Drive](https://drive.google.com/drive/folders/1jgnR0zSPgcsikmc3sT0OW0Jkndl9yar5?usp=sharing).
 
 More resources from the community:
 
 - The official [IBEX documentation](https://github.com/addrummond/ibex/blob/master/docs/manual.md).
 
-- The official [google group](https://groups.google.com/g/ibexexperiments/c/-PTeVD39h9o) to ask questions. 
+- The official [IBEX google group](https://groups.google.com/g/ibexexperiments/c/-PTeVD39h9o) to ask questions. 
 
 <p style = 'padding-top:25px'><strong style='color:black'>Platforms to recruit participants for your IBEX experiment</strong></p>
 
-- MTurk (Amazon Mechanical Turk) [Link](https://www.mturk.com/)
+- MTurk (Amazon Mechanical Turk): [https://www.mturk.com](https://www.mturk.com)
 
-- Prolific [Link](https://www.prolific.co/)
+- Prolific [https://www.prolific.co](https://www.prolific.co)
+
+---
+
+# Acknowledgments
+
+
+
+

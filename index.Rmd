@@ -34,10 +34,6 @@ style_duo_accent(
 )
 
 xaringanExtra::use_xaringan_extra(c('tile_view', 'tachyons', 'editable', 'panelset'))
-xaringanExtra::use_extra_styles(
-  hover_code_line = TRUE,         
-  mute_unhighlighted_code = FALSE  
-)
 
 library(metathis)
 meta() %>% 
@@ -2174,3 +2170,5 @@ Many thanks to...
 - Brian Dillon (UMass Amherst) for permission to use materials from the LSA Minicourse "Doing Experiments for Linguists" (Brian Dillon & Rodica Ivan)
 
 - Jon Sprouse (UConn) for permission to use materials from LSA 2016, Experimental Syntax Workshop
+
+    - Link to Jon's current course on Introduction to Experimental Syntax Methods: [https://sprouse.uconn.edu/courses/experimental-syntax](https://sprouse.uconn.edu/courses/experimental-syntax)

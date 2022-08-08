@@ -1,9 +1,7 @@
 // Defaults and other settings //
 
-//// Generates random number assigned to participants (Participant ID)
-var randomCode = Math.random().toString(36).substr(2,9)
-//// A message to show to participants at completion (useful for confirmation, raffle entry, etc.)
-var completionMessage = "Thank you for your participation. Your participation code is: " + randomCode
+//// A message to show to participants at completion
+var completionMessage = "Thank you for your participation!"
 
 //// Show a progress bar at the top? (true/false)
 var showProgressBar = false

@@ -11,7 +11,7 @@
     <link href="libs/tachyons/tachyons.min.css" rel="stylesheet" />
     <link href="libs/panelset/panelset.css" rel="stylesheet" />
     <script src="libs/panelset/panelset.js"></script>
-    <script type="application/json" id="xaringanExtra-editable-docid">{"id":"x1deae4f41f5462bb707b0a3b7104d6e","expires":14}</script>
+    <script type="application/json" id="xaringanExtra-editable-docid">{"id":"bb94947c245b457bae92449ac10450e6","expires":14}</script>
     <script src="libs/himalaya/himalaya.js"></script>
     <script src="libs/js-cookie/js.cookie.js"></script>
     <link href="libs/editable/editable.css" rel="stylesheet" />
@@ -50,8 +50,6 @@ class: center, middle, inverse, title-slide
 
 ---
 
-
-class: inverse, middle, center
 
 
 
@@ -170,43 +168,69 @@ a {
   width: 75%;
 }
 
+.pull-left-about {
+  float: left;
+  width: 30%;
+}
+
+.pull-right-about {
+  float: right;
+  width: 64%;
+}
+
+.deemph {
+  color: #bebebe;
+}
+
 /* Clear floats after the columns */
 .pull-right-wide + * { clear: both; }
 &lt;/style&gt;
 
-&lt;h1 style="text-align:left; margin:15px 0px 0px 0px"&gt;Guest&lt;/h1&gt;
+# About us
 
-&lt;img src="https://yjunechoe.github.io/static/img/profile.png" width="150px"&gt;
+.pull-left-about[.center[
+  &lt;img src="https://skb.skku.edu/_attach/professor/UixcDmscMvMXIToHMSbe.jpg" width="130px" style="margin-top:-20px;"/&gt;
+]]
 
+.pull-right-about[.middle[]
+  **Nayoun Kim** nayoun@skku.edu
+  
+  Assistant Professor, Sungkyunkwan University
+  Department of English Language and Literature
+  
+  Syntax, Experimental Syntax, Psycholinguistics
+  &lt;br&gt;
+  &lt;br&gt;
+  &lt;br&gt;
+]
 
+.pull-left-about[.center[
+  &lt;img src="https://yjunechoe.github.io/static/img/profile_rect.jpeg" width="150px"/&gt;
+]]
 
-&lt;h2 style="margin:15px 0px 3px 0px"&gt; June Choe&lt;/h2&gt;
-
-&lt;p style="margin:0px"&gt;&lt;a style="color:white" href="https://yjunechoe.github.io"&gt;yjunechoe.github.io&lt;/a&gt;&lt;/p&gt;
-
-&lt;h3 style="margin:25px 0px 10px 0px"&gt;Ph.D. Student in Linguistics&lt;/h3&gt;
-
-&lt;p style="margin-top:0px; padding-bottom:30px; border-bottom: 1px solid white"&gt;University of Pennsylvania (Philadelphia, PA, USA)&lt;/p&gt;
-
-&lt;strong style="color:white"&gt;Research&lt;/strong&gt;: psycholinguistics, computational linguistics
-
-&lt;p style="font-size:16px; margin-top:2em; margin-bottom: 0px"&gt;Will be answering questions in the chat!&lt;/p&gt;
+.pull-right-about[.middle[]
+  **June Choe** yjchoe@sas.upenn.edu
+  
+  Ph.D. Student, University of Pennsylvania
+  Department of Linguistics
+  
+  Psycholinguistics, Acquisition, Computational Linguistics
+]
 
 ---
 
 # Presentation Outline
 
 .pull-left-narrow[.center[
-  &lt;img src="https://upload.wikimedia.org/wikipedia/commons/3/3c/Capra_ibex_ibex_%E2%80%93_04.jpg" width="150px"/&gt;
+  &lt;img src="https://www.pcibex.net/wp-content/uploads/2019/04/pcibex-logo-3.png" width="80px"/&gt;
 ]]
 
 .pull-right-wide[.middle[]
-  Introduction to [IBEX](https://spellout.net/ibexfarm)
-  - Basic ideas
+  Introduction to [IBEX](https://github.com/addrummond/ibex/blob/master/docs/manual.md) and [PCIbex](https://doc.pcibex.net/)
+  - Basic ideas (IBEX code + PCIbex farm)
   - Navigating the platform
+  - File structure
 ]
-
---
 
 .pull-left-narrow[.center[
   &amp;nbsp;
@@ -219,8 +243,6 @@ a {
   - Code walkthrough
 ]
 
---
-
 .pull-left-narrow[.center[
   &amp;nbsp;
   &lt;svg viewBox="0 0 384 512" xmlns="http://www.w3.org/2000/svg" style="position:relative;display:inline-block;top:.1em;fill:#768692;height:4em;"&gt;  [ comment ]  &lt;path d="M224 136V0H24C10.7 0 0 10.7 0 24v464c0 13.3 10.7 24 24 24h336c13.3 0 24-10.7 24-24V160H248c-13.2 0-24-10.8-24-24zm160-14.1v6.1H256V0h6.1c6.4 0 12.5 2.5 17 7l97.9 98c4.5 4.5 7 10.6 7 16.9z"&gt;&lt;/path&gt;&lt;/svg&gt;
@@ -232,151 +254,118 @@ a {
   - Importing into Excel and R
 ]
 
---
-
-&amp;nbsp;
-
-**Link to the slides:** https://ibex-workshop-slides.netlify.app
 
 ---
 
 class: middle, center
 
-# 1. Introduction to IBEX
+# 1. Introduction to IBEX and PCIbex
 
 ---
 
-# What is IBEX?
-
-- &lt;p&gt;Stands for (.bl[I])nternet-(.bl[B])ased (.bl[EX])periments&lt;/p&gt;
+# What is IBEX and PCIbex?
 
 --
 
-- &lt;strong style="color:#006747;"&gt;DOES&lt;/strong&gt;:
+**IBEX**
+
+- (.bl[I])nternet-(.bl[B])ased (.bl[EX])periments developed by Alex Drummond.
+
+- Refers to both the **framework for scripting experiments** and the **platform for hosting experiments**.
+
+- IBEX the _platform_ ["IBEXfarm"](https://adrummond.net/ibexfarm) has been [discontinued in late 2021](https://groups.google.com/g/ibexexperiments/c/UMnpZgawfIc), but the IBEX _framework_ survives and is supported by extensions and spinoffs.
 
 --
 
-    - Host experiments on a webpage
---
+&lt;br&gt;
 
-    - Log user interactions with the experiment
---
+**PCIbex**
 
-    - Store data on a secure server
+- PennController for IBEX developed by Jeremy Zehr and Florian Schwarz at the University of Pennsylvania.
 
---
+- A platform for hosting experiments that **supports and extends IBEX**
 
-- **DOES NOT**:
+- Also introduces its own, alternative framework for scripting experiments.
 
---
+---
 
-    - Recruit participants (_see_ Amazon Mechanical Turk)
---
+&lt;img src="img/workflow_paths.png" width="800px" style="display: block; margin: auto;" /&gt;
 
-    - Provide an analysis of the results (_see_ R, Python) 
+---
+
+&lt;img src="img/workflow_taken.png" width="800px" style="display: block; margin: auto;" /&gt;
+
+---
+
+# Navigating the PCIbex platform
+
+- &lt;p&gt;Go to the PCIbex farm &lt;a href='https://farm.pcibex.net'&gt;https://farm.pcibex.net&lt;/a&gt; &lt;/p&gt;
+
+- **Sign up** with an email (or **Log in**)
+
+- Once logged in, click **Empty project** under **Start a new project**
+
+- Change the name of the project at the top to something unique (e.g., "SICOL2022")
+
+- Your new project will appear on the main page
+
+&lt;img src="img/create_exp.png" width="600px" style="border:2px solid black; margin:auto; display:block;margin-top:30px" style="display: block; margin: auto;" /&gt;
+
+---
+
+# PCIbex Dashboard Interface
+
+&lt;img src="img/pcibex_dashboard.png" width="800px" style="display: block; margin: auto;" /&gt;
 
 
 ---
 
-# Where does IBEX fit?
+# Experiment file structure
 
-&lt;img src="img/workflow_abstract.jpg" width="450px" style="display: block; margin: auto;" /&gt;
+.pull-left-about[
+&lt;img src="img/file_structure.png" width="230px" style='margin-top:-30px;' /&gt;
+]
 
----
 
-# Where does IBEX fit?
+.pull-right-about[
 
-&lt;img src="img/workflow_tools.png" width="450px" style="display: block; margin: auto;" /&gt;
+**Resources**
+- Files for experiment materials go here
 
----
-
-# Navigating IBEX
-
-- &lt;p&gt;Go to &lt;a href='https://spellout.net/ibexfarm'&gt;https://spellout.net/ibexfarm&lt;/a&gt; &lt;/p&gt;
-
-- Click &lt;strong style='color:#006295'&gt;create an account&lt;/strong&gt; (or &lt;strong style='color:#006295'&gt;log in&lt;/strong&gt;)
-
-- Click &lt;strong style='color:#006295'&gt;manage my experiments&lt;/strong&gt;
-
-- Click &lt;strong style='color:#006295'&gt;Create a new experiment&lt;/strong&gt;
-
-- Give it a unique name like "_workshop_example_"
-
-- Done!
-
-&lt;img src="img/create_exp.png" width="500px" style="border:2px solid black; margin:auto; display:block;margin-top:30px" style="display: block; margin: auto;" /&gt;
-
----
-
-&lt;h1 style='margin-bottom:0px'&gt;Navigating Ibex&lt;/h1&gt;
-
-&lt;video controls width="800" height="500"&gt;
-&lt;source src="vid/ibex_login.mp4" type="video/mp4"&gt;
-&lt;/video&gt;
-
----
-
-&lt;h1 style='margin-bottom:0px'&gt;Experiment file structure&lt;/h1&gt;
-
-.pull-left[
-
-**chunk_includes**
-- Stand-alone files go here
-
-**css_includes**
-- Style specifications go here
-
-**data_includes**
+**Scripts**
 - Experiment scripts go here
 
-**js_includes**
-- Modules ("controllers") go here
+**Aesthetics**
+- Style sheets go here
 
-**results** &amp; **server_state**
-- Automatically generated/updated
+**Modules**
+- Controllers (a.k.a. "Elements") go here
 
-]
-
-
-.pull-right[
-&lt;img src="img/file_structure.png" width="280px" /&gt;
 ]
 
 ---
 
-&lt;style type="text/css"&gt;
-.deemph {
-  color: #bebebe;
-}
-&lt;/style&gt;
+# Experiment file structure
 
+.pull-left-narrow[
+&lt;img src="img/file_structure.png" width="230px" style='margin-top:-30px;' /&gt;
+]
 
-&lt;h1 style='margin-bottom:0px'&gt;Experiment file structure&lt;/h1&gt;
+.pull-right-wide[
 
-.pull-left[
+&lt;strong style='color:#bebebe'&gt;Resources&lt;/strong&gt;
+- .deemph[Files for experiment materials go here]
 
-&lt;strong style='color:#bebebe'&gt;chunk_includes&lt;/strong&gt;
-- .deemph[Stand-alone files go here]
-
-&lt;strong style='color:#bebebe'&gt;css_includes&lt;/strong&gt;
-- .deemph[Style specifications go here]
-
-**data_includes**
+**Scripts**
 - Experiment scripts go here
 
-&lt;strong style='color:#bebebe'&gt;js_includes&lt;/strong&gt;
-- .deemph[Modules ("controllers") go here]
+&lt;strong style='color:#bebebe'&gt;Aesthetics&lt;/strong&gt;
+- .deemph[Style sheets go here]
 
-&lt;strong style='color:#bebebe'&gt;results&lt;/strong&gt; .deemph[&amp;] &lt;strong style='color:#bebebe'&gt;server_state&lt;/strong&gt;
-- .deemph[Automatically generated/updated]
+&lt;strong style='color:#bebebe'&gt;Modules&lt;/strong&gt;
+- .deemph[Controllers (a.k.a. "Elements") go here]
 
 ]
-
-
-.pull-right[
-&lt;img src="img/file_structure.png" width="280px" /&gt;
-]
-
 
 ---
 
@@ -389,70 +378,25 @@ class: middle, center
 
 # The script
 
-Only need to modify **one file**: _example_data.js_ (can also be renamed later)
+When scripting with IBEX, we often only need **one file**: _main.js_
 
 At creation, the default file looks like this:
 
-&lt;embed style='border: 1px solid black' type="text/html" src="ibex_files/example_data.js"  width="800" height="300"&gt;
+&lt;embed style='border: 1px solid black' type="text/html" src="ibex_files/main.js" width="750" height="135px"&gt;
 
-The above script creates [this self-paced reading experiment](https://spellout.net/ibexexps/example/example/experiment.html).
-
+This is a snippet of code from the **PCIbex scripting framework**, which is not the focus of the workshop today (we will briefly revisit PCIbex at the end).
 
 ---
 
 # Writing your own script
 
-The _example_data.js_ script works, but is not very friendly.
+To demonstrate the **IBEX scripting framework**, we use our own &lt;strong&gt;&lt;a href="ibex_files/full_exp.js"&gt;template file&lt;/a&gt;&lt;/strong&gt;.
 
-We'll use **our own** - &lt;strong&gt;&lt;a href="ibex_files/full_exp.js"&gt;template file&lt;/a&gt;&lt;/strong&gt; - to demonstrate how the script works.
+The following IBEX code _just works_ thanks to PCIbex's backward compatibility.
 
 &lt;embed style='border: 1px solid black' type="text/html" src="ibex_files/full_exp.js"  width="800" height="300"&gt;
 
-The above script creates [this acceptability rating experiment](https://spellout.net/ibexexps/skku_ibex/workshop_acceptabilityJudgment/experiment.html).
-
----
-
-# A simple layout
-
-.pull-left[
-
-&lt;img src="img/template_layout_1.png" width="400px" /&gt;
-
-]
-
-
-.pull-right[
-
-**Editing the script**
-
-When you open the `.js` file in the `data_includes` section of your experiment on Ibex, it will open up a text editor.
-
-]
-
----
-
-# A simple layout
-
-.pull-left[
-
-&lt;img src="img/template_layout_1.png" width="400px" /&gt;
-
-]
-
-
-.pull-right[
-
-**Editing the script**
-
-When you open the `.js` file in the `data_includes` section of your experiment on Ibex, it will open up a text editor.
-
-Options for editing the file:
-
-- Make changes directly on IBEX
-
-- Download the file and open with an .bl[editor] that supports **JavaScript** syntax checking (e.g., [Atom](https://atom.io/))
-
-]
+This script creates an [acceptability judgment experiment](https://farm.pcibex.net/r/YBYAwi/).
 
 ---
 
@@ -467,7 +411,7 @@ Options for editing the file:
 
 .pull-right[
 
-**Parts of the Script**
+**Parts of the `main.js` Script**
 
 .bl[Settings]:
 - Sets various options for the experiment
@@ -479,7 +423,6 @@ Options for editing the file:
 .bl[Body] (`items`):
 
 - Includes the actual material that will be shown to the participants
-
 
 ]
 
@@ -504,11 +447,13 @@ Options for editing the file:
 
 .bl[Trials]
 
-- All stimuli for the experiment
+- Stimuli for the experiment
 
-- _Practice_, _Critical_, _Filler_
-
-- Can be accompanied by messages, questions, etc.
+    - **practice** trials
+    
+    - **critical** trials
+    
+    - **filler** trials
 
 ]
 
@@ -540,7 +485,7 @@ Options for editing the file:
 
 --
 
-**Hypothesis**: Verbs that are frequently .blue[transitive] make recovery more difficult, compared to verbs that are frequently .green[intransitive].
+**Hypothesis**: Verbs that are frequently .blue[transitive] make recovery (reanalysis) more difficult, compared to verbs that are frequently .green[intransitive].
 
 --
 
@@ -566,7 +511,7 @@ Options for editing the file:
 
 For each trial in our acceptability judgment experiment, we write this code:
 
-.center[.bl[[["_Trial name_", _Set #_], "_Trial Type_", {s: "_Sentence_"}]]]
+.center[.bl[[["_Condition name_", _Item Set #_], "_Task Type_", {s: "_Sentence_"}]]]
 
 --
 
@@ -579,10 +524,10 @@ This is a list (array) of three elements (clearer with spacing):
 \[
 &lt;br&gt;
 `\(\quad\)`
-\["_Trial name_", _Set #_ \],
+\["_Condition name_", _Item Set #_ \],
 &lt;br&gt;
 `\(\quad\)`
-"_Trial Type_",
+"_Task Type_",
 &lt;br&gt;
 `\(\quad\)`
 {s: "Sentence"}
@@ -599,10 +544,10 @@ This is a list (array) of three elements (clearer with spacing):
 .bg-washed-green.b--dark-green.ba.bw2.br3.shadow-5.ph3[
 
 \[
-\["_Trial name_", _Set #_ \],
+\["_Condition name_", _Item Set #_ \],
 &lt;br&gt;
 `\(\quad\)`
-"_Trial Type_",
+"_Task Type_",
 &lt;br&gt;
 `\(\quad\)`
 {s: "Sentence"}
@@ -613,13 +558,11 @@ This is a list (array) of three elements (clearer with spacing):
 ]
 
 
---
-
 &lt;p style='padding-top:25px'&gt;We have one big bracket which contains &lt;strong&gt;three elements&lt;/strong&gt;:&lt;/p&gt;
 
-1. Another list, consisting of the _name of the trial_ and _set number_
+1. Another list, consisting of the _name of the condition_ and _item set number_
 
-2. A string specifying the _type of the trial_ (called .bl[Controllers])
+2. A string specifying the _type of task_ (also called **Controllers** or **Elements**)
 
 3. A curly bracket (_braces_), which has "s" and the _sentence_ separated by a colon
 
@@ -629,7 +572,7 @@ This is a list (array) of three elements (clearer with spacing):
 
 .bl[Example 1:]
 
-For the gp.trans condition, the first stimuli in our acceptability judgment experiment is the sentence "While Anna trained the kitten paid attention".
+In the gp.trans condition, the first stimuli in our acceptability judgment experiment is the sentence "While Anna trained the kitten paid attention".
 
 .bg-washed-green.b--dark-green.ba.bw2.br3.shadow-5.ph4[
 \[
@@ -652,7 +595,7 @@ For the gp.trans condition, the first stimuli in our acceptability judgment expe
 
 .bl[Example 1:]
 
-For the .blue[gp.trans condition], the first stimuli in our acceptability judgment experiment is the sentence "While Anna trained the kitten paid attention".
+In the .blue[gp.trans condition], the first stimuli in our acceptability judgment experiment is the sentence "While Anna trained the kitten paid attention".
 
 .bg-washed-green.b--dark-green.ba.bw2.br3.shadow-5.ph4[
 \[
@@ -675,7 +618,7 @@ For the .blue[gp.trans condition], the first stimuli in our acceptability judgme
 
 .bl[Example 1:]
 
-For the .blue[gp.trans condition], the **first stimuli** in our acceptability judgment experiment is the sentence "While Anna trained the kitten paid attention".
+In the .blue[gp.trans condition], the **first stimuli** in our acceptability judgment experiment is the sentence "While Anna trained the kitten paid attention".
 
 .bg-washed-green.b--dark-green.ba.bw2.br3.shadow-5.ph4[
 \[
@@ -698,7 +641,7 @@ For the .blue[gp.trans condition], the **first stimuli** in our acceptability ju
 
 .bl[Example 1:]
 
-For the .blue[gp.trans condition], the **first stimuli** in our .bl[acceptability judgment experiment] is the sentence "While Anna trained the kitten paid attention".
+In the .blue[gp.trans condition], the **first stimuli** in our .bl[acceptability judgment experiment] is the sentence "While Anna trained the kitten paid attention".
 
 .bg-washed-green.b--dark-green.ba.bw2.br3.shadow-5.ph4[
 \[
@@ -721,7 +664,7 @@ For the .blue[gp.trans condition], the **first stimuli** in our .bl[acceptabilit
 
 .bl[Example 1:]
 
-For the .blue[gp.trans condition], the **first stimuli** in our .bl[acceptability judgment experiment] is the .purple[sentence] "While Anna trained the kitten paid attention". 
+In the .blue[gp.trans condition], the **first stimuli** in our .bl[acceptability judgment experiment] is the .purple[sentence] "While Anna trained the kitten paid attention". 
 
 .bg-washed-green.b--dark-green.ba.bw2.br3.shadow-5.ph4[
 \[
@@ -744,7 +687,7 @@ For the .blue[gp.trans condition], the **first stimuli** in our .bl[acceptabilit
 
 .bl[Example 1:]
 
-For the .blue[gp.trans condition], the **first stimuli** in our .bl[acceptability judgment experiment] is the .purple[sentence] .orange["While Anna trained the kitten paid attention"]. 
+In the .blue[gp.trans condition], the **first stimuli** in our .bl[acceptability judgment experiment] is the .purple[sentence] .orange["While Anna trained the kitten paid attention"]. 
 
 .bg-washed-green.b--dark-green.ba.bw2.br3.shadow-5.ph4[
 \[
@@ -848,7 +791,7 @@ Good scripting habits:
 
 - Adding comments (starts with two or more slashes `//`)
 
-- Saving often! (editing in IBEX not recommended)
+- Saving often! (scripting outside of PCIbex using an editor is also an option)
 
 ---
 
@@ -858,8 +801,6 @@ Good scripting habits:
 
 - Presented at the beginning, accompanied by instructions and feedback
 
---
-
 .bl[Filler Trials]:
 
 - Mixed in with the critical trials
@@ -868,7 +809,7 @@ Good scripting habits:
 
 .center[**Both types of trials are invariant across conditions**]
 
-This means that the first element of the big bracket can just be the _Trial Name_, without assigning it a _Set #_:
+The first element of the big bracket can just be the _Trial Name_, without assigning it a _Item Set #_ (only relevant for counterbalancing, more later):
 
 --
 
@@ -932,8 +873,6 @@ Catch Filler #1: "Please select 4 for this sentence."
 
 &lt;embed style='border: 1px solid black' type="text/html" src="snippets/all_trials.js"  width="800" height="420"&gt;
 
---
-
 **Important**: The ordering of the trials here is just for human readability. We haven't yet told the program what order to present them in!
 
 
@@ -949,7 +888,7 @@ Catch Filler #1: "Please select 4 for this sentence."
 
 .pull-right[
 
-.bl[List the _names_ of each trial in order:]
+.bl[Pull out the _names_ of each trial:]
 
 
 ```r
@@ -982,36 +921,6 @@ Catch Filler #1: "Please select 4 for this sentence."
 
 ```r
 seq(
- "practice-1",
- "gp.trans",
- "gp.intrans",
- "gp.trans",
- "gp.intrans",
- "filler-good-01",
- "filler-bad-01",
- "filler-catch-01"
-)
-```
-
-]
-
----
-
-# Defining the Sequence
-
-.pull-left[
-
-&lt;embed style='border: 1px solid black' type="text/html" src="snippets/all_trials.js"  width="350" height="450"&gt;
-
-]
-
-.pull-right[
-
-.bl[Assign to `shuffleSequence`:]
-
-
-```r
-var shuffleSequence = seq(
  "practice-1",
  "gp.trans",
  "gp.intrans",
@@ -1195,8 +1104,6 @@ var shuffleSequence = seq(
 ```
 ]
 
---
-
 The function `startsWith()` matches all names that starts with the given string.
 
 ---
@@ -1230,8 +1137,6 @@ var shuffleSequence = seq(
 ```
 ]
 
---
-
 By wrapping both the critical trials (_gp..._) and the filler trials (_filler..._) in `rshuffle()`, they are mixed together and presented in random order.
 
 --
@@ -1250,7 +1155,7 @@ var shuffleSequence = seq(
 
 # 3. Sequence: counterbalancing
 
-The .bl[set number] in our critical trials automatically handles **counterbalancing**:
+The .bl[set number] in our critical trials are automatically used for **counterbalancing**:
 
 .center[[["gp.trans", .bl[1]], ...], [["gp.intrans", .bl[1]], ...], [["gp.trans", .bl[2]], ...], [["gp.intrans", .bl[2]], ...]]
 
@@ -1260,7 +1165,7 @@ The .bl[set number] in our critical trials automatically handles **counterbalanc
 
 --
 
-We just need to add a .bl[counter] inside `items` to track group assignment:
+To alternate between participants, we need to define a special .bl[counter] "trial":
 
 
 ```r
@@ -1272,7 +1177,7 @@ We just need to add a .bl[counter] inside `items` to track group assignment:
 
 # 3. Sequence: counterbalancing
 
-To use the counter, you need to modify both `items` and `shuffleSequence`:
+The counter must be defined in `items` and added to `shuffleSequence`:
 
 
 ```r
@@ -1308,8 +1213,6 @@ var shuffleSequence = seq(
 
 &lt;embed style='border: 1px solid black' type="text/html" src="snippets/body_sequence.js"  width="800" height="400"&gt;
 
---
-
 Just need one more step: **Settings**
 
 ---
@@ -1318,30 +1221,9 @@ Just need one more step: **Settings**
 
 Consist of miscellaneous options that we can put at the top of the script.
 
---
+For example, using the `defaults` variable, we can specify parameters for the **method design**.
 
-At the very least, we want to do two things:
-
-1. Generate unique **participant IDs**
-
-2. Specify the parameters for the **method design**
-
-
----
-
-# Settings (Basic)
-
-Consist of miscellaneous options that we can put at the top of the script.
-
-At the very least, we want to do two things:
-
-1. Generate unique **participant IDs** (`randomCode`)
-
-2. Specify the parameters for the **method design** (`defaults`)
-
-&lt;embed style='border: 1px solid black' type="text/html" src="snippets/settings.js"  width="800" height="245"&gt;
-
---
+&lt;embed style='border: 1px solid black' type="text/html" src="snippets/settings.js"  width="800" height="200"&gt;
 
 More details in the .bl[AcceptabilityJudgment] section of the [documentation](https://github.com/addrummond/ibex/blob/master/docs/manual.md).
 
@@ -1364,8 +1246,6 @@ var defaults = [
     }]
 ```
 
---
-
 &lt;img src="img/minimal.png" width="550px" style='border:1px solid black; margin:auto; display:block;' /&gt;
 
 
@@ -1383,8 +1263,7 @@ Suppose you'd like to show participants _multiple sentences_ but have them only 
 var defaults = [
     "AcceptabilityJudgment", {
        ...                     
-*      instructions: "Rate how natural Speaker B's response sounds.",
-       ...
+*      instructions: "Rate how natural Speaker B's response sounds."
     }]
 ```
 
@@ -1392,13 +1271,13 @@ var defaults = [
 ```r
 [["ConditionA", 1],
  "AcceptabilityJudgment",
- {s: ["div",
-*   ["p", "Speaker A: Who left this sandwich on the table?"]
-*   ["p", "Speaker B: Fred did."]
- ]}]
+*{s: ["div",
+*      ["p", "Speaker A: Who left this sandwich on the table?"]
+*      ["p", "Speaker B: Fred did."]
+*    ]}]
 ```
 
-**Note**: You can show multiple lines of text using .bl[html] tags like "p" and "div" - more on that later
+We can print lines of text using .bl[html] tags (more later)
 
 ]
 
@@ -1406,8 +1285,7 @@ var defaults = [
 
 &lt;img src="img/defaults_change.png" width="600px" style='border:1px solid black; margin:auto; display:block;' /&gt;
 
-]
-]
+]]
 
 ---
 
@@ -1419,11 +1297,9 @@ You can also change other options, such as showing a message at the end:
 
 
 ```r
-//// A message to show to participants at completion (useful for confirmation, raffle entry, etc.)
-var completionMessage = "Thank you for your participation. Your participation code is: " + randomCode
+// A message to show to participants at completion
+var completionMessage = "Thank you for your participation!"
 ```
-
---
 
 And whether to show a progress bar:
 
@@ -1431,19 +1307,19 @@ And whether to show a progress bar:
 
 
 ```r
-//// Show a progress bar at the top? (true/false)
+// Show a progress bar at the top? (true/false)
 var showProgressBar = false
 ```
 
---
+&lt;br&gt;
 
-You can learn more about these various elements in the .bl[Miscellaneous options] section of the [documentation](https://github.com/addrummond/ibex/blob/master/docs/manual.md).
+You can learn more about these various elements in the .bl[Miscellaneous options] section of the [IBEX documentation](https://github.com/addrummond/ibex/blob/master/docs/manual.md).
 
 ---
 
 # A minimal experiment
 
-We now have a [minimally working experiment](https://spellout.net/ibexexps/skku_ibex/workshop_minimal/experiment.html)!
+We now have a [minimally working experiment](https://farm.pcibex.net/p/ixPrfo/)!
 
 &lt;embed style='border: 1px solid black' type="text/html" src="ibex_files/minimal_exp.js"  width="800" height="400"&gt;
 
@@ -1453,33 +1329,21 @@ We now have a [minimally working experiment](https://spellout.net/ibexexps/skku_
 
 .bl[What we've covered:]
 
---
-
-- &lt;p&gt;We use a special syntax to create stimuli&lt;/p&gt;
-
---
+- &lt;p&gt;We use a templatic syntax for creating stimuli&lt;/p&gt;
 
 - We store all the materials for our experiment inside `items`
 
---
-
 - We specify the order of presentation inside `shuffleSequence`
 
---
-
-- We set various options at the top of the script, such as defaults for the experiment _method_ and the assignment of _participant ID_
+- We can set various options for the experiment, such as defaults for the _task design_.
 
 --
 
-.bl[A few more things to know:]
+.bl[A few more things we want to know:]
 
---
-
-- How can we add _plain text_?
+- How can we show _messages and text_ to participants?
 
     - Introduction page, consent form, directions, etc.
-    
---
     
 - How can we extend this workflow for _other experimental designs_?
 
@@ -1495,15 +1359,15 @@ The **"Message"** controller shows text on a new page.
 
 It is a list of 3 elements, similar to the "AcceptabilityJudgement" items:
 
-.center[.bl[["_Trial name_", "Message", {html: _text_}]]]
+.center[.bl[["_Condition name_", "Message", {html: _text_}]]]
 
 --
 
-- .bl[_Trial name_] is used to reference the trial in sequencing, as seen earlier 
+- .bl[_Condition name_] is used to reference the trial in sequencing
 
 --
 
-- .bl["Message"] tells IBEX that this trial just shows text on a new screen
+- .bl["Message"] is a type of task that just shows text on a screen
 
 --
 
@@ -1623,14 +1487,13 @@ var shuffleSequence = seq(
 )
 ```
 
-]
-]
+]]
 
 ---
 
 # Putting everything together
 
-Here's a [complete experiment](https://spellout.net/ibexexps/skku_ibex/workshop_acceptabilityJudgment/experiment.html) with several .bl[Message] controllers added.
+We now have a [complete experiment](https://farm.pcibex.net/p/HCRZqI) with several .bl[Message] controllers added.
 
 &lt;embed style='border: 1px solid black' type="text/html" src="ibex_files/full_exp.js"  width="800" height="420"&gt;
 
@@ -1641,23 +1504,17 @@ Here's a [complete experiment](https://spellout.net/ibexexps/skku_ibex/workshop_
 
 So we have a new script, but how do we host the experiment?
 
-1. Go to the [IBEX website](https://spellout.net/ibexfarm/) and log in.
+1. Go to the [PCIbex farm website](https://farm.pcibex.net/) and log in.
 
-2. Click on your experiment (or create one if you haven't already).
+2. Click into (or create) your experiment and edit the `main.js` file.
 
-3. Click .blue[edit] next to the &lt;em&gt;example_data.js&lt;/em&gt; file in the **data_includes** section.
+4. Click **Share** in the menu bar to the right and copy the **Demonstration link** (for testing and development) or **Data-collection link** (available after publishing)
 
-4. Delete its contents and copy paste your new code.
+&lt;img src="img/exp_links.png" width="350px" style="display: block; margin: auto;" /&gt;
 
-5. Click on the link at the top of the page.
+Demo: [https://farm.pcibex.net/r/YBYAwi](https://farm.pcibex.net/r/YBYAwi)
 
-&lt;img src="img/exp_link.png" width="400px" style="display: block; margin: auto;" /&gt;
-
-The URL shown in your browser is the link to your experiment!
-
-&lt;img src="img/exp_url.png" width="400px" style="display: block; margin: auto;" /&gt;
-
-.center[https://spellout.net/ibexexps/skku_ibex/workshop_minimal/experiment.html]
+Published: [https://farm.pcibex.net/p/HCRZqI](https://farm.pcibex.net/p/HCRZqI)
 
 ---
 
@@ -1675,25 +1532,13 @@ We want a _finer-grained measure_ of recovery difficulty, so we'd like to change
 
 Given our existing template, we take the following steps:
 
---
-
 1. Go to the [documentation](https://github.com/addrummond/ibex/blob/master/docs/manual.md) and find a Controller for self-paced reading.
-
---
 
 2. Specify the design of that controller in the `defaults` variable.
 
---
-
 3. Change our trials in `items` from ".bl[acceptabilityJudgment]" to that Controller.
 
---
-
 4. Make changes to the text of the ".bl[Messages]" items (e.g., directions).
-
---
-
-Let's go look at the documentation!
 
 ---
 
@@ -1731,7 +1576,7 @@ var items = [
 
 # Our second experiment
 
-Finally, after re-writing some of the ".bl[Message]" items, we have a [new experiment](https://spellout.net/ibexexps/skku_ibex/workshop_DashedSentence/experiment.html)!
+Finally, after re-writing some of the ".bl[Message]" items, we have a [new experiment](https://farm.pcibex.net/r/xPeNeL/)!
 
 &lt;embed style='border: 1px solid black' type="text/html" src="ibex_files/SPR.js"  width="800" height="420"&gt;
 
@@ -1816,75 +1661,71 @@ class: middle, center
 
 # Where to find the data
 
-The data collected in the experiment can be found on the experiment page, under the .bl[results] section.
+The data collected in the experiment can be found on the experiment page, in the **Results** tab.
 
 &lt;img src="img/results_section.png" width="600px" style='border:1px solid black; margin:auto; display:block;' /&gt;
 
-The section comprises of two files, of which *results* is the better formatted one.
+That gives you a preview of the results and gives you options to download or delete the collected data.
 
 ---
 
-&lt;h1 style='margin-bottom:0px'&gt;The &lt;em&gt;results&lt;/em&gt; file&lt;/h1&gt;
+&lt;h1 style='margin-bottom:0px'&gt;The &lt;em&gt;results.csv&lt;/em&gt; file&lt;/h1&gt;
 
-*results* is a .bl[csv] file (.bl[c]omma .bl[s]eparated .bl[v]alues), meaning that each line contains a set of values that are separated by a comma.
-
---
+If you download the data, you get back a .bl[csv] file called `results.csv`, meaning that each line contains a set of values that are separated by a comma.
 
 &lt;img src="img/results_img.png" width="550px" style='border:1px solid black; margin:auto; display:block;' /&gt;
 
---
+The lines that start with a pound symbol "#" are **comments** that include _metadata_.
 
-The lines that start with a pound symbol "#" are .b[comments] that include _metadata_.
+The ones that start with numbers tell us what **variable** the columns correspond to.
 
-They tell us what **variables** each comma-separated values correspond to.
 
 ---
+
 
 # The **variables**
 
 All IBEX experiments return these **7** variables:
 
-1. .blue[Time]
+1. .blue[Time] ("Results reception time")
 
-2. .blue[Participant ID]
+2. .blue[Participant ID] ("MD5 hash of participant's IP address")
 
-3. .blue[Controller Name]
+3. .blue[Controller] ("Controller name")
 
-4. .blue[Item number]
+4. .blue[Item number] ("Order number of item")
 
-5. .blue[Element number]
+5. .blue[Inner element number] ("Inner element number")
 
-6. .blue[Type]
+6. .blue[Condition] ("Label")
 
-7. .blue[Group]
+7. .blue[Item set] ("Latin Square Group")
 
 ---
 
 # The **variables**
 
-Generally, we only care about **4** of these:
+In our case, we only care about **4** of these:
 
 1. .deemph[Time]
 
-2. .blue[Participant ID]: A unique ID for each participant.
+2. .blue[Participant ID]: A unique ID for each participant
 
-3. .blue[Controller Name]: The controller that the values are from.
+3. .blue[Controller]: The type of task/trial (e.g., AcceptabilityJudgment)
 
 4. .deemph[Item number]
 
-5. .deemph[Element number]
+5. .deemph[Inner element number]
 
-6. .blue[Type]: The name of the trial.
+6. .blue[Condition]: The condition label for the trial (practice-1, gp-trans, ...).
 
-7. .blue[Group]: The item group number.
-
---
-
-The last two variables uniquely identify each trial created in `items`:
+7. .blue[Item set]: The item set number (1,2,3,...).
 
 --
 
-.center[.bl[[[.blue["_Type_"], .blue[_Group_]], "_Trial Type_", {s: "_Sentence_"}]]]
+The last two variables **uniquely identify** the stimuli defined in `items`:
+
+.center[.bl[[[.blue["_Condition_"], .blue[_Item set_]], "_Controller_", {s: "_Sentence_"}]]]
 
 .center[.bl[[[.blue["gp.trans"], .blue[1]], "DashedSentence", {s: "..."}]]]
 
@@ -1892,11 +1733,9 @@ The last two variables uniquely identify each trial created in `items`:
 
 # The **variables**
 
-Depending on the experiment, IBEX returns other variables specific to the design.
+You also get other variables depending on the **Controller**
 
---
-
-For self-paced reading with .b["DashedSentence"], we get **5** more variables:
+For self-paced reading with .bl["DashedSentence"], we get **5** more variables:
 
 8. .green[Word number] - The index of the word in the sentence.
 
@@ -1914,7 +1753,7 @@ These are also outlined in the [documentation](https://github.com/addrummond/ibe
 
 --
 
-For an actual analysis of the results, we need the results to be imported somewhere as a **data frame** (where every value is a cell and each variable forms a column). 
+For an actual analysis of the results, we need the results to be imported somewhere as a **data frame**, preferrably in a rectangular table format where rows are observations and columns are variables.
 
 ---
 
@@ -1946,7 +1785,7 @@ Steps for importing the data into Excel:
 
 &lt;h1 style='margin-bottom:0px'&gt;Importing - Excel&lt;/h1&gt;
 
-&lt;video controls width="800" height="500"&gt;
+&lt;video controls autoplay width="800" height="500"&gt;
 &lt;source src="vid/excel_import.mp4" type="video/mp4"&gt;
 &lt;/video&gt;
 
@@ -1954,17 +1793,13 @@ Steps for importing the data into Excel:
 
 # Complex results
 
-Some Controllers return more than 1 line of results, making thing complicated.
+Some Controllers return multiple lines of results, with differing number of columns
 
---
-
-For example, each **AcceptabilityJudgment** trial adds two lines to _results_:
+For example, each **AcceptabilityJudgment** trial is a combination of **Message** and **Question** controllers under the hood, so it logs two lines of data:
 
 &lt;img src="img/results_AJ_img.png" width="550px" style='border:1px solid black; margin:auto; display:block;' /&gt;
 
---
-
-In cases like these, using a .bl[processing script (R/Python)] is recommended
+In more complex cases like these, using a .bl[script (R/Python)] is recommended
 
 ---
 
@@ -1972,9 +1807,9 @@ In cases like these, using a .bl[processing script (R/Python)] is recommended
 
 Steps for importing into R:
 
-1. Download the _results_ file from IBEX
+1. Download the `results.csv` file from PCIbex
 
-2. Open it with the `read_ibex()` function from this [read_ibex.R](https://github.com/yjunechoe/IBEX-Workshop-Materials/blob/master/R%20codes/read_ibex.R) script
+2. Open it with the `read_pcibex()` function from the [read_pcibex.R](https://github.com/yjunechoe/IBEX-Workshop-Materials/blob/master/R%20codes/read_ibex.R) script
 
 
 
@@ -1983,20 +1818,21 @@ Steps for importing into R:
 
 
 ```r
-source("read_ibex.R")
-results &lt;- read_ibex("SPR_results.txt")
+source("read_pcibex.R")
+results &lt;- read_pcibex("SPR_results.txt")
 ```
 
 
 ```
-##    Controller name          Type Group Word number    Word Reading time
-## 92  DashedSentence    gp.intrans     2           8   plan.          261
-## 75  DashedSentence      gp.trans     1           5  kitten          277
-## 95  DashedSentence filler-bad-01  NULL           3 sneezed          339
-##                              Sentence (or sentence MD5)
-## 92     Since Dave worried the counselor devised a plan.
-## 75        While Anna trained the kitten paid attention.
-## 95 When Tyler sneezed the driver%2C he passed a tissue.
+  # A tibble: 6 × 5
+    Controller_name Label      Word_number Word   Reading_time
+    &lt;chr&gt;           &lt;chr&gt;            &lt;dbl&gt; &lt;chr&gt;         &lt;dbl&gt;
+  1 DashedSentence  practice-1           1 The             132
+  2 DashedSentence  practice-1           2 car             115
+  3 DashedSentence  practice-1           3 drove           110
+  4 DashedSentence  practice-1           4 like            112
+  5 DashedSentence  practice-1           5 a               118
+  6 DashedSentence  practice-1           6 dream.          117
 ```
 
 ]
@@ -2005,24 +1841,24 @@ results &lt;- read_ibex("SPR_results.txt")
 
 
 ```r
-source("read_ibex.R")
-results &lt;- read_ibex("Acceptability_results.txt")
+source("read_pcibex.R")
+results &lt;- read_pcibex("Acceptability_results.txt")
 ```
 
 
 ```
-##          Controller name            Type Group
-## 27 AcceptabilityJudgment filler-catch-01  NULL
-## 29 AcceptabilityJudgment      practice-1  NULL
-## 16 AcceptabilityJudgment      practice-1  NULL
-##            Sentence (or sentence MD5) Answer
-## 27 Please select 4 for this sentence.   &lt;NA&gt;
-## 29        The car drove like a dream.   &lt;NA&gt;
-## 16                               &lt;NA&gt;      3
+  # A tibble: 6 × 4
+    Label      Latin_Square_Group Sentence_or_sentence_MD5   Answer
+    &lt;chr&gt;      &lt;chr&gt;              &lt;chr&gt;                       &lt;dbl&gt;
+  1 practice-1 NULL               The car drove like a drea…     NA
+  2 practice-1 NULL               &lt;NA&gt;                            5
+  3 gp.intrans 2                  Since Dave worried the co…     NA
+  4 gp.intrans 2                  &lt;NA&gt;                            6
+  5 gp.trans   1                  While Anna trained the ki…     NA
+  6 gp.trans   1                  &lt;NA&gt;                            5
 ```
 
-]
-]
+]]
 
 
 ---
@@ -2055,113 +1891,47 @@ The experiment script &lt;a href="ibex_files/incomplete.js"&gt;incomplete.js&lt;
 
 1. Download &lt;a href="ibex_files/incomplete.js"&gt;incomplete.js&lt;/a&gt;
 
-2. Create a new experiment on your ibex account called "WorkshopExercise" and replace the contents of &lt;em&gt;example_data.js&lt;/em&gt; in the &lt;strong&gt;data_includes&lt;/strong&gt; section with &lt;em&gt;incomplete.js&lt;/em&gt;.
+2. Create a new experiment on your PCIbex account called "WorkshopExercise" and replace the contents of &lt;em&gt;main.js&lt;/em&gt; with &lt;em&gt;incomplete.js&lt;/em&gt;.
 
-3. Click .blue[edit] and follow the directions in the script to fill in the blanks.
+3. Follow the directions in the script to fill in the blanks.
 
 4. Complete as many of tasks as possible (.bl[8 total]).
 
-If you finish, save the edits and click on your experiment link at the top of the page. Check to see that your experiment looks similar to this [complete version](https://spellout.net/ibexexps/skku_ibex/workshop_exercise/experiment.html).
+If you finish, save the edits, refresh, and **preview** the experiment in the bottom panel or click **Open in new tab**. Check to see that your experiment looks similar to the complete version - [https://farm.pcibex.net/p/ZvbOXD](https://farm.pcibex.net/p/ZvbOXD).
 
-&lt;p style='padding-top:25px'&gt;&lt;strong&gt;Make sure to use the IBEX documentation!&lt;/strong&gt;&lt;/p&gt;
+&lt;p style='padding-top:25px'&gt;&lt;strong&gt;Make sure to reference the IBEX documentation!&lt;/strong&gt;&lt;/p&gt;
 
 [https://github.com/addrummond/ibex/blob/master/docs/manual.md](https://github.com/addrummond/ibex/blob/master/docs/manual.md)
 
 ---
 
-# Resources
+# What about the PCIbex framework?
 
-Materials from this presentation are on [Google Drive](https://drive.google.com/drive/folders/1jgnR0zSPgcsikmc3sT0OW0Jkndl9yar5?usp=sharing).
+For several of the standard experimental paradigms in linguistics, the PCIbex framework **directly ports** controllers from IBEX. So for tasks like self-paced reading, you get the same experiment from a different style of code.
 
-More resources from the community:
+You can clone the **PCIbex version** of the workshop's SPR experiment here - [https://farm.pcibex.net/r/nYsovX](https://farm.pcibex.net/r/nYsovX/)
 
-- The official [IBEX documentation](https://github.com/addrummond/ibex/blob/master/docs/manual.md).
+PCIbex has great support for experiments involving multimedia (audio, video, etc.). The PCIbex documentation is a good place to get started - [https://doc.pcibex.net](https://doc.pcibex.net)
 
-- The official [IBEX google group](https://groups.google.com/g/ibexexperiments/c/-PTeVD39h9o) to ask questions. 
-
---
-
-&lt;p style = 'padding-top:25px'&gt;&lt;strong&gt;UPDATE (01/01/2021)&lt;/strong&gt;&lt;/p&gt;
-
-There is a **new version of IBEX** at a different link: [https://ibex.spellout.net](https://ibex.spellout.net)
-
-&lt;img src="img/ibex_new.png" width="650px" style='border:1px solid black; margin:auto; display:block;' /&gt;
+IBEX is always good to know due to the sheer amount of linguistics experiments already written in IBEX. PCIBex is not difficult to pick up after IBEX, should you choose to learn it.
 
 ---
 
-# Resources
+# Thank you!
 
 Materials from this presentation are on [Google Drive](https://drive.google.com/drive/folders/1jgnR0zSPgcsikmc3sT0OW0Jkndl9yar5?usp=sharing).
-
-More resources from the community:
-
-- The official [IBEX documentation](https://github.com/addrummond/ibex/blob/master/docs/manual.md).
-
-- The official [IBEX google group](https://groups.google.com/g/ibexexperiments/c/-PTeVD39h9o) to ask questions. 
-
-&lt;p style = 'padding-top:25px'&gt;&lt;strong&gt;UPDATE (01/01/2021)&lt;/strong&gt;&lt;/p&gt;
-
-**New feature**: results can be downloaded as a spreadsheet ([full list of changes](https://gist.github.com/addrummond/b345d3d4f23436838e52afbe880ebbd9)).
-
-.pull-left[
-&lt;img src="img/new_feature_1.png" width="400px" style='border:1px solid black; margin:auto; display:block;' /&gt;
-]
-
-.pull-right[
-&lt;img src="img/new_feature_2.png" width="400px" style='border:1px solid black; margin:auto; display:block;' /&gt;
-]
-
----
-
-# Resources
-
-Materials from this presentation are on [Google Drive](https://drive.google.com/drive/folders/1jgnR0zSPgcsikmc3sT0OW0Jkndl9yar5?usp=sharing).
-
-More resources from the community:
-
-- The official [IBEX documentation](https://github.com/addrummond/ibex/blob/master/docs/manual.md).
-
-- The official [IBEX google group](https://groups.google.com/g/ibexexperiments/c/-PTeVD39h9o) to ask questions. 
-
-&lt;p style = 'padding-top:25px'&gt;&lt;strong style='color:black'&gt;Other platforms&lt;/strong&gt;&lt;/p&gt;
-
-- PCIbex (Penn Controller for IBEX): [https://www.pcibex.net](https://www.pcibex.net)
-
-- PsychoPy: [https://www.psychopy.org](https://www.psychopy.org)
-
-- _magpie (minimal architecture for the generation of portable interactive experiments): [https://magpie-ea.github.io/magpie-site](https://magpie-ea.github.io/magpie-site)
-
----
-
-# Resources
-
-Materials from this presentation are on [Google Drive](https://drive.google.com/drive/folders/1jgnR0zSPgcsikmc3sT0OW0Jkndl9yar5?usp=sharing).
-
-More resources from the community:
-
-- The official [IBEX documentation](https://github.com/addrummond/ibex/blob/master/docs/manual.md).
-
-- The official [IBEX google group](https://groups.google.com/g/ibexexperiments/c/-PTeVD39h9o) to ask questions. 
-
-&lt;p style = 'padding-top:25px'&gt;&lt;strong style='color:black'&gt;Platforms to recruit participants for your IBEX experiment&lt;/strong&gt;&lt;/p&gt;
-
-- MTurk (Amazon Mechanical Turk): [https://www.mturk.com](https://www.mturk.com)
-
-- Prolific [https://www.prolific.co](https://www.prolific.co)
-
----
-
-# Acknowledgments
 
 Many thanks to...
-
-- June Choe for assistance with the slides (esp. interactive components)
 
 - Brian Dillon (UMass Amherst) for permission to use materials from the LSA Minicourse "Doing Experiments for Linguists" (Brian Dillon &amp; Rodica Ivan)
 
 - Jon Sprouse (UConn) for permission to use materials from LSA 2016, Experimental Syntax Workshop
 
-    - Link to Jon's current course on Introduction to Experimental Syntax Methods: [https://sprouse.uconn.edu/courses/experimental-syntax](https://sprouse.uconn.edu/courses/experimental-syntax)
+    - Link to Jon's course on Introduction to Experimental Syntax Methods: [https://sprouse.uconn.edu/courses/experimental-syntax](https://sprouse.uconn.edu/courses/experimental-syntax)
+
+- Florian Schwarz and Jeremy Zehr for permissions to use materials from their PCIbex workshops.
+
+- Attendees of the 2021 BK Winter School Workshop on Experimental Linguistics/Syntax at Sungkyunkwan University for valuable feedback on the workshop materials.
     </textarea>
 <style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
 <script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>

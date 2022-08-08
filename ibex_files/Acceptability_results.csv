@@ -1,0 +1,62 @@
+#
+# Results on Mon, 08 Aug 2022 18:17:38 GMT
+# USER AGENT: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.0.0 Safari/537.36
+# Design number was non-random = 0
+#
+# Columns below this comment are as follows:
+# 1. Results reception time.
+# 2. MD5 hash of participant's IP address.
+# 3. Controller name.
+# 4. Order number of item.
+# 5. Inner element number.
+# 6. Label.
+# 7. Latin Square Group.
+# 8. Sentence (or sentence MD5).
+1659982658,52feb25643f02c180f5ef161300d667d,AcceptabilityJudgment,4,0,practice-1,NULL,The car drove like a dream.
+# 8. Question (NULL if none)..
+# 9. Answer.
+# 10. Whether or not answer was correct (NULL if N/A).
+# 11. Time taken to answer..
+1659982658,52feb25643f02c180f5ef161300d667d,AcceptabilityJudgment,4,0,practice-1,NULL,NULL,5,NULL,1433
+# 8. Sentence (or sentence MD5).
+1659982658,52feb25643f02c180f5ef161300d667d,AcceptabilityJudgment,6,0,practice-2,NULL,The cat ever has eaten cheese the.
+# 8. Question (NULL if none)..
+# 9. Answer.
+# 10. Whether or not answer was correct (NULL if N/A).
+# 11. Time taken to answer..
+1659982658,52feb25643f02c180f5ef161300d667d,AcceptabilityJudgment,6,0,practice-2,NULL,NULL,6,NULL,329
+# 8. Sentence (or sentence MD5).
+1659982658,52feb25643f02c180f5ef161300d667d,AcceptabilityJudgment,14,0,filler-good-01,NULL,When Harry fell%2C the audience was shocked.
+# 8. Question (NULL if none)..
+# 9. Answer.
+# 10. Whether or not answer was correct (NULL if N/A).
+# 11. Time taken to answer..
+1659982658,52feb25643f02c180f5ef161300d667d,AcceptabilityJudgment,14,0,filler-good-01,NULL,NULL,6,NULL,286
+# 8. Sentence (or sentence MD5).
+1659982658,52feb25643f02c180f5ef161300d667d,AcceptabilityJudgment,15,0,filler-bad-01,NULL,When Tyler sneezed the driver%2C he passed a tissue.
+# 8. Question (NULL if none)..
+# 9. Answer.
+# 10. Whether or not answer was correct (NULL if N/A).
+# 11. Time taken to answer..
+1659982658,52feb25643f02c180f5ef161300d667d,AcceptabilityJudgment,15,0,filler-bad-01,NULL,NULL,6,NULL,281
+# 8. Sentence (or sentence MD5).
+1659982658,52feb25643f02c180f5ef161300d667d,AcceptabilityJudgment,13,0,gp.intrans,2,Since Dave worried the counselor devised a plan.
+# 8. Question (NULL if none)..
+# 9. Answer.
+# 10. Whether or not answer was correct (NULL if N/A).
+# 11. Time taken to answer..
+1659982658,52feb25643f02c180f5ef161300d667d,AcceptabilityJudgment,13,0,gp.intrans,2,NULL,6,NULL,268
+# 8. Sentence (or sentence MD5).
+1659982658,52feb25643f02c180f5ef161300d667d,AcceptabilityJudgment,16,0,filler-catch-01,NULL,Please select 4 for this sentence.
+# 8. Question (NULL if none)..
+# 9. Answer.
+# 10. Whether or not answer was correct (NULL if N/A).
+# 11. Time taken to answer..
+1659982658,52feb25643f02c180f5ef161300d667d,AcceptabilityJudgment,16,0,filler-catch-01,NULL,NULL,6,NULL,352
+# 8. Sentence (or sentence MD5).
+1659982658,52feb25643f02c180f5ef161300d667d,AcceptabilityJudgment,10,0,gp.trans,1,While Anna trained the kitten paid attention.
+# 8. Question (NULL if none)..
+# 9. Answer.
+# 10. Whether or not answer was correct (NULL if N/A).
+# 11. Time taken to answer..
+1659982658,52feb25643f02c180f5ef161300d667d,AcceptabilityJudgment,10,0,gp.trans,1,NULL,5,NULL,1105

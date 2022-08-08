@@ -11,7 +11,7 @@
 
 
 // Task #1: Send a completion message that says "Thank you for your participation!"
-var ______ = "______"
+var ______ = ______
 
 var showProgressBar = false
 

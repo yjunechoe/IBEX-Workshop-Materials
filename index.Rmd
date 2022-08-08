@@ -1,9 +1,9 @@
 ---
-title: "Experimental Syntax using IBEX"
-subtitle: ""  
+title: "Experimental Syntax Using<br>IBEX / PCIBEX"
+subtitle: "SICOL 2022"
 author: 
-  - ""
-date: ''
+  - "Nayoun Kim and June Choe"
+date: 'August 12, 2022'
 output:
   xaringan::moon_reader:
     lib_dir: libs
@@ -48,14 +48,6 @@ meta() %>%
 ```
 
 ```{css, echo = FALSE}
-.title-slide {
-  background-image: url(Card.png);
-  background-size: cover;
-}
-.title-slide h1 {
-  color: transparent;
-}
-
 a {
   color: black;
   text-decoration: underline;

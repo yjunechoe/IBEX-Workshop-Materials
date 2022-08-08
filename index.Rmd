@@ -15,10 +15,6 @@ output:
 ---
 
 ```{r setup, include=FALSE}
-### Ibex workshop account
-# ID: skku_ibex
-# PW: 2021workshop
-
 options(htmltools.dir.version = FALSE)
 knitr::opts_chunk$set(comment = " ")
 library(icon)
@@ -39,7 +35,7 @@ meta() %>%
   meta_social(
     title = "Experimental Syntax using IBEX",
     description = "A Walkthrough",
-    url = "https://ibex-workshop-slides.netlify.app/",
+    url = "https://yjunechoe.github.io/IBEX-Workshop-Materials",
     image = "https://raw.githubusercontent.com/yjunechoe/IBEX-Workshop-Materials/master/Card_small.png",
     image_alt = "Title slide of Experimental Syntax using IBEX",
     twitter_card_type = "summary_large_image"

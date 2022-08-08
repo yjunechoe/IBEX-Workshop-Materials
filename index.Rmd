@@ -348,13 +348,13 @@ knitr::include_graphics("img/file_structure.png")
 
 # Experiment file structure
 
-.pull-left-narrow[
+.pull-left-about[
 ```{r, echo = FALSE, out.width = "230px", out.extra="style='margin-top:-30px;'"}
 knitr::include_graphics("img/file_structure.png")
 ```
 ]
 
-.pull-right-wide[
+.pull-right-about[
 
 <strong style='color:#bebebe'>Resources</strong>
 - .deemph[Files for experiment materials go here]
@@ -421,11 +421,11 @@ knitr::include_graphics("img/template_layout_2.png")
 .bl[Settings]:
 - Sets various options for the experiment
 
-.bl[Sequence] (`shuffleSequence`):
+.bl[Sequence]:
 
 - Specifies the ordering of the different parts of the experiment
 
-.bl[Body] (`items`):
+.bl[Body]:
 
 - Includes the actual material that will be shown to the participants
 
@@ -476,19 +476,11 @@ knitr::include_graphics("img/template_outline.png")
 
 # Our first experiment
 
---
-
 **Study**: We are interested in how people recover from .bl[garden-path sentences].
-
---
 
 .center["While Anna dressed the kitten paid attention."]
 
---
-
 .center[... *[.sub[VP] dressed the kitten], ...]
-
---
 
 .center[... <span style='vertical-align:super; font-size:.7em'>✓</span>[.sub[VP] dressed], the kitten ...]
 
@@ -496,11 +488,7 @@ knitr::include_graphics("img/template_outline.png")
 
 **Hypothesis**: Verbs that are frequently .blue[transitive] make recovery (reanalysis) more difficult, compared to verbs that are frequently .green[intransitive].
 
---
-
 .center[(transitive-biased) - "While Anna .blue[_trained_] the kitten paid attention."]
-
---
 
 .center[(intransitive-biased) - "While Anna .green[_dressed_] the kitten paid attention."]
 
@@ -511,7 +499,7 @@ knitr::include_graphics("img/template_outline.png")
 --
 
 <div style = 'padding-top: 20px'>
-.center[.bl[Note: this is a _within-participant_ design!]]
+.center[.bl[We also want a _within-participant_ design!]]
 </div>
 
 ---
@@ -566,8 +554,9 @@ $\quad$
 
 ]
 
+--
 
-<p style='padding-top:25px'>We have one big bracket which contains <strong>three elements</strong>:</p>
+<p style='padding-top:25px'>We have one big list (bracket) which contains <strong>three elements</strong>:</p>
 
 1. Another list, consisting of the _name of the condition_ and _item set number_
 
@@ -784,11 +773,9 @@ Item set #2:
 
 # Putting together the stimuli
 
-Wrap in `var items = []` and separate by a .bl[comma]:
+Wrap in `var items = [ ... ]` and separate each item by a .bl[comma]:
 
 <embed style='border: 1px solid black' type="text/html" src="snippets/critical_trials.js"  width="800" height="200">
-
---
 
 Good scripting habits:
 
@@ -808,13 +795,13 @@ Good scripting habits:
 
 .bl[Filler Trials]:
 
-- Mixed in with the critical trials
+- Mixed in with critical trials, to distract or exclude participants
 
 --
 
-.center[**Both types of trials are invariant across conditions**]
+.center[**We want both practice and filler trials to be invariant across conditions**]
 
-The first element of the big bracket can just be the _Trial Name_, without assigning it a _Item Set #_ (only relevant for counterbalancing, more later):
+To do that, we don't specify _Item Set #_ for give practice and filler trials, as that gets used for counterbalancing (more later):
 
 --
 
@@ -1147,17 +1134,15 @@ var shuffleSequence = seq(
 
 The .bl[set number] in our critical trials are automatically used for **counterbalancing**:
 
-.center[[["gp.trans", .bl[1]], ...], [["gp.intrans", .bl[1]], ...], [["gp.trans", .bl[2]], ...], [["gp.intrans", .bl[2]], ...]]
-
---
-
 ```{r, echo = FALSE, fig.align='center', out.width="700px"}
 knitr::include_graphics("img/counterbalancing.png")
 ```
 
 --
 
-To alternate between participants, we need to define a special .bl[counter] "trial":
+<br>
+
+To alternate items between participants, we use a special .bl[counter] "trial":
 
 ```{r, eval=F}
 ["setcounter", "__SetCounter__", { }]
@@ -1186,7 +1171,7 @@ var shuffleSequence = seq(
 
 --
 
-**Note**: Sometimes you want to place "setcounter" in the _middle_ of the experiment
+Sometimes you want to increment counter in the _middle_ of the experiment:
 
 ```{r eval=FALSE}
 var shuffleSequence = seq(
@@ -1207,11 +1192,11 @@ Just need one more step: **Settings**
 
 ---
 
-# Settings (Basic)
+# Settings
 
 Consist of miscellaneous options that we can put at the top of the script.
 
-For example, using the `defaults` variable, we can specify parameters for the **method design**.
+For example, using the `defaults` variable, we can specify parameters for the **design** of the tasks that we use in the experiment, like **Acceptability Judgment**.
 
 <embed style='border: 1px solid black' type="text/html" src="snippets/settings.js"  width="800" height="200">
 
@@ -1222,7 +1207,7 @@ More details in the .bl[AcceptabilityJudgment] section of the [documentation](ht
 
 # The `defaults` variable
 
-The specifications in `defaults` set the design of the trials:
+Some options for **Acceptability Judgment**:
 
 ```{r, eval=F}
 var defaults = [
@@ -1247,6 +1232,15 @@ knitr::include_graphics("img/minimal.png")
 Suppose you'd like to show participants _multiple sentences_ but have them only rate the acceptability of **one** of the sentences.
 
 .panelset[
+
+.panel[.panel-name[Output]
+
+```{r, echo=F, out.width = '600px', out.extra="style='border:1px solid black; margin:auto; display:block;'"}
+knitr::include_graphics("img/defaults_change.png")
+```
+
+]
+
 .panel[.panel-name[Code]
 
 ```{r, eval = FALSE}
@@ -1270,13 +1264,7 @@ We can print lines of text using .bl[html] tags (more later)
 
 ]
 
-.panel[.panel-name[Output]
-
-```{r, echo=F, out.width = '600px', out.extra="style='border:1px solid black; margin:auto; display:block;'"}
-knitr::include_graphics("img/defaults_change.png")
-```
-
-]]
+]
 
 ---
 
@@ -1318,13 +1306,13 @@ We now have a [minimally working experiment](https://farm.pcibex.net/p/ixPrfo/)!
 
 .bl[What we've covered:]
 
-- <p>We use a templatic syntax for creating stimuli</p>
+- <p>We have a templatic syntax for creating stimuli</p>
 
 - We store all the materials for our experiment inside `items`
 
 - We specify the order of presentation inside `shuffleSequence`
 
-- We can set various options for the experiment, such as defaults for the _task design_.
+- We can tweak various aspects of the experiment, like `defaults` for the _task design_.
 
 --
 
@@ -1354,11 +1342,7 @@ It is a list of 3 elements, similar to the "AcceptabilityJudgement" items:
 
 - .bl[_Condition name_] is used to reference the trial in sequencing
 
---
-
 - .bl["Message"] is a type of task that just shows text on a screen
-
---
 
 - Inside of the curly braces .bl[{}] we can add text in the .bl[html] parameter:
 
@@ -1370,9 +1354,9 @@ It is a list of 3 elements, similar to the "AcceptabilityJudgement" items:
 
 Notes on .bl[html]:
 
-The code `["p", "<your text here>"]` prints a single paragraph of text.
+- The code `["p", "<your text here>"]` prints a paragraph of text.
 
-The "p" is called an .bl[HTML tag] and there are [many others](https://www.w3schools.com/TAGs/) (most common: "div", "strong", "em"), but usually these don't get very complicated.
+- The "p" is an .bl[HTML tag] and there are [many others](https://www.w3schools.com/TAGs/) (most common: "div", "strong", "em"). They don't usually get too complicated.
 
 ---
 
@@ -1516,8 +1500,6 @@ Published: [https://farm.pcibex.net/p/HCRZqI](https://farm.pcibex.net/p/HCRZqI)
 
 Suppose that after a _pilot experiment_, we find acceptability judgments to be inappropriate for answering our research question.
 
---
-
 We want a _finer-grained measure_ of recovery difficulty, so we'd like to change the experiment to **self-paced reading** and look at differences in _reading time_.
 
 &nbsp;
@@ -1540,17 +1522,9 @@ Given our existing template, we take the following steps:
 
 The .bl["DashedSentence"] Controller creates self-paced reading trials.
 
-We first re-write `defaults` to specify appropriate settings for .bl["DashedSentence"].
+--
 
-```{r, eval=F}
-var defaults = [
-    "DashedSentence", {
-       mode: "self-paced reading",
-       display: "dashed"
-    }]
-```
-
-Then, we replace .bl["acceptabilityJudgment"] with .bl["DashedSentence"] in `items`.
+We can simply replace .bl["acceptabilityJudgment"] with .bl["DashedSentence"] in `items`:
 
 ```{r, eval=F}
 var items = [
@@ -1561,6 +1535,18 @@ var items = [
   [["gp.intrans",2], "DashedSentence", {s: "Since Dave worried the counselor devised a plan."}],
   ...
 ]
+```
+
+--
+
+And specify appropriate settings for .bl["DashedSentence"] in `defaults`:
+
+```{r, eval=F}
+var defaults = [
+    "DashedSentence", {
+       mode: "self-paced reading",
+       display: "dashed"
+    }]
 ```
 
 
@@ -1657,13 +1643,13 @@ class: middle, center
 
 # Where to find the data
 
-The data collected in the experiment can be found on the experiment page, in the **Results** tab.
+The data collected in the experiment can be found on the experiment page, in the **Results** tab to the right side of the dashboard.
 
 ```{r, echo=F, out.width = '600px', out.extra="style='border:1px solid black; margin:auto; display:block;'"}
 knitr::include_graphics("img/results_section.png")
 ```
 
-That gives you a preview of the results and gives you options to download or delete the collected data.
+It gives you a preview of the results and options to download or delete the data that's been collected so far.
 
 ---
 
@@ -1675,7 +1661,7 @@ If you download the data, you get back a .bl[csv] file called `results.csv`, mea
 knitr::include_graphics("img/results_img.png")
 ```
 
-The lines that start with a pound symbol "#" are **comments** that include _metadata_.
+Lines that start with a pound symbol "#" are **comments** that include _metadata_.
 
 The ones that start with numbers tell us what **variable** the columns correspond to.
 
@@ -1905,7 +1891,9 @@ You can clone the **PCIbex version** of the workshop's SPR experiment here - [ht
 
 PCIbex has great support for experiments involving multimedia (audio, video, etc.). The PCIbex documentation is a good place to get started - [https://doc.pcibex.net](https://doc.pcibex.net)
 
-IBEX is always good to know due to the sheer amount of linguistics experiments already written in IBEX. PCIBex is not difficult to pick up after IBEX, should you choose to learn it.
+IBEX is always good to know due to the sheer amount of linguistics experiments already written in IBEX.
+
+PCIBex is not difficult to pick up after IBEX, should you choose to learn it.
 
 ---
 

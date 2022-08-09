@@ -737,7 +737,7 @@ This can be put into a single line:
 
 ---
 
-# Practice
+# Another example set
 
 Item set #2:
 
@@ -745,15 +745,6 @@ Item set #2:
 
 .center[(intransitive) - "Since Dave worried the counselor devised a plan."]
 
-.can-edit[
-```{r, eval=FALSE}
-<code here>
-```
-]
-
-<div class="showme">Hover for answer</div>
-
-.hide[
 ```{r, eval = FALSE}
 [["gp.trans",2],
   "AcceptabilityJudgment",
@@ -762,8 +753,6 @@ Item set #2:
   "AcceptabilityJudgment",
   {s: "Since Dave worried the counselor devised a plan."}]
 ```
-]
-
 
 ---
 
@@ -1894,8 +1883,6 @@ PCIBex is not difficult to pick up after IBEX, should you choose to learn it.
 ---
 
 # Thank you!
-
-Materials from this presentation are on [Google Drive](https://drive.google.com/drive/folders/1jgnR0zSPgcsikmc3sT0OW0Jkndl9yar5?usp=sharing).
 
 Many thanks to...
 

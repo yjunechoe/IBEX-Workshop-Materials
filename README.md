@@ -8,7 +8,7 @@ Authors: [Nayoun Kim](https://skb.skku.edu/english_en/faculty.do?mode=view&perId
 
 _Workshop at the 2022 Seoul International Conference on Linguistics. 11-12 August 2022. Seoul, South Korea._
 
-[PDF to 2022 version]()
+[PDF to 2022 version](2022-ibex-pcibex-workshop-slides.pdf)
 
 ## 2021
 
